@@ -1,0 +1,56 @@
+/*
+===============
+   SORTER BAR
+===============
+*/
+
+/* TODO: Check if all of these are really necessary */
+
+.sorter-bar form {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.sorter-bar fieldset,
+.sorter-bar fieldset legend,
+.sorter-bar fieldset select,
+.sorter-bar fieldset input {
+    display: inline-block;
+}
+
+.sorter-bar fieldset legend {
+    float: left;
+}
+
+.sorter-bar .sort-by-type {
+    margin-right: 3em;
+}
+
+/*
+===============
+   MAIN
+===============
+*/
+
+.main .main-content h2 {
+	font-size: 2em;
+}
+
+/*
+===============
+   FOOTER
+===============
+*/
+
+.footer .top-row .copyright,
+.footer .top-row .telephone,
+.footer .top-row .address,
+.footer .top-row .social-media-icons {
+	display: inline-block;
+	border-right: 1px solid #c6c6c6;
+	padding-right: 2em;
+	width: 20%;
+	vertical-align: top;
+}
