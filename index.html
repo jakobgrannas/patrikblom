@@ -12,7 +12,7 @@
 
 		<link rel="stylesheet" href="css/vendor/normalize.min.css">
 		<link rel="stylesheet" href="css/style.css">
-		<!--<link rel="stylesheet" href="css/enhance.css" media="screen and (min-width: 40.5em)">-->
+		<link rel="stylesheet" href="css/enhance.css" media="all and (min-width: 40.5em)">
 
 		<script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
 		<script>
@@ -28,24 +28,27 @@
 		</script>
 		<script>document.cookie = 'resolution=' + Math.max(screen.width, screen.height) + ("devicePixelRatio" in window ? "," + devicePixelRatio : ",1") + '; path=/';</script>
 	</head>
-	<body class="menu-push">
+	<body>
 		<!--[if lt IE 9]>
 		<p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
 			your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to
 			improve your experience.</p>
 		<![endif]-->
 
-		<nav class="boxsized main-menu menu-animate menu-right menu-vertical" id="main-nav">
+		<nav class="boxsized main-menu menu-animate menu-right menu-vertical menu-closed" id="main-nav"> <!-- menu-animate -->
 			<div class="search-field-container">
 				<input type="text" id="search" class="search-field" name="search" placeholder="search...">
 			</div>
-			<a href="#">Startsida</a>
-			<a href="#">Fotografi</a>
-			<a href="#">Blogg</a>
-			<a href="#">Kontakta mig</a>
+			<ul>
+				<li><a href="#">Startsida</a></li>
+				<li><a href="#">Fotografi</a></li>
+				<li><a href="#">Blogg</a></li>
+				<li><a href="#">Kontakta mig</a></li>
+			</ul>
 		</nav>
 
-		<div id="wrapper" class="wrapper">
+		<div id="wrapper" class="wrapper menu-push">
+
 			<header id="banner">
 				<div class="banner-inner-container">
 					<div class="inner">
@@ -58,6 +61,7 @@
 
 			<aside class="flexed sorter-bar">
 				<form class="form-container">
+					<div class="form-inner">
 					<fieldset class="sort-by-type">
 						<label for="view-type">View as:</label>
 						<div class="select-container">
@@ -68,6 +72,7 @@
 							<span class="fa drop-down-trigger"></span>
 						</div>
 					</fieldset>
+
 					<fieldset class="sort-by-category">
 						<legend>Kategori:</legend>
 						<div class="checkbox-group">
@@ -83,6 +88,7 @@
 							<label for="other-checkbox" class="checkbox-button">Annat</label>
 						</div>
 					</fieldset>
+					</div>
 				</form>
 			</aside>
 
@@ -138,9 +144,10 @@
 					<a href="#"><img src="#" title="Logo"></a>
 				</div>
 			</footer>
-		</div>
 
-		<a href="#" class="scroll-top-btn" id="scroll-top-btn" title="Scroll to top"><span class="fa"></span></a>
+			<a href="#" class="scroll-top-btn" id="scroll-top-btn" title="Scroll to top"><span class="fa"></span></a>
+
+		</div>
 
 		<!-- Load Javascripts -->
 		<script>

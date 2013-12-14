@@ -1,56 +1,84 @@
 /*
-===============
-   SORTER BAR
-===============
+Breakpoints
+648px = 40.5em
+940px = 58.75em
 */
 
-/* TODO: Check if all of these are really necessary */
-
-.sorter-bar form {
-    margin: 0 auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+.sort-by-type,
+.sort-by-category {
+	margin-top: 0;
+	display: block;
+	width: auto;
+	max-width: 100%;
+	min-width: 0;
+	float: left;
 }
 
-.sorter-bar fieldset,
-.sorter-bar fieldset legend,
-.sorter-bar fieldset select,
-.sorter-bar fieldset input {
-    display: inline-block;
+.sort-by-type {
+	margin-right: 2.5em;
 }
 
-.sorter-bar fieldset legend {
-    float: left;
+/* TODO: Do something about styles for < 40.5 being added to 58.75 aswell */
+
+@media all and (min-width: 40.5em) and (max-width: 58.75em) {
+	.sort-by-type {
+		margin-bottom: 0.8em;
+		margin-right: 0;
+	}
+
+	.sort-by-type,
+	.sort-by-category {
+		float: none;
+	}
 }
 
-.sorter-bar .sort-by-type {
-    margin-right: 3em;
-}
+@media all and (min-width: 58.75em) {
+	/*
+	===============
+	   SORTER BAR
+	===============
+	*/
 
-/*
-===============
-   MAIN
-===============
-*/
+	/* TODO: Fallback
+	{
+		min-width: 5em /20em;
+		margin: 0 auto on flex container;
+		remove flex;
+	}*/
 
-.main .main-content h2 {
-	font-size: 2em;
-}
+	.sort-by-type,
+	.sort-by-category {
+		margin-top: 0;
+		display: block;
+		width: auto;
+		max-width: 100%;
+		min-width: 0;
+		float: left;
+	}
 
-/*
-===============
-   FOOTER
-===============
-*/
+	.sort-by-type {
+		margin-right: 2.5em;
+	}
 
-.footer .top-row .copyright,
-.footer .top-row .telephone,
-.footer .top-row .address,
-.footer .top-row .social-media-icons {
-	display: inline-block;
-	border-right: 1px solid #c6c6c6;
-	padding-right: 2em;
-	width: 20%;
-	vertical-align: top;
+    .checkbox-button {
+	    margin-bottom: 0;
+    }
+
+	/*
+	===============
+	   FOOTER
+	===============
+	*/
+
+	.footer .top-row .copyright,
+	.footer .top-row .telephone,
+	.footer .top-row .address,
+	.footer .top-row .social-media-icons {
+		display: inline-block;
+		border-right: 1px solid #c6c6c6;
+		border-bottom: 0;
+		padding-right: 2em;
+		width: 20%;
+		vertical-align: top;
+	}
 }
