@@ -224,69 +224,12 @@ h1.logo {
 /* Orientation-dependent styles for the content of the menu */
 
 .menu-vertical {
-	position: fixed;
-	width: 15em;
-	height: 100%;
-	color: white;
-	top: 0;
-	z-index: 1000;
-}
-
-.menu-vertical a {
-	font-size: 0.9em;
-	padding: 0.8em 1.2em 0.8em 1.2em;
-	display: block;
-}
-
-.menu-left {
-	left: -15em;
-}
-
-.menu-right {
-	right: -15em;
-}
-
-.menu-left.menu-open {
-	left: 0;
-}
-
-.menu-right.menu-open {
-	right: 0;
-}
-
-/*
-.menu-push {
-	overflow-x: hidden;
-	position: relative;
-	left: 0;
-	right: 0;
-}
-*/
-
-.menu-push-toright {
-	left: 15em;
-}
-
-.menu-push-toleft {
-	left: -15em;
-}
-
-.menu-animate,
-.menu-push {
-	-webkit-transition: -webkit-transform 350ms ease;
-	-moz-transition: -moz-transform 350ms ease;
-	transition: transform 350ms ease;
-}
-
-/* TESTING */
-.menu-vertical {
-	position: absolute; /*fixed;*/
+	position: absolute;
 	width: 15em;
 	height: 100%;
 	min-height: 100%;
 	color: white;
 	top: 0;
-	right: 0; /* ADDED */
 	z-index: 0;
 }
 
@@ -310,8 +253,21 @@ h1.logo {
 	z-index: 20;
 	overflow-x: hidden;
 	position: relative;
-	left: 0;
-	right: 0;
+}
+
+.menu-push-toright {
+	left: 15em;
+}
+
+.menu-push-toleft {
+	left: -15em;
+}
+
+.menu-animate,
+.menu-push {
+	-webkit-transition: -webkit-transform 350ms ease;
+	-moz-transition: -moz-transform 350ms ease;
+	transition: transform 350ms ease;
 }
 
 .menu-animate-left {
@@ -562,10 +518,7 @@ h1.logo {
 	color: #4aa982;
 }
 
-.footer .copyright,
-.footer .communication,
-.footer .address,
-.footer .social-media-icons {
+.footer-block{
 	width: 100%;
 	border-bottom: 1px solid #4c4c4c;
 	padding-bottom: 2em;
@@ -634,11 +587,11 @@ h1.logo {
 	background-color: #e43d3d; /* TODO: Change to #4aa982; ? */
 	text-decoration: none;
 	color: #ffffff;
-	padding: 0.3em 0.5em 0.4em 0.5em;
+	padding: 0.2em 0.4em 0.3em 0.4em;
 	font-size: 1.9em;
 	position: fixed;
-	bottom: 1em;
-	right: 1em;
+	bottom: 0.6em;
+	right: 0.6em;
 	display: none; /* Hidden on init */
 }
 

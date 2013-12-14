@@ -44,6 +44,7 @@ function closeMenu (e) {
 
 function scrollToTop (e) {
 	e.preventDefault();
+	e.stopPropagation();
 	$('html,body').animate({scrollTop: 0},'slow');
 }
 

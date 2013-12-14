@@ -70,15 +70,34 @@ Breakpoints
 	===============
 	*/
 
-	.footer .top-row .copyright,
-	.footer .top-row .telephone,
-	.footer .top-row .address,
-	.footer .top-row .social-media-icons {
+	.footer .top-row {
+		display: flex;
+		border-bottom: 1px dashed #4f4f4f;
+		padding-bottom: 2.5em;
+		margin-bottom: 2.5em;
+	}
+
+	.footer-block {
 		display: inline-block;
-		border-right: 1px solid #c6c6c6;
+		border-right: 1px solid #4c4c4c;
 		border-bottom: 0;
-		padding-right: 2em;
-		width: 20%;
+		padding: 0.5em 2.5em 0.5em 0;
+		margin: 0 2.5em 0 0;
+		width: auto;
 		vertical-align: top;
 	}
+
+	.footer-block:last-child {
+		border-right: 0;
+		margin-right: 0;
+		padding-right: 0;
+	}
+
+	.footer-block p:first-child {
+		margin-top: 0;
+	}
+
+    .footer-block p:last-child {
+	    margin-bottom:0;
+    }
 }
