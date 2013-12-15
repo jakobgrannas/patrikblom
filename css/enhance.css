@@ -67,6 +67,14 @@ Breakpoints
 		margin-bottom: 2.5em;
 	}
 
+	/* IE Fix */
+	.no-flexbox .footer .top-row {
+		display: table;
+		border-spacing: 2.5em 0;
+		border-collapse: separate;
+		overflow: hidden;
+	}
+
 	.footer-block {
 		display: inline-block;
 		height: auto;
@@ -74,8 +82,18 @@ Breakpoints
 		border-bottom: 0;
 		padding: 0.5em 2.5em 0.5em 0;
 		margin: 0 2.5em 0 0;
-		width: auto;
 		vertical-align: top;
+	}
+
+	/* IE Fix */
+	.no-flexbox .footer-block {
+		width: auto;
+		clear: both;
+		height: 100%;
+		display: table-cell;
+		/* Compensation for border-spacing */
+		position: relative;
+		left: -2.5em;
 	}
 
 	.footer-block:last-child {
