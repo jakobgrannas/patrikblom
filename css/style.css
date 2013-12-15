@@ -127,6 +127,10 @@ textarea {
 	transition: transform 350ms ease;
 }
 
+.search-icon {
+	content: "\f002";
+}
+
 /*
 ===============
    Headings
@@ -185,7 +189,7 @@ h1.logo {
 
 /* Banner buttons */
 
-.banner-inner-container a {
+.nav-btn {
 	background-color: #590f0f;
 	text-decoration: none;
 	padding: .8em;
@@ -197,19 +201,11 @@ h1.logo {
 	top: 1.5em;
 }
 
-#search-menu-btn {
-	left: 1.5em;
-}
-
-#search-menu-btn span:before {
-	content: "\f002";
-}
-
-#menu-btn {
+.menu-btn {
 	right: 1.5em;
 }
 
-#menu-btn span:before {
+.menu-btn span:before {
 	content: "\f0c9";
 }
 
@@ -231,11 +227,6 @@ h1.logo {
 .main-menu a:hover {
 	color: #fff; /*#e43d3d;*/
 }
-
-/*
-.sidr {
-	display: none;
-}*/
 
 /* Orientation-dependent styles for the content of the menu */
 
@@ -322,14 +313,21 @@ h1.logo {
 	background-color: white;
 	text-align: center;
 	padding: 2em 1.8em 2em 1.8em;
+	/* If no flexbox */
+	float: left;
+	width: 100%;
 }
 
-/* TODO: Add flex for < 40.5 */
+/* If no flexbox */
+.no-flexbox .form-inner {
+	margin: 0 auto;
+}
 
 .form-container {
 	flex-direction: column;
 	align-items: flex-start;
 	/* If no flexbox */
+	float: left;
 	width: 100%;
 	display: block;
 	text-align: left;
@@ -496,10 +494,11 @@ h1.logo {
 	max-width: 35em;
 }
 
-.flexed.main {
+.main {
 	flex-direction: column;
 	align-items: center;
-	display: block;
+	float: left;
+	width: 100%;
 }
 
 /*

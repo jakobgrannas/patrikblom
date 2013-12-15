@@ -18,9 +18,7 @@ Breakpoints
 	margin-right: 2.5em;
 }
 
-/* TODO: Do something about styles for < 40.5 being added to 58.75 aswell */
-
-@media all and (min-width: 40.5em) and (max-width: 58.75em) {
+@media all and (min-width: 40.5em) and (max-width: 62em) {
 	.sort-by-type {
 		margin-bottom: 0.8em;
 		margin-right: 0;
@@ -32,20 +30,12 @@ Breakpoints
 	}
 }
 
-@media all and (min-width: 58.75em) {
+@media all and (min-width: 62em) {
 	/*
 	===============
 	   SORTER BAR
 	===============
 	*/
-
-	/* TODO: Fallback
-	{
-		min-width: 5em /20em;
-		margin: 0 auto on flex container;
-		remove flex;
-	}*/
-
 	.sort-by-type,
 	.sort-by-category {
 		margin-top: 0;
