@@ -121,6 +121,12 @@ textarea {
 	display: block !important;
 }
 
+.animate {
+	-webkit-transition: -webkit-transform 350ms ease;
+	-moz-transition: -moz-transform 350ms ease;
+	transition: transform 350ms ease;
+}
+
 /*
 ===============
    Headings
@@ -137,14 +143,21 @@ h1, h2, h3 {
 ===============
 */
 
-#banner {
-	transition: all 0.3s ease;
-}
-
+/*
 .backstretch img {
 	vertical-align: bottom;
 	bottom: 0;
 	top: auto !important;
+}*/
+
+.banner {
+	position: relative;
+}
+
+.banner-img {
+	position: absolute;
+	z-index: 5;
+	bottom: 0;
 }
 
 .banner-inner-container {
@@ -155,6 +168,8 @@ h1, h2, h3 {
 	display: inline-block;
 	width: 100%;
 	height: 30em;
+	position: relative;
+	z-index: 10;
 }
 
 
@@ -217,9 +232,10 @@ h1.logo {
 	color: #fff; /*#e43d3d;*/
 }
 
+/*
 .sidr {
 	display: none;
-}
+}*/
 
 /* Orientation-dependent styles for the content of the menu */
 
@@ -246,33 +262,36 @@ h1.logo {
 .menu-closed {
 	overflow: hidden;
 	max-height: 100%;
-	z-index: 0;
+	z-index: 0; /* TODO: Move */
+}
+
+.menu-right.menu-closed {
+	right: 0;
 }
 
 .menu-push {
 	z-index: 20;
-	overflow-x: hidden;
 	position: relative;
 }
 
+/*
 .menu-push-toright {
 	left: 15em;
 }
 
 .menu-push-toleft {
 	left: -15em;
-}
-
-.menu-animate,
-.menu-push {
-	-webkit-transition: -webkit-transform 350ms ease;
-	-moz-transition: -moz-transform 350ms ease;
-	transition: transform 350ms ease;
-}
+}*/
 
 .menu-animate-left {
 	-webkit-transform: translate3d(-15em,0,0);
 	transform: translate3d(-15em,0,0);
+}
+
+/* Testing */
+.main-nav-open {
+	position: relative !important;
+	width: auto !important;
 }
 
 /* Search */
@@ -288,6 +307,7 @@ h1.logo {
 	background: none;
 }
 
+/* TODO: Remove? */
 .search-field:focus {
 	content: '';
 }

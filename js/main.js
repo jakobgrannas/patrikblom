@@ -1,18 +1,12 @@
+var config = {
+	wrapperEl: $('#wrapper'),
+	menuBtn: $('#menu-btn'),
+	menuEl: $('#main-nav'),
+	menuClosedCls: 'menu-closed'
+};
+
 $(document).ready(function () {
-	setBackstretchConfig();
-
-	if(!Modernizr.csstransitions) {
-		$('#wrapper').removeClass('menu-push');
-		$('#main-nav').removeClass('menu-animate');
-		$('#menu-btn').sidr({
-			name: 'main-nav',
-			side: 'right'
-		});
-	}
-	else {
-		$('#menu-btn').on('click', toggleMenuVisibility);
-	}
-
+	$('#menu-btn').on('click', toggleMenuVisibility);
 	$('#wrapper').on('click', closeMenu);
 
 	$(window).on('scroll', toggleScrollTopBtnVisibility);
@@ -30,16 +24,35 @@ function toggleMenuVisibility(e) {
 		e.stopPropagation();
 	}
 
-	$('.menu-push').toggleClass('menu-animate-left'); //'menu-push-toleft');
-	$('#main-nav').toggleClass('menu-closed');
+	if (Modernizr.csstransitions) {
+		$('.menu-push').toggleClass('menu-animate-left');
+		config.menuEl.toggleClass(config.menuClosedCls);
+	}
+	else {
+		toggleAnimateLeft(config.wrapperEl, function () {
+			config.wrapperEl.toggleClass('menu-pushed-left');
+		});
+	}
 }
 
 function closeMenu (e) {
-	var mainNav = $('#main-nav');
-
-	if(!mainNav.hasClass('menu-closed')) {
+	if(!config.menuEl.hasClass(config.menuClosedCls)) {
 		toggleMenuVisibility();
 	}
+}
+
+function toggleAnimateLeft (el, callback) {
+	var position = el.hasClass('menu-pushed-left') ? 0 : '-15em',
+	    animateLeft = function (position) {
+		    el.stop().animate({left: position}, {
+			    duration: 350,
+			    complete: function () {
+				    callback();
+			    }
+		    });
+	    };
+
+	animateLeft(position);
 }
 
 function scrollToTop (e) {

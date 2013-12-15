@@ -79,6 +79,7 @@ Breakpoints
 
 	.footer-block {
 		display: inline-block;
+		height: auto;
 		border-right: 1px solid #4c4c4c;
 		border-bottom: 0;
 		padding: 0.5em 2.5em 0.5em 0;

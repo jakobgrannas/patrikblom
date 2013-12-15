@@ -15,17 +15,7 @@
 		<link rel="stylesheet" href="css/enhance.css" media="all and (min-width: 40.5em)">
 
 		<script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
-		<script>
-			Modernizr.load([
-				'js/vendor/jquery-1.10.2.min.js',
-				{
-					test: Modernizr.csstransitions,
-					nope: 'js/vendor/jquery.sidr.min.js'
-				},
-				'js/vendor/backstretch.min.js',
-				'js/main.js'
-			]);
-		</script>
+
 		<script>document.cookie = 'resolution=' + Math.max(screen.width, screen.height) + ("devicePixelRatio" in window ? "," + devicePixelRatio : ",1") + '; path=/';</script>
 	</head>
 	<body>
@@ -34,22 +24,20 @@
 			your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to
 			improve your experience.</p>
 		<![endif]-->
-
-		<nav class="boxsized main-menu menu-animate menu-right menu-vertical menu-closed" id="main-nav"> <!-- menu-animate -->
+		<nav class="boxsized main-menu animate menu-right menu-vertical menu-closed" id="main-nav"> <!-- menu-animate -->
 			<div class="search-field-container">
 				<input type="text" id="search" class="search-field" name="search" placeholder="search...">
 			</div>
-			<ul>
-				<li><a href="#">Startsida</a></li>
-				<li><a href="#">Fotografi</a></li>
-				<li><a href="#">Blogg</a></li>
-				<li><a href="#">Kontakta mig</a></li>
-			</ul>
+			<a href="#">Startsida</a>
+			<a href="#">Fotografi</a>
+			<a href="#">Blogg</a>
+			<a href="#">Kontakta mig</a>
 		</nav>
 
-		<div id="wrapper" class="wrapper menu-push">
+		<div id="wrapper" class="wrapper animate menu-push">
 
-			<header id="banner">
+			<header id="banner" class="animate banner">
+				<img src="images/banner.jpg" id="banner-img" class="banner-img" width="100%">
 				<div class="banner-inner-container">
 					<div class="inner">
 						<!-- TODO: Refactor CSS for menu btn to classes instead of ID/hard dependency -->
@@ -95,7 +83,7 @@
 			<main role="main" class="flexed main">
 				<div class="main-inner">
 					<article class="main-content">
-						<img src="http://src.sencha.io/https://fbcdn-sphotos-e-a.akamaihd.net/hphotos-ak-ash2/209252_10151036848465925_459423229_o.jpg" width="250" height="250" class="profile-pic">
+						<img src="http://src.sencha.io/http://i.imgur.com/FZDjdvp.jpg" width="250" height="250" class="profile-pic">
 
 						<header>
 							<h2>Some crappy title</h2>
@@ -150,6 +138,9 @@
 		</div>
 
 		<!-- Load Javascripts -->
+		<script src="js/vendor/jquery-1.10.2.min.js"></script>
+		<!--<script src="js/vendor/backstretch.min.js"></script>-->
+		<script src="js/main.js"></script>
 		<script>
 			var _gaq = [
 				['_setAccount', 'UA-XXXXX-X'],
