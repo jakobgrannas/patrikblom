@@ -145,6 +145,11 @@ h1, h2, h3 {
 	font-family: 'Noto Sans', 'Roboto Slab', serif;
 }
 
+.wrapper {
+	z-index: 0;
+	position: relative;
+}
+
 /*
 ===============
    BANNER
@@ -264,12 +269,12 @@ h1.logo {
 	right: 0;
 }
 
+/*
 .menu-push {
-	z-index: 20;
+	z-index: 0;
 	position: relative;
 }
 
-/*
 .menu-push-toright {
 	left: 15em;
 }

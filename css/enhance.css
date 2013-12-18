@@ -18,6 +18,21 @@ Breakpoints
 	margin-right: 2.5em;
 }
 
+/*
+===============
+	MENU
+===============
+*/
+.menu-btn {
+	display: none;
+}
+
+.menu-horizontal {
+	position: absolute;
+	z-index: 1;
+	width: 100%;
+}
+
 @media all and (min-width: 40.5em) and (max-width: 62em) {
 	.sort-by-type {
 		margin-bottom: 0.8em;
