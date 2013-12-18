@@ -8,9 +8,6 @@ var config = {
 // TODO: Reactor to module/prototype pattern
 
 $(document).ready(function () {
-	toggleHorizontalMenuVisibility(); // Trigger resize check on init
-	$(window).on('resize', toggleHorizontalMenuVisibility);
-
 	$('#menu-btn').on('click', toggleMenuVisibility);
 	$('#wrapper').on('click', closeMenu);
 
@@ -26,6 +23,7 @@ function setBackstretchConfig () {
 
 function toggleMenuVisibility(e) {
 	if (e) {
+		e.preventDefault();
 		e.stopPropagation();
 	}
 
@@ -80,24 +78,5 @@ function toggleScrollTopBtnVisibility (e) {
 	}
 	else if(button.is(':visible')) {
 		button.fadeOut(800);
-	}
-}
-
-// Converts the mobile menu to a horizontal one
-function toggleHorizontalMenuVisibility () {
-	var clientWidth = document.documentElement.clientWidth,
-	    minBreakpoint = 40.5 * 16;
-
-	if (clientWidth >= minBreakpoint && config.menuEl.hasClass('menu-vertical')) {
-		config.wrapperEl.removeClass('animate menu-push menu-animate-left');
-		config.menuEl
-			.removeClass('animate menu-right menu-vertical menu-closed')
-			.addClass('menu-horizontal');
-	}
-	else if (clientWidth < minBreakpoint && config.menuEl.hasClass('menu-horizontal')) {
-		config.wrapperEl.addClass('animate menu-push');
-		config.menuEl
-			.removeClass('menu-horizontal')
-			.addClass('animate menu-right menu-vertical menu-closed');
 	}
 }

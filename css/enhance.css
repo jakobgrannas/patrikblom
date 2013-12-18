@@ -27,10 +27,41 @@ Breakpoints
 	display: none;
 }
 
-.menu-horizontal {
-	position: absolute;
+.main-menu {
 	z-index: 1;
 	width: 100%;
+	height: auto;
+	min-height: 0;
+	left: 0;
+	background-color: transparent;
+	padding: 1.3em 1.3em 0 1.3em;
+}
+
+.search-field-container,
+.menu-items {
+	float: left;
+}
+
+.search-field-container {
+	border-bottom: none;
+	width: 30%;
+}
+
+.menu-items {
+	text-align: right;
+	width: 70%;
+}
+
+.menu-items a{
+	display: inline-block;
+}
+
+/* Disable transitions for horizontal nav */
+.main-menu.animate,
+.banner.animate{
+	-webkit-transition: none;
+	-moz-transition: none;
+	transition: none;
 }
 
 @media all and (min-width: 40.5em) and (max-width: 62em) {
@@ -93,6 +124,7 @@ Breakpoints
 	.footer-block {
 		display: inline-block;
 		height: auto;
+		width: auto;
 		border-right: 1px solid #4c4c4c;
 		border-bottom: 0;
 		padding: 0.5em 2.5em 0.5em 0;

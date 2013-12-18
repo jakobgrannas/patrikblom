@@ -125,12 +125,6 @@ textarea {
 	display: block !important;
 }
 
-.animate {
-	-webkit-transition: -webkit-transform 350ms ease;
-	-moz-transition: -moz-transform 350ms ease;
-	transition: transform 350ms ease;
-}
-
 .search-icon {
 	content: "\f002";
 }
@@ -226,20 +220,6 @@ h1.logo {
 
 .main-menu {
 	background: #222;/*#711414;*/
-}
-
-.main-menu a {
-	color: #ddd;
-	text-decoration: none;
-}
-
-.main-menu a:hover {
-	color: #fff; /*#e43d3d;*/
-}
-
-/* Orientation-dependent styles for the content of the menu */
-
-.menu-vertical {
 	position: absolute;
 	width: 15em;
 	height: 100%;
@@ -249,11 +229,19 @@ h1.logo {
 	z-index: -10;
 }
 
-.menu-vertical a {
+.main-menu a {
+	color: #ddd;
+	text-decoration: none;
 	font-size: 0.9em;
 	padding: 0.8em 1.2em 0.8em 1.2em;
 	display: block;
 }
+
+.main-menu a:hover {
+	color: #fff; /*#e43d3d;*/
+}
+
+/* Orientation-dependent styles for the content of the menu */
 
 .menu-right {
 	right: 0;
@@ -268,20 +256,6 @@ h1.logo {
 .menu-right.menu-closed {
 	right: 0;
 }
-
-/*
-.menu-push {
-	z-index: 0;
-	position: relative;
-}
-
-.menu-push-toright {
-	left: 15em;
-}
-
-.menu-push-toleft {
-	left: -15em;
-}*/
 
 .menu-animate-left {
 	-webkit-transform: translate3d(-15em,0,0);
@@ -310,6 +284,26 @@ h1.logo {
 /* TODO: Remove? */
 .search-field:focus {
 	content: '';
+}
+
+/* No js nav */
+.close-menu-btn {
+	display: none;
+}
+
+.no-js #main-nav:target + .wrapper {
+	left: -15em;
+}
+
+.no-js #main-nav:target + .wrapper .open-menu-btn {
+	display: none;
+}
+.no-js #main-nav:target + .wrapper .close-menu-btn {
+	display: block;
+}
+
+.no-js #main-nav:target + .wrapper .banner {
+	left: 0;
 }
 
 
@@ -650,4 +644,10 @@ h1.logo {
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
+}
+
+.animate {
+	-webkit-transition: -webkit-transform 350ms ease;
+	-moz-transition: -moz-transform 350ms ease;
+	transition: transform 350ms ease;
 }
