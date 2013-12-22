@@ -125,7 +125,7 @@ textarea {
 	display: block !important;
 }
 
-.search-icon {
+.search-icon:before {
 	content: "\f002";
 }
 
@@ -140,7 +140,7 @@ h1, h2, h3 {
 }
 
 .wrapper {
-	z-index: 0;
+	z-index: 20;
 	position: relative;
 }
 
@@ -168,8 +168,8 @@ h1, h2, h3 {
 }
 
 .banner-inner-container {
-	background-color: #c93636;
-	background-color: rgba(201, 54, 54, .85);
+	background-color: #A12917;
+	background-color: rgba(161, 41, 23, 0.80); /*rgba(165, 41, 27, 0.80)*/
 	text-align: center;
 	color: white;
 	display: inline-block;
@@ -193,7 +193,7 @@ h1.logo {
 /* Banner buttons */
 
 .nav-btn {
-	background-color: #590f0f;
+	background-color: #5d180d; /*#590f0f;*/
 	text-decoration: none;
 	padding: .8em;
 	cursor: pointer;
@@ -226,7 +226,7 @@ h1.logo {
 	min-height: 100%;
 	color: white;
 	top: 0;
-	z-index: -10;
+	z-index: 0;
 }
 
 .main-menu a {
@@ -281,12 +281,7 @@ h1.logo {
 	background: none;
 }
 
-/* TODO: Remove? */
-.search-field:focus {
-	content: '';
-}
-
-/* No js nav */
+/* No js nav*/
 .close-menu-btn {
 	display: none;
 }
@@ -393,7 +388,7 @@ h1.logo {
 /* Type select */
 
 .view-as {
-	background-color: #4aa982;
+	background-color: #469a73; /*#4aa982;*/
 	background-image: none;
 	color: #ffffff;
 	padding: 0.6em;
@@ -415,7 +410,7 @@ h1.logo {
 	content: "\f107";
 	font-size: 1.2em;
 	vertical-align: middle;
-	background-color: #4aa982;
+	background-color: #469a73; /*#4aa982;*/
 	padding: 0.1em 0.2em 0 0.2em;
 	color: #ffffff;
 	pointer-events: auto;
@@ -450,8 +445,8 @@ h1.logo {
 }
 
 .checkbox-group input:checked + .checkbox-button {
-	border-color: #4aa982;
-	color: #4aa982;
+	border-color: #469a73;
+	color: #469a73;
 }
 
 /*
@@ -490,12 +485,13 @@ h1.logo {
 	line-height: 1.2em;
 	padding: 1em 0 0.3em 0;
 	font-weight: 700;
-	color: #4aa982;
+	color: #469a73;
 }
 
 .main-inner {
 	margin: 0 auto;
 	max-width: 35em;
+	width: 100%;
 }
 
 .main {
@@ -607,7 +603,7 @@ h1.logo {
 ========================
 */
 .scroll-top-btn {
-	background-color: #e43d3d; /* TODO: Change to #4aa982; ? */
+	background-color: #a1322d; /* TODO: Change to #4aa982; ? */
 	text-decoration: none;
 	color: #ffffff;
 	padding: 0.2em 0.4em 0.3em 0.4em;

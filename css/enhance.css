@@ -28,7 +28,7 @@ Breakpoints
 }
 
 .main-menu {
-	z-index: 1;
+	z-index: 30;
 	width: 100%;
 	height: auto;
 	min-height: 0;
@@ -47,13 +47,32 @@ Breakpoints
 	width: 30%;
 }
 
+.search-field-container .search-field {
+	border: 0.15em solid rgba(255,255,255,0.5);
+	padding: 0.6em;
+	border-radius: 5px;
+}
+
+.search-field-container .search-icon {
+	margin-left: -2em;
+	display: inline-block;
+}
+
 .menu-items {
 	text-align: right;
 	width: 70%;
 }
 
 .menu-items a{
+	color: #fff;
 	display: inline-block;
+	padding: 0 0 0.8em 0;
+	margin: 1.5em;
+}
+
+.menu-items a:hover,
+.menu-items a:active {
+	border-bottom: 0.15em dotted rgba(255,255,255,0.5);
 }
 
 /* Disable transitions for horizontal nav */
@@ -63,6 +82,8 @@ Breakpoints
 	-moz-transition: none;
 	transition: none;
 }
+
+/* Media queries */
 
 @media all and (min-width: 40.5em) and (max-width: 62em) {
 	.sort-by-type {
