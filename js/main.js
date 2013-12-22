@@ -13,6 +13,8 @@ $(document).ready(function () {
 
 	$('#scroll-top-btn').on('click', scrollToTop);
 	$(window).on('scroll', toggleScrollTopBtnVisibility);
+
+	$(window).on('resize', hideMobileMenu);
 });
 
 function setBackstretchConfig () {
@@ -39,12 +41,15 @@ function toggleMenuVisibility(e) {
 }
 
 function closeMenu (e) {
-	if(!$('.menu-push')) {
-		return false;
-	}
-
-	if(!config.menuEl.hasClass(config.menuClosedCls)) {
+	if($('.menu-push') && !config.menuEl.hasClass(config.menuClosedCls)) {
 		toggleMenuVisibility();
+	}
+}
+
+function hideMobileMenu () {
+	var maxWidth = 55.5 * 16;
+	if($(window).width() >= maxWidth) {
+		closeMenu();
 	}
 }
 
