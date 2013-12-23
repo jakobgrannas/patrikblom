@@ -159,6 +159,7 @@ h1, h2, h3 {
 
 .banner {
 	position: relative;
+	overflow: hidden;
 }
 
 .banner-img {
@@ -201,11 +202,11 @@ h1.logo {
 	border: 0;
 	color: white;
 	position: absolute;
-	top: 1.5em;
+	top: 1em;
 }
 
 .menu-btn {
-	right: 1.5em;
+	right: 1em;
 }
 
 .menu-btn span:before {
