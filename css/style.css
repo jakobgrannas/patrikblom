@@ -52,6 +52,13 @@
 	src: local('PT Sans Bold Italic'), local('PTSans-BoldItalic'), url(http://themes.googleusercontent.com/static/fonts/ptsans/v5/lILlYDvubYemzYzN7GbLkHZ2MAKAc2x4R1uOSeegc5U.eot) format('embedded-opentype'), url(http://themes.googleusercontent.com/static/fonts/ptsans/v5/lILlYDvubYemzYzN7GbLkHhCUOGz7vYGh680lGh-uXM.woff) format('woff');
 }
 
+/* Preload banner */
+body:after{
+	display:none;
+	content: url('../images/banner.jpg');
+}
+
+/* General styling */
 
 body {
 	text-align: left;
@@ -163,6 +170,10 @@ h1, h2, h3 {
 }
 
 .banner-img {
+	background-image: url('../images/banner.jpg');
+	background-position: center bottom;
+	height: 30em;
+	width: 100%;
 	position: absolute;
 	z-index: 5;
 	bottom: 0;
