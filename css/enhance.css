@@ -37,6 +37,35 @@ Breakpoints
 
 	/*
 	===============
+		Banner
+	===============
+	*/
+	.main-menu .search-field-container {
+		display: none;
+	}
+	.banner-inner-container .search-field-container {
+		width: 100%;
+		position: absolute;
+		display: block;
+		bottom: 0;
+		background-color: rgba(0,0,0,0.2);
+		padding-top: 1.7em;
+		padding-bottom: 1.7em;
+	}
+
+	.banner-inner-container .search-field-container .search-field {
+		width: auto;
+		padding: 0.75em;
+		background-color: rgba(0,0,0,0.4);
+		border: 0;
+	}
+
+	.banner-inner-container .search-field-container .search-icon {
+		margin: 0 0 0 1em;
+	}
+
+	/*
+	===============
 		MENU
 	===============
 	*/
@@ -75,9 +104,15 @@ Breakpoints
 		display: inline-block;
 	}
 
-	.menu-items {
+	/*.menu-items {
 		text-align: right;
 		width: 70%;
+	}*/
+
+	.menu-items {
+		text-align: center;
+		width: 100%;
+		float: none;
 	}
 
 	.menu-items a{
