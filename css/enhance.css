@@ -56,6 +56,7 @@ Breakpoints
 	.banner-inner-container .search-field-container .search-field {
 		width: auto;
 		padding: 0.75em;
+		background-color: #67190e;
 		background-color: rgba(0,0,0,0.4);
 		border: 0;
 	}
@@ -96,18 +97,12 @@ Breakpoints
 	.search-field-container .search-field {
 		border: 0.15em solid rgba(255,255,255,0.5);
 		padding: 0.6em;
-		border-radius: 5px;
 	}
 
 	.search-field-container .search-icon {
 		margin-left: -2em;
 		display: inline-block;
 	}
-
-	/*.menu-items {
-		text-align: right;
-		width: 70%;
-	}*/
 
 	.menu-items {
 		text-align: center;
@@ -152,10 +147,6 @@ Breakpoints
 		max-width: 100%;
 		min-width: 0;
 		float: left;
-	}
-
-	.sort-by-type {
-		margin-right: 2.5em;
 	}
 
     .checkbox-button {
