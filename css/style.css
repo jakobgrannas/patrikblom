@@ -125,6 +125,58 @@ textarea {
 	content: "\f002";
 }
 
+.search-plus-icon:before {
+	content: "\f00e";
+}
+
+/*
+===============
+   BUTTONS
+===============
+*/
+.btn {
+	background-color: #469a73; /*#4aa982;*/
+	color: #ffffff;
+	padding: 1em;
+	font-size: 0.9em;
+	font-family: 'Noto Sans', sans-serif;
+	border: 0;
+	text-transform: uppercase;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-ms-appearance: none;
+	-o-appearance: none;
+	appearance: none;
+}
+
+.btn-big {
+	padding: 1.2em 3.5em 1.2em 3.5em;
+}
+
+/*
+===============
+   SEPARATOR
+===============
+*/
+.separator {
+	margin: 2em auto 2em auto;
+	width: 15.5em;
+}
+
+.separator-line {
+	border-top: 1px solid #c2c4c0;
+	height: 1px;
+	width: 6em;
+	padding-bottom: 0.3em;
+	display: inline-block;
+}
+
+.x-icon {
+	color: #c2c4c0;
+	display: inline-block;
+	padding: 0 1em;
+}
+
 /*
 ===============
    Headings
@@ -507,28 +559,14 @@ h1, h2, h3 {
 ===============
 */
 
-.profile-pic {
-	border-radius: 125px;
-	/* TODO: Fix  */
-	filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale"); /* Firefox 10+, Firefox on Android */
-	filter: gray;
-	-webkit-filter: grayscale(1);
-	margin: 3em auto 4em auto;
-	display: block;
-}
-
 .main {
-	padding: 4em 1.2em;
+	padding: 0 1.2em;
 	background-color: #f3f5f0;
 	color: #444444;
-	flex-direction: column;
-	align-items: center;
+	/*flex-direction: column;
+	align-items: center;*/
 	float: left;
 	width: 100%;
-}
-
-.side-content {
-	max-width: 35em;
 }
 
 .main-content {
@@ -544,10 +582,118 @@ h1, h2, h3 {
 	color: #469a73;
 }
 
-.main-inner {
-	margin: 0 auto;
+.centered-inner {
+	margin: 4em auto 2em auto;
 	max-width: 35em;
 	width: 100%;
+}
+
+.centered-inner:last-child {
+	margin-bottom: 4em;
+}
+
+.section {
+	width: 100%;
+	float: left;
+}
+
+/*
+===============
+ INDEX STYLING
+===============
+*/
+.profile-pic {
+	border-radius: 125px;
+	/* TODO: Fix  */
+	filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale"); /* Firefox 10+, Firefox on Android */
+	filter: gray;
+	-webkit-filter: grayscale(1);
+	margin: 3em auto 4em auto;
+	display: block;
+}
+
+/* Gallery section */
+.gallery-section {
+	max-width: 46em;
+}
+
+.gallery-section > .inner {
+	margin: 0 auto;
+}
+
+.image-block {
+	display: block;
+	float: left;
+	position: relative;
+	margin-right: 10%;
+	margin-bottom: 10%;
+	width: 26%;
+	min-width: 8em;
+}
+
+.image-block:nth-child(even) {
+	margin-right: 0;
+}
+
+.image-block .preview-overlay {
+	visibility: hidden;
+	position: absolute;
+	background: rgba(161, 41, 23, 0.80);
+	color: #fff;
+	font-size: 1.3em;
+	text-align: center;
+	width: 100%;
+	height: 100%;
+	display: block;
+	opacity: 0;
+	transition:visibility 0s linear 0.3s,opacity 0.3s linear;
+	-moz-transition:visibility 0s linear 0.3s,opacity 0.3s linear;
+	-webkit-transition:visibility 0s linear 0.3s,opacity 0.3s linear;
+}
+
+.image-block:hover .preview-overlay {
+	visibility: visible;
+	opacity: 1;
+	transition-delay: 0s;
+}
+
+.image-block .search-plus-icon {
+	position: relative;
+	top: 37%;
+}
+
+.button-row {
+	width: 100%;
+	display: inline-block;
+	margin-top: 2em;
+}
+
+.button-row .btn {
+	margin: 0 auto;
+	display: block;
+}
+
+/* Testing flexed */
+.gallery-section {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.image-block {
+	flex: 1;
+	min-width: 10em;
+}
+
+@supports not (flex-wrap: wrap) {
+	.gallery-section {
+		display: block;
+	}
+
+	.image-block {
+		min-width: 8em;
+	}
 }
 
 /*

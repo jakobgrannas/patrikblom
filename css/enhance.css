@@ -2,24 +2,65 @@
 Breakpoints
 648px = 40.5em
 940px = 58.75em
+992 = 62em
 */
 
-.sort-by-type,
-.sort-by-category {
-	margin-top: 0;
-	display: block;
-	width: auto;
-	max-width: 100%;
-	min-width: 0;
-	float: left;
+/* Front page images */
+@media all and (max-width: 25em) {
+	.image-block {
+		width: 100%;
+		margin-right:0;
+	}
 }
 
-.sort-by-type {
-	margin-right: 2.5em;
+@media all and (min-width: 40em) {
+	.image-block:nth-child(even) {
+		margin-right: 10%;
+	}
+
+	.image-block:nth-child(3n+3) {
+		margin-right: 0;
+	}
 }
 
+@media all and (min-width: 25em) and (max-width: 40.5em) {
+	.image-block {
+		width: 40%;
+	}
+}
 
-/* Media queries */
+/* General layout */
+@media all and (min-width: 40.5em) {
+	.sort-by-type,
+	.sort-by-category {
+		margin-top: 0;
+		display: block;
+		width: auto;
+		max-width: 100%;
+		min-width: 0;
+		float: left;
+	}
+
+	.sort-by-type {
+		margin-right: 2.5em;
+	}
+
+	.image-block .preview-overlay {
+		font-size: 2.2em;
+	}
+
+	.image-block .search-plus-icon {
+		top: 43%;
+	}
+
+	.separator {
+		width: 20em;
+	}
+
+	.separator-line {
+		width: 8em;
+	}
+}
 
 @media all and (min-width: 40.5em) and (max-width: 62em) {
 	.sort-by-type {
