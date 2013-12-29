@@ -596,13 +596,13 @@ h1, h2, h3 {
 	width: 100%;
 }
 
-.centered-inner:last-child {
-	margin-bottom: 4em;
-}
-
 .section {
 	width: 100%;
 	float: left;
+}
+
+.section:last-child {
+	margin-bottom: 8em;
 }
 
 /*
