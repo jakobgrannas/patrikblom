@@ -135,18 +135,24 @@ textarea {
 ===============
 */
 .btn {
-	background-color: #469a73; /*#4aa982;*/
-	color: #ffffff;
-	padding: 1em;
-	font-size: 0.9em;
-	font-family: 'Noto Sans', sans-serif;
 	border: 0;
-	text-transform: uppercase;
+	color: #ffffff;
+	padding: 0;
+	margin: 0;
+	background-color: transparent;
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	-ms-appearance: none;
 	-o-appearance: none;
 	appearance: none;
+}
+
+.btn-default {
+	background-color: #469a73; /*#4aa982;*/
+	padding: 1em;
+	font-size: 0.9em;
+	font-family: 'Noto Sans', sans-serif;
+	text-transform: uppercase;
 }
 
 .btn-big {
@@ -378,6 +384,10 @@ h1, h2, h3 {
 	width: 85%;
 }
 
+.search-btn {
+	border: 0;
+}
+
 /* No js nav*/
 .close-menu-btn {
 	display: none;
@@ -563,8 +573,6 @@ h1, h2, h3 {
 	padding: 0 1.2em;
 	background-color: #f3f5f0;
 	color: #444444;
-	/*flex-direction: column;
-	align-items: center;*/
 	float: left;
 	width: 100%;
 }
@@ -583,7 +591,7 @@ h1, h2, h3 {
 }
 
 .centered-inner {
-	margin: 4em auto 2em auto;
+	margin: 8em auto 3em auto;
 	max-width: 35em;
 	width: 100%;
 }
