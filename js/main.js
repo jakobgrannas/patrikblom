@@ -15,6 +15,11 @@ $(document).ready(function () {
 	$(window).on('scroll', toggleScrollTopBtnVisibility);
 
 	$(window).on('resize', hideMobileMenu);
+
+	var msnry = new Masonry($('#photo-feed'), {
+		itemSelector: '.image-block',
+		columnWidth: 200
+	});
 });
 
 function setBackstretchConfig () {

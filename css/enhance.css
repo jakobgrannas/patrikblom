@@ -14,11 +14,11 @@ Breakpoints
 }
 
 @media all and (min-width: 40em) {
-	.image-block:nth-child(even) {
+	.gallery-section > .image-block:nth-child(even) {
 		margin-right: 10%;
 	}
 
-	.image-block:nth-child(3n+3) {
+	.gallery-section > .image-block:nth-child(3n+3) {
 		margin-right: 0;
 	}
 }
