@@ -745,6 +745,11 @@ Descriptive text
 	font-size: 0.8em;
 }
 
+/* Testing */
+.photo-feed .centered-inner {
+	width: auto;
+}
+
 /*
 ===============
    FOOTER

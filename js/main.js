@@ -16,10 +16,18 @@ $(document).ready(function () {
 
 	$(window).on('resize', hideMobileMenu);
 
-	var msnry = new Masonry($('#photo-feed'), {
-		itemSelector: '.image-block',
-		columnWidth: 200
-	});
+	var photoFeed = $('#photo-feed');
+	if(photoFeed) {
+		photoFeed.masonry({
+			itemSelector: '.image-block',
+			isAnimated: !Modernizr.csstransitions,
+			isFitWidth: true
+		});
+
+		$(window).on("resize", function () {
+			photoFeed.masonry('reload');
+		});
+	}
 });
 
 function setBackstretchConfig () {
