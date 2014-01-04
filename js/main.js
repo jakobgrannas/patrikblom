@@ -16,16 +16,13 @@ $(document).ready(function () {
 
 	$(window).on('resize', hideMobileMenu);
 
-	var photoFeed = $('#photo-feed');
+	var photoFeed = document.querySelector('#photo-feed');
 	if(photoFeed) {
-		photoFeed.masonry({
+		new Masonry(photoFeed, {
 			itemSelector: '.image-block',
 			isAnimated: !Modernizr.csstransitions,
-			isFitWidth: true
-		});
-
-		$(window).on("resize", function () {
-			photoFeed.masonry('reload');
+			isFitWidth: true,
+			columnWidth: 280
 		});
 	}
 });
