@@ -745,10 +745,82 @@ Descriptive text
 	font-size: 0.8em;
 }
 
-/* Testing */
-.photo-feed .centered-inner {
-	width: auto;
+.image-block > .date-stamp {
+	background-color: #a1322d;
+	width: 3em;
+	height: 3.4em;
+	padding: 0.5em;
+	position: absolute;
+	top: 0;
+	right: 0;
+	color: white;
+	text-align: center;
+	vertical-align: middle;
 }
+
+.date-stamp .date,
+.date-stamp .month {
+	width: 100%;
+	display: inline-block;
+	float: left;
+}
+
+.date-stamp .date {
+	font-size: 1.3em;
+	line-height: 1em;
+}
+
+.date-stamp .month {
+	text-transform: uppercase;
+	font-size: 0.7em;
+}
+
+.image-block-footer {
+	background-color: #eee;
+	border-top: 0.1em solid #d6d6d6;
+	padding: 0.5em 0 0 0;
+	overflow: hidden;
+	height: 2.7em;
+	font-size: 0.7em;
+	color: #707070;
+	text-transform: uppercase;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+.image-block-footer a {
+	color: #707070;
+	text-decoration: none;
+	font-weight: 700;
+}
+
+.image-block-footer a:hover {
+	text-decoration: underline;
+	color: #469a73;
+}
+
+.image-block-footer > .footer-item {
+	display: inline-block;
+	padding-left: 1.5em;
+}
+
+.footer-item > .fa {
+	padding-right: 0.8em;
+	font-size: 1.2em;
+}
+
+.num-comments > .fa:before {
+	content: "\f086";
+}
+
+.num-likes > .fa:before {
+	content: "\f087";
+}
+
+.post-category > .fa:before {
+	content: "\f02b";
+}
+
 
 /*
 ===============
