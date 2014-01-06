@@ -728,51 +728,38 @@ Descriptive text
 
 .photo-feed .image-text {
 	background-color: #ffffff;
-	padding: 1em;
+	padding: 0.5em 1em 1em 1em;
 }
 
 .photo-feed .image-title {
 	color: #469a73;
-	margin-top: 0.4em;
-	margin-bottom: 0;
+	margin: 0;
 	font-weight: 100;
 }
 
+.image-title a {
+	color: #469a73;
+}
+
+.image-title a:hover {
+	color: #469a73;
+}
+
 .photo-feed .image-description {
-	color: #aaa;
+	color: #555;
 	margin-top: 0.6em;
 	margin-bottom: 0;
 	font-size: 0.8em;
 }
 
-.image-block > .date-stamp {
-	background-color: #a1322d;
-	width: 3em;
-	height: 3.4em;
-	padding: 0.5em;
-	position: absolute;
-	top: 0;
-	right: 0;
-	color: white;
-	text-align: center;
-	vertical-align: middle;
-}
-
-.date-stamp .date,
-.date-stamp .month {
+.date-stamp {
 	width: 100%;
+	padding-right: 0.3em;
+	text-align: right;
 	display: inline-block;
-	float: left;
-}
-
-.date-stamp .date {
-	font-size: 1.3em;
-	line-height: 1em;
-}
-
-.date-stamp .month {
+	font-size: 0.75em;
+	color: #aaa;
 	text-transform: uppercase;
-	font-size: 0.7em;
 }
 
 .image-block-footer {
@@ -805,7 +792,7 @@ Descriptive text
 }
 
 .footer-item > .fa {
-	padding-right: 0.8em;
+	padding-right: 0.5em;
 	font-size: 1.2em;
 }
 
@@ -976,4 +963,19 @@ Descriptive text
 	-webkit-transition: -webkit-transform 350ms ease;
 	-moz-transition: -moz-transform 350ms ease;
 	transition: transform 350ms ease;
+}
+
+/* Clearfix */
+/* For modern browsers */
+.clearfix:before,
+.clearfix:after {
+	content:"";
+	display:table;
+}
+.clearfix:after {
+	clear:both;
+}
+/* For IE 6/7 (trigger hasLayout) */
+.clearfix {
+	zoom:1;
 }
