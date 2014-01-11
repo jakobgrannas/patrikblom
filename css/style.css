@@ -121,12 +121,26 @@ textarea {
 	display: block !important;
 }
 
+/*
+===============
+   ICONS
+===============
+*/
+
 .search-icon:before {
 	content: "\f002";
 }
 
 .search-plus-icon:before {
 	content: "\f00e";
+}
+
+.clock-icon:before {
+	content: "\f017";
+}
+
+.calendar-icon:before {
+	content: "\f133";
 }
 
 /*
@@ -762,6 +776,10 @@ Descriptive text
 	text-transform: uppercase;
 }
 
+.date-stamp .calendar-icon {
+	padding-right: 0.7em;
+}
+
 .image-block-footer {
 	background-color: #eee;
 	border-top: 0.1em solid #d6d6d6;
@@ -818,10 +836,11 @@ Descriptive text
 .footer {
 	width: 100%;
 	display: inline-block;
-	background-color: #000000;
+	background-color: #222;
+	position: relative;
 	color: #ffffff;
 	font-size: 0.9em;
-	padding: 3em 3em;
+	padding: 0 3em 3em;
 }
 
 .top-row {
@@ -920,18 +939,15 @@ Descriptive text
 ========================
 */
 .scroll-top-btn {
-	background-color: #a1322d; /* TODO: Change to #4aa982; ? */
+	background-color: #222;
 	text-decoration: none;
 	color: #ffffff;
-	padding: 0.2em 0.4em 0.3em 0.4em;
+	text-align: center;
+	padding: 0.3em 0 0.4em 0;
 	font-size: 1.9em;
-	position: fixed;
-	bottom: 0.6em;
-	right: 0.6em;
-	display: none; /* Hidden on init */
-}
-
-.no-js .scroll-top-btn {
+	text-transform: uppercase;
+	margin: -0.8em auto 1.5em auto;
+	width: 1.8em;
 	display: block;
 }
 
