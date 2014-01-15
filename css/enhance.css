@@ -1,0 +1,252 @@
+/*
+Breakpoints
+648px = 40.5em
+940px = 58.75em
+992 = 62em
+*/
+
+/* Front page images */
+@media all and (max-width: 25em) {
+	.image-block {
+		width: 100%;
+		margin-right:0;
+	}
+}
+
+@media all and (min-width: 40em) {
+	.gallery-section > .image-block:nth-child(even) {
+		margin-right: 10%;
+	}
+
+	.gallery-section > .image-block:nth-child(3n+3) {
+		margin-right: 0;
+	}
+}
+
+@media all and (min-width: 25em) and (max-width: 40.5em) {
+	.image-block {
+		width: 40%;
+	}
+}
+
+/* General layout */
+@media all and (min-width: 40.5em) {
+	.sort-by-type,
+	.sort-by-category {
+		margin-top: 0;
+		display: block;
+		width: auto;
+		max-width: 100%;
+		min-width: 0;
+		float: left;
+	}
+
+	.sort-by-type {
+		margin-right: 2.5em;
+	}
+
+	.image-block .preview-overlay {
+		font-size: 2.2em;
+	}
+
+	.image-block .search-plus-icon {
+		top: 43%;
+	}
+
+	.separator {
+		width: 20em;
+	}
+
+	.separator-line {
+		width: 8em;
+	}
+}
+
+@media all and (min-width: 40.5em) and (max-width: 62em) {
+	.sort-by-type {
+		margin-bottom: 0.8em;
+		margin-right: 0;
+	}
+
+	.sort-by-type,
+	.sort-by-category {
+		float: none;
+	}
+}
+
+@media all and (min-width: 45em) {
+	/*
+	===============
+		Banner
+	===============
+	*/
+	.main-menu .search-field-container {
+		display: none;
+	}
+	.banner-inner-container .search-field-container {
+		width: 100%;
+		position: absolute;
+		display: block;
+		bottom: 0;
+		background-color: rgba(0,0,0,0.2);
+		padding-top: 1.7em;
+		padding-bottom: 1.7em;
+	}
+
+	.banner-inner-container .search-field-container .search-field {
+		width: auto;
+		padding: 0.75em;
+		background-color: #67190e;
+		background-color: rgba(0,0,0,0.4);
+		border: 0;
+	}
+
+	.banner-inner-container .search-field-container .search-btn {
+		margin: 0 0 0 1em;
+	}
+
+	/*
+	===============
+		MENU
+	===============
+	*/
+	.menu-btn {
+		display: none;
+	}
+
+	.main-menu {
+		z-index: 30;
+		width: 100%;
+		height: auto;
+		min-height: 0;
+		left: 0;
+		background-color: transparent;
+		padding: 1.3em 1.3em 0 1.3em;
+	}
+
+	.search-field-container,
+	.menu-items {
+		float: left;
+	}
+
+	.search-field-container {
+		border-bottom: none;
+		width: 30%;
+	}
+
+	.search-field-container .search-field {
+		border: 0.15em solid rgba(255,255,255,0.5);
+		padding: 0.6em;
+	}
+
+	.search-field-container .search-btn {
+		margin-left: -2em;
+		display: inline-block;
+	}
+
+	.menu-items {
+		text-align: center;
+		width: 100%;
+		float: none;
+	}
+
+	.menu-items a{
+		color: #fff;
+		display: inline-block;
+		padding: 0 0 0.8em 0;
+		margin: 1.5em;
+	}
+
+	.menu-items a:hover,
+	.menu-items a:active {
+		border-bottom: 0.15em dotted rgb(255,255,255);
+		border-bottom: 0.15em dotted rgba(255,255,255,0.5);
+	}
+
+	/* Disable transitions for horizontal nav */
+	.main-menu.animate,
+	.banner.animate,
+	.wrapper.animate {
+		-webkit-transition: none;
+		-moz-transition: none;
+		transition: none;
+	}
+}
+
+@media all and (min-width: 62em) {
+	/*
+	===============
+	   SORTER BAR
+	===============
+	*/
+	.sort-by-type,
+	.sort-by-category {
+		margin-top: 0;
+		display: block;
+		width: auto;
+		max-width: 100%;
+		min-width: 0;
+		float: left;
+	}
+
+    .checkbox-button {
+	    margin-bottom: 0;
+    }
+
+	/*
+	===============
+	   FOOTER
+	===============
+	*/
+
+	.footer .top-row {
+		display: flex;
+		border-bottom: 1px dashed #4f4f4f;
+		padding-bottom: 2.5em;
+		margin-bottom: 2.5em;
+	}
+
+	/* IE Fix */
+	.no-flexbox .footer .top-row {
+		display: table;
+		border-spacing: 2.5em 0;
+		border-collapse: separate;
+		overflow: hidden;
+	}
+
+	.footer-block {
+		display: inline-block;
+		height: auto;
+		width: auto;
+		border-right: 1px solid #4c4c4c;
+		border-bottom: 0;
+		padding: 0.5em 2.5em 0.5em 0;
+		margin: 0 2.5em 0 0;
+		vertical-align: top;
+	}
+
+	/* IE Fix */
+	.no-flexbox .footer-block {
+		width: auto;
+		clear: both;
+		height: 100%;
+		display: table-cell;
+		/* Compensation for border-spacing */
+		position: relative;
+		left: -2.5em;
+	}
+
+	.footer-block:last-child {
+		border-right: 0;
+		margin-right: 0;
+		padding-right: 0;
+	}
+
+	.footer-block p:first-child {
+		margin-top: 0;
+	}
+
+    .footer-block p:last-child {
+	    margin-bottom:0;
+    }
+}
