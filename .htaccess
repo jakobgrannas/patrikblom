@@ -50,3 +50,6 @@
 </IfModule>
 
 FileETag None
+# BEGIN WordPress
+
+# END WordPress
