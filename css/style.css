@@ -60,10 +60,15 @@ body {
 }
 
 a {
+	color: inherit;
 	text-decoration: underline;
 }
 
-a:hover {
+a:hover,
+a:link,
+a:visited,
+a:visited:link{
+	color: inherit;
 	text-decoration: none;
 }
 
@@ -107,6 +112,23 @@ textarea {
 	z-index: 9999;
 }
 
+.visually-active {
+	display: block !important;
+}
+
+.bare-link,
+.bare-link:link,
+.bare-link:hover,
+.bare-link:visited {
+	text-decoration: none;
+	color: inherit;
+}
+/*
+===============
+   ICONS
+===============
+*/
+
 /* Font awesome icons */
 .fa {
 	font-family: FontAwesome;
@@ -116,16 +138,6 @@ textarea {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
-
-.visually-active {
-	display: block !important;
-}
-
-/*
-===============
-   ICONS
-===============
-*/
 
 .search-icon:before {
 	content: "\f002";
@@ -241,17 +253,17 @@ h1, h2, h3 {
 	display: inline-block;
 }
 
-.logo > .row1,
-.logo > .row2 {
+.logo .row1,
+.logo .row2 {
 	display: block;
 }
 
-.logo > .row1 {
+.logo .row1 {
 	font-weight: 300;
 	padding-bottom: 0.2em;
 }
 
-.logo > .row2 {
+.logo .row2 {
 	font-weight: 700;
 	font-size: 0.9em;
 	letter-spacing: 0.3em;
@@ -264,8 +276,8 @@ h1, h2, h3 {
 	height: 53px;
 }
 
-.no-fontface .logo > .row1,
-.no-fontface .logo > .row2 {
+.no-fontface .logo .row1,
+.no-fontface .logo .row2 {
 	display: none;
 }
 
@@ -348,6 +360,10 @@ h1, h2, h3 {
 	color: white;
 	top: 0;
 	z-index: 0;
+}
+
+.menu ul {
+	padding: 0;
 }
 
 .main-menu a {
@@ -852,6 +868,10 @@ Descriptive text
 	color: #c6c6c6;
 }
 
+.top-row a:hover {
+	color: #4aa982;
+}
+
 .bottom-row {
 	width: 100%;
 }
@@ -860,9 +880,6 @@ Descriptive text
 	text-decoration: none;
 }
 
-.footer a:hover {
-	color: #4aa982;
-}
 
 .footer-block{
 	width: 100%;

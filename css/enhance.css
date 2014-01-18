@@ -123,6 +123,10 @@ Breakpoints
 		background-color: transparent;
 		padding: 1.3em 1.3em 0 1.3em;
 	}
+	
+	.menu .page_item {
+		display: inline-block;
+	}
 
 	.search-field-container,
 	.menu-items {

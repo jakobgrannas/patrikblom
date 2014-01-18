@@ -1,65 +1,98 @@
-<?php
-/**
- * The Header for our theme
- *
- * Displays all of the <head> section and everything up till <div id="main">
- *
- * @package WordPress
- * @subpackage Twenty_Fourteen
- * @since Twenty Fourteen 1.0
- */
-?><!DOCTYPE html>
-<!--[if IE 7]>
-<html class="ie ie7" <?php language_attributes(); ?>>
-<![endif]-->
-<!--[if IE 8]>
-<html class="ie ie8" <?php language_attributes(); ?>>
-<![endif]-->
-<!--[if !(IE 7) | !(IE 8) ]><!-->
-<html <?php language_attributes(); ?>>
-<!--<![endif]-->
-<head>
-	<meta charset="<?php bloginfo( 'charset' ); ?>">
-	<meta name="viewport" content="width=device-width">
-	<title><?php wp_title( '|', true, 'right' ); ?></title>
-	<link rel="profile" href="http://gmpg.org/xfn/11">
-	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
-	<!--[if lt IE 9]>
-	<script src="<?php echo get_template_directory_uri(); ?>/js/html5.js"></script>
-	<![endif]-->
-	<?php wp_head(); ?>
-</head>
+<!DOCTYPE html>
+	<!--[if IE 8]>
+	<html <?php language_attributes(); ?> class="no-js lt-ie9"> <![endif]-->
+	<!--[if gt IE 8]><!--> <html <?php language_attributes(); ?> class="no-js"><!--<![endif]-->
+	<head>
+		<meta charset="utf-8">
+		
+		<?php // Google Chrome Frame for IE ?>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-<body <?php body_class(); ?>>
-<div id="page" class="hfeed site">
-	<?php if ( get_header_image() ) : ?>
-	<div id="site-header">
-		<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-			<img src="<?php header_image(); ?>" width="<?php echo get_custom_header()->width; ?>" height="<?php echo get_custom_header()->height; ?>" alt="">
-		</a>
-	</div>
-	<?php endif; ?>
+		<title><?php wp_title(); ?></title>
 
-	<header id="masthead" class="site-header" role="banner">
-		<div class="header-main">
-			<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+		<?php // mobile meta (hooray!) ?>
+		<meta name="HandheldFriendly" content="True">
+		<meta name="MobileOptimized" content="320">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-			<div class="search-toggle">
-				<a href="#search-container" class="screen-reader-text"><?php _e( 'Search', 'twentyfourteen' ); ?></a>
+		<?php // icons & favicons (for more: http://www.jonathantneal.com/blog/understand-the-favicon/) ?>
+		<link rel="apple-touch-icon" href="<?php echo get_template_directory_uri(); ?>/library/images/apple-icon-touch.png">
+		<link rel="icon" href="<?php echo get_template_directory_uri(); ?>/favicon.png">
+		<!--[if IE]>
+			<link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/favicon.ico">
+		<![endif]-->
+		<?php // or, set /favicon.ico for IE10 win ?>
+		<meta name="msapplication-TileColor" content="#f01d4f">
+		<meta name="msapplication-TileImage" content="<?php echo get_template_directory_uri(); ?>/library/images/win8-tile-icon.png">
+
+		<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
+
+		<?php // wordpress head functions ?>
+		<?php wp_head(); ?>
+		<?php // end of wordpress head ?>
+
+		<?php // drop Google Analytics Here ?>
+		<script>
+			var _gaq = [
+				['_setAccount', 'UA-XXXXX-X'],
+				['_trackPageview']
+			];
+			(function (d, t) {
+				var g = d.createElement(t), s = d.getElementsByTagName(t)[0];
+				g.src = '//www.google-analytics.com/ga.js';
+				s.parentNode.insertBefore(g, s)
+			}(document, 'script'));
+		</script>
+		<?php // end analytics ?>
+	</head>
+	<body>
+		<!--[if lt IE 9]>
+		<p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+			your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to
+			improve your experience.</p>
+		<![endif]-->
+
+		<nav class="boxsized main-menu animate menu-right menu-closed" id="main-nav">
+			<div class="boxsized search-field-container">
+				<input type="text" id="search" class="search-field" name="search" placeholder="search...">
+				<button class="btn search-btn"><span class="fa search-icon"></span></button>
 			</div>
+			<?php
+			$defaults = array(
+				'menu' => 'Main nav',
+				'menu_class' => 'boxsized menu-items menu',
+				'echo' => true,
+				'fallback_cb' => 'wp_page_menu',
+				'items_wrap' => '%3$s',
+				'depth' => 0
+			);
 
-			<nav id="primary-navigation" class="site-navigation primary-navigation" role="navigation">
-				<h1 class="menu-toggle"><?php _e( 'Primary Menu', 'twentyfourteen' ); ?></h1>
-				<a class="screen-reader-text skip-link" href="#content"><?php _e( 'Skip to content', 'twentyfourteen' ); ?></a>
-				<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-menu' ) ); ?>
-			</nav>
-		</div>
+			wp_nav_menu($defaults);
+			?>
+		</nav>
 
-		<div id="search-container" class="search-box-wrapper hide">
-			<div class="search-box">
-				<?php get_search_form(); ?>
-			</div>
-		</div>
-	</header><!-- #masthead -->
+		<div id="wrapper" class="wrapper animate menu-push">
 
-	<div id="main" class="site-main">
+			<header id="banner" class="banner animate">
+				<div class="banner-img"></div>
+				<div class="banner-inner-container">
+					<div class="inner">
+						<a href="#main-nav" id="menu-btn" class="nav-btn menu-btn open-menu-btn"><span class="fa menu-icon"></span></a>
+						<a href="#" class="nav-btn menu-btn close-menu-btn"><span class="fa menu-icon"></span></a>
+
+						<div class="logo-container">
+							<h1 class="logo">
+								<a href="<?php echo home_url(); ?>" class="bare-link" rel="nofollow">
+									<span class="row1">Patrik</span>
+									<span class="row2">Blom</span
+								</a>
+							</h1>
+						</div>
+
+						<div class="boxsized search-field-container">
+							<input type="text" id="search2" class="search-field" name="search" placeholder="search...">
+							<button class="btn search-btn"><span class="fa search-icon"></span></button>
+						</div>
+					</div>
+				</div>
+			</header>	
