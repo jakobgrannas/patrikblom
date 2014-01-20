@@ -26,7 +26,7 @@
 					<h2 class="logo">
 						<a href="<?php echo home_url(); ?>" class="bare-link" rel="nofollow">
 							<span class="row1">Patrik</span>
-							<span class="row2">Blom</span
+							<span class="row2">Blom</span>
 						</a>
 					</h2>
 				</div>

@@ -8,7 +8,7 @@
 		<?php // Google Chrome Frame for IE ?>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-		<title><?php wp_title(); ?></title>
+		<title><?php echo wp_title(); ?></title>
 
 		<?php // mobile meta (hooray!) ?>
 		<meta name="HandheldFriendly" content="True">
@@ -84,7 +84,7 @@
 							<h1 class="logo">
 								<a href="<?php echo home_url(); ?>" class="bare-link" rel="nofollow">
 									<span class="row1">Patrik</span>
-									<span class="row2">Blom</span
+									<span class="row2">Blom</span>
 								</a>
 							</h1>
 						</div>
