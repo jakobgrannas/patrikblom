@@ -366,6 +366,11 @@ h1, h2, h3 {
 	padding: 0;
 }
 
+.menu-item {
+	list-style: none;
+	display: inline-block;
+}
+
 .main-menu a {
 	color: #ddd;
 	text-decoration: none;

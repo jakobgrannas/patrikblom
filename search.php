@@ -1,71 +1,58 @@
+<?php
+/*
+Template Name: Search Results Page
+*/
+?>
 <?php get_header(); ?>
 
-			<div id="content">
+<main role="main" class="boxsized main">
+	<div class="section">
+		<div class="centered-inner">
+			<h2><?php printf(__('Search Results for: %s', 'bones'), get_search_query()); ?></h2>
+		</div>
+		<div class="centered-inner">
+			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+					<article class="main-content" id="post-<?php the_ID(); ?>" role="article" itemtype="http://schema.org/BlogPosting">
+						<header>
+							<h2><?php the_title(); ?></h2>
+							<p class="byline vcard"><?php
+								printf(__('Posted <time class="updated" datetime="%1$s" pubdate>%2$s</time> by <span class="author">%3$s</span>.', 'bonestheme'), get_the_time('Y-m-j'), get_the_time(__('F jS, Y', 'bonestheme')), bones_get_the_author_posts_link());
+								?></p>
+						</header>
 
-				<div id="inner-content" class="wrap clearfix">
+						<section itemprop="articleBody">
+							<?php the_content(); ?>
+						</section>
 
-					<div id="main" class="eightcol first clearfix" role="main">
-						<h1 class="archive-title"><span><?php _e( 'Search Results for:', 'bonestheme' ); ?></span> <?php echo esc_attr(get_search_query()); ?></h1>
+						<footer class="article-footer">
+							<?php the_tags('<span class="tags">' . __('Tags:', 'bonestheme') . '</span> ', ', ', ''); ?>
 
-						<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-
-							<article id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?> role="article">
-
-								<header class="article-header">
-
-									<h3 class="search-title"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
-									<p class="byline vcard"><?php
-										printf( __( 'Posted <time class="updated" datetime="%1$s" pubdate>%2$s</time> by <span class="author">%3$s</span> <span class="amp">&</span> filed under %4$s.', 'bonestheme' ), get_the_time( 'Y-m-j' ), get_the_time( __( 'F jS, Y', 'bonestheme' ) ), bones_get_the_author_posts_link(), get_the_category_list(', ') );
-									?></p>
-
-								</header>
-
-								<section class="entry-content">
-										<?php the_excerpt( '<span class="read-more">' . __( 'Read more &raquo;', 'bonestheme' ) . '</span>' ); ?>
-
-								</section>
-
-								<footer class="article-footer">
-
-								</footer>
-
-							</article>
-
-						<?php endwhile; ?>
-
-								<?php if (function_exists('bones_page_navi')) { ?>
-										<?php bones_page_navi(); ?>
-								<?php } else { ?>
-										<nav class="wp-prev-next">
-												<ul class="clearfix">
-													<li class="prev-link"><?php next_posts_link( __( '&laquo; Older Entries', 'bonestheme' )) ?></li>
-													<li class="next-link"><?php previous_posts_link( __( 'Newer Entries &raquo;', 'bonestheme' )) ?></li>
-												</ul>
-										</nav>
-								<?php } ?>
-
-							<?php else : ?>
-
-									<article id="post-not-found" class="hentry clearfix">
-										<header class="article-header">
-											<h1><?php _e( 'Sorry, No Results.', 'bonestheme' ); ?></h1>
-										</header>
-										<section class="entry-content">
-											<p><?php _e( 'Try your search again.', 'bonestheme' ); ?></p>
-										</section>
-										<footer class="article-footer">
-												<p><?php _e( 'This is the error message in the search.php template.', 'bonestheme' ); ?></p>
-										</footer>
-									</article>
-
-							<?php endif; ?>
-
+						</footer>
+						
+						<div class="separator">
+							<span class="separator-line"></span>
+							<span class="x-icon">x</span>
+							<span class="separator-line"></span>
 						</div>
-
-							<?php get_sidebar(); ?>
-
-					</div>
-
-			</div>
+					</article>
+				<?php endwhile; ?>
+				<?php wp_reset_postdata(); ?>
+			<?php else : ?>
+				<article id="post-not-found" class="hentry clearfix">
+					<header class="article-header">
+						<h1><?php _e('Oops, Post Not Found!', 'bonestheme'); ?></h1>
+					</header>
+					<section class="entry-content">
+						<p><?php _e('Uh Oh. Something is missing. Try double checking things.', 'bonestheme'); ?></p>
+					</section>
+					<footer class="article-footer">
+						<p><?php _e('This is the error message in the index.php template.', 'bonestheme'); ?></p>
+					</footer>
+				</article>
+			<?php endif; ?>
+		</div>
+	</div>
+</main>
 
 <?php get_footer(); ?>
+

@@ -59,8 +59,8 @@
 			</div>
 			<?php
 			$defaults = array(
+				'container_class' => 'boxsized menu-items menu',
 				'menu' => 'Main nav',
-				'menu_class' => 'boxsized menu-items menu',
 				'echo' => true,
 				'fallback_cb' => 'wp_page_menu',
 				'items_wrap' => '%3$s',
@@ -88,10 +88,9 @@
 								</a>
 							</h1>
 						</div>
-
+						
 						<div class="boxsized search-field-container">
-							<input type="text" id="search2" class="search-field" name="search" placeholder="search...">
-							<button class="btn search-btn"><span class="fa search-icon"></span></button>
+						<?php get_search_form(); ?>
 						</div>
 					</div>
 				</div>
