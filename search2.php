@@ -1,9 +1,3 @@
-<?php
-/*
-Template Name: Search Page
-*/
-?>
-
 <?php get_header(); ?>
 
 			<div id="content">

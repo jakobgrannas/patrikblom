@@ -133,6 +133,13 @@ function bones_register_sidebars() {
 	*/
 } // don't remove this bracket!
 
+add_filter('excerpt_length', 'pb_get_excerpt');
+
+function pb_get_excerpt() {
+    return 20;
+}
+
+
 /************* COMMENT LAYOUT *********************/
 
 // Comment Layout
@@ -171,18 +178,4 @@ function bones_comments( $comment, $args, $depth ) {
 	<?php // </li> is added by WordPress automatically ?>
 <?php
 } // don't remove this bracket!
-
-/************* SEARCH FORM LAYOUT *****************/
-
-// Search Form
-/*function bones_wpsearch($form) {
-	$form = '<form role="search" method="get" id="searchform" action="' . home_url( '/' ) . '" >
-	<label class="screen-reader-text" for="s">' . __( 'Search for:', 'bonestheme' ) . '</label>
-	<input type="text" value="' . get_search_query() . '" name="s" id="s" placeholder="' . esc_attr__( 'Search the Site...', 'bonestheme' ) . '" />
-	<input type="submit" id="searchsubmit" value="' . esc_attr__( 'Search' ) .'" />
-	</form>';
-	return $form;
-} */// don't remove this bracket!
-
-
 ?>
