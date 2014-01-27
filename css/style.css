@@ -134,6 +134,24 @@ textarea {
 .bare-list li {
 	list-style: none;
 }
+
+.alert {
+	padding: 0.8em;
+}
+
+.alert.alert-info {
+	border: 0.1em dashed #bbb;
+}
+
+.alert p {
+	margin: 0;
+}
+
+.alert code {
+	background-color: #ddd;
+}
+
+
 /*
 ===============
    ICONS
@@ -664,6 +682,17 @@ h1, h2, h3 {
 .excerpt-read-more {
 	display: block;
 	margin-top: 1em;
+}
+
+.main .input-field {
+	background-color: white;
+	border: 0.1em solid #ccc;
+	color: #555;
+}
+
+.main .comment-field {
+	width: 100%;
+	padding: 0.8em;
 }
 
 /*
