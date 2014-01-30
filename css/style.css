@@ -652,7 +652,7 @@ h1, h2, h3 {
 
 .centered-inner {
 	margin: 8em auto 3em auto;
-	max-width: 35em;
+	max-width: 45em;
 	width: 100%;
 }
 
@@ -668,7 +668,7 @@ h1, h2, h3 {
 /* Main content element styling */
 
 .main-content blockquote {
-	border-left: 4px solid #d0d0d0;
+	border-left: 4px solid #469a73;
 	padding-left: 1em;
 }
 
@@ -690,9 +690,31 @@ h1, h2, h3 {
 	color: #555;
 }
 
+/* Comment section */
+
 .main .comment-field {
+	max-width: 35em;
 	width: 100%;
+	min-height: 10em;
 	padding: 0.8em;
+}
+
+.comment-form-elements {
+	padding: 0;
+}
+
+.comment-form-elements .list-item {
+	list-style: none;
+}
+
+.main .comment-form-elements .form-label {
+	display: none;
+}
+
+.comment-form-elements .input-field {
+	margin-bottom: 1.3em;
+	padding: 0.7em;
+	font-size: 0.8em;
 }
 
 /*
