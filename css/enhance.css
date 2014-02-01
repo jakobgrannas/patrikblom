@@ -175,6 +175,15 @@ Breakpoints
 		-moz-transition: none;
 		transition: none;
 	}
+	
+	/*
+	===============
+		MENU
+	===============
+	*/
+	.post-header h2 {
+		font-size: 3em;
+	}
 }
 
 @media all and (min-width: 62em) {
