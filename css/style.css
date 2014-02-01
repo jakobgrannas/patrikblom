@@ -9,6 +9,25 @@
 }
 
 @font-face {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Oswald Light'), local('Oswald-Light'), url(http://themes.googleusercontent.com/static/fonts/oswald/v8/HqHm7BVC_nzzTui2lzQTDbO3LdcAZYWl9Si6vvxL-qU.woff) format('woff');
+}
+@font-face {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Oswald Regular'), local('Oswald-Regular'), url(http://themes.googleusercontent.com/static/fonts/oswald/v8/qpy-UiLNKP-VfOdbcs6r6-vvDin1pK8aKteLpeZ5c0A.woff) format('woff');
+}
+@font-face {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Oswald Bold'), local('Oswald-Bold'), url(http://themes.googleusercontent.com/static/fonts/oswald/v8/bH7276GfdCjMjApa_dkG6bO3LdcAZYWl9Si6vvxL-qU.woff) format('woff');
+}
+
+@font-face {
 	font-family: 'Noto Sans';
 	font-style: normal;
 	font-weight: 400;
@@ -97,6 +116,12 @@ textarea {
 	resize: vertical;
 }
 
+h1, h2, h3 {
+	font-family: 'Oswald', serif;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+}
+
 /*
 ===============
    Misc
@@ -137,10 +162,7 @@ textarea {
 
 .alert {
 	padding: 0.8em;
-}
-
-.alert.alert-info {
-	border: 0.1em dashed #bbb;
+	font-size: 0.8em;
 }
 
 .alert p {
@@ -203,15 +225,26 @@ textarea {
 }
 
 .btn-default {
-	background-color: #469a73; /*#4aa982;*/
+	background-color: #469a73;
 	padding: 1em;
 	font-size: 0.9em;
 	font-family: 'Noto Sans', sans-serif;
 	text-transform: uppercase;
 }
 
+.btn-default:hover {
+	background-color: #555;
+}
+
 .btn-big {
 	padding: 1.2em 3.5em 1.2em 3.5em;
+}
+
+.btn-submit {
+	padding: 0.7em 2em 0.7em 2em;
+	margin-top: 1em;
+	margin-bottom: 1em;
+	font-size: 0.8em;
 }
 
 /*
@@ -240,16 +273,6 @@ textarea {
 
 /*
 ===============
-   Headings
-===============
-*/
-
-h1, h2, h3 {
-	font-family: 'Noto Sans', 'Roboto Slab', serif;
-}
-
-/*
-===============
    WRAPPER
 ===============
 */
@@ -272,7 +295,7 @@ h1, h2, h3 {
 }
 
 .logo {
-	font-family: 'Roboto Condensed', sans-serif;
+	font-family: 'Oswald', sans-serif;
 	text-transform: uppercase;
 	text-align: left;
 	border-right: 0.05em solid rgba(255,255,255,0.3);
@@ -288,8 +311,9 @@ h1, h2, h3 {
 }
 
 .logo .row1 {
-	font-weight: 300;
-	padding-bottom: 0.2em;
+	font-weight: 100;
+	letter-spacing: 0.05em;
+	padding-bottom: 0.3em;
 }
 
 .logo .row2 {
@@ -361,6 +385,10 @@ h1, h2, h3 {
 	top: 1em;
 }
 
+a.nav-btn {
+	color: white;
+}
+
 .menu-btn {
 	right: 1em;
 }
@@ -393,7 +421,6 @@ h1, h2, h3 {
 
 .menu-item {
 	list-style: none;
-	display: inline-block;
 }
 
 .main-menu a {
@@ -591,7 +618,6 @@ h1, h2, h3 {
 }
 
 /* Checkbox buttons */
-/* TODO: Only add margin-bottom to the ones that don't fit within the row */
 .visibly-hidden {
 	border: 0;
 	clip: rect(0 0 0 0);
@@ -642,13 +668,28 @@ h1, h2, h3 {
 	line-height: 1.6em;
 }
 
-.main h2 {
-	font-size: 1.7em;
+/* Post header */
+.post-header {
+	margin-bottom: 2.5em;
+	text-align: center;
+}
+
+.post-header h2 {
+	font-size: 3em;
 	line-height: 1.2em;
 	padding: 1em 0 0.3em 0;
-	font-weight: 700;
+	margin: 0 0 0.5em;
+	font-weight: 400;
 	color: #469a73;
 }
+
+.byline {
+	color: #777;
+	font-size: 0.8em;
+	margin-top: -1.8em;
+}
+
+/* Sections and content */
 
 .centered-inner {
 	margin: 8em auto 3em auto;
@@ -688,6 +729,13 @@ h1, h2, h3 {
 	background-color: white;
 	border: 0.1em solid #ccc;
 	color: #555;
+}
+
+/* Info */
+.post-info {
+	margin-top: 3.5em;
+	padding-left: 0;
+	border-top: 0.1em dashed #bbb;
 }
 
 /* Comment section */

@@ -15,8 +15,7 @@ Template Name: Index Page
 											<?php the_post_thumbnail(array(250,250), array('class' => 'profile-pic')); ?>
 								<?php endif; ?>
 								
-
-								<header>
+								<header class="post-header">
 									<h2><?php the_title(); ?></h2>
 								</header>
 

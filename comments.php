@@ -45,10 +45,7 @@ The comments page for Bones
 			<?php // If comments are open, but there are no comments. ?>
 
 	<?php else : // comments are closed ?>
-
-	<?php // If comments are closed. ?>
-	<!--p class="nocomments"><?php _e( 'Comments are closed.', 'bonestheme' ); ?></p-->
-
+		<p class="nocomments"><?php _e( 'Comments are closed.', 'bonestheme' ); ?></p>
 	<?php endif; ?>
 
 <?php endif; ?>
@@ -103,11 +100,11 @@ The comments page for Bones
 	<p><textarea name="comment" id="comment" class="boxsized input-field comment-field" placeholder="<?php _e( 'Your Comment here...', 'bonestheme' ); ?>" tabindex="4"></textarea></p>
 
 	<p>
-		<input name="submit" type="submit" id="submit" class="button" tabindex="5" value="<?php _e( 'Submit', 'bonestheme' ); ?>" />
+		<input name="submit" type="submit" id="submit" class="btn btn-default btn-submit" tabindex="5" value="<?php _e( 'Submit', 'bonestheme' ); ?>" />
 		<?php comment_id_fields(); ?>
 	</p>
 
-	<div class="alert alert-info">
+	<div class="alert alert-info post-info">
 		<p id="allowed_tags" class="small"><strong>XHTML:</strong> <?php _e( 'You can use these tags', 'bonestheme' ); ?>: <code><?php echo allowed_tags(); ?></code></p>
 	</div>
 
