@@ -893,6 +893,14 @@ a.nav-btn {
 	content: "\f0c1";
 }
 
+.edit-icon {
+	text-align: right;
+}
+
+.edit-icon:before {
+	content: "\f044";
+}
+
 .comment-link:last-child {
 	border: 0;
 	padding-right: 0;
