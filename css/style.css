@@ -60,7 +60,6 @@ body:after{
 }
 
 /* General styling */
-
 body {
 	text-align: left;
 	line-height: 1.5em;
@@ -69,6 +68,10 @@ body {
 	background: white;
 	color: black;
 	position: relative;
+}
+
+button, input, select, textarea {
+	font-family: 'Noto Sans', sans-serif;
 }
 
 a,
@@ -117,6 +120,11 @@ h1, h2, h3 {
 
 .centered-header {
 	text-align: center;
+}
+
+.h3 {
+	margin-top: 3em;
+	font-weight: 400;
 }
 
 /*
@@ -238,10 +246,14 @@ h1, h2, h3 {
 }
 
 .btn-submit {
-	padding: 0.7em 2em 0.7em 2em;
+	padding: 0.8em 2em;
+	width: 13em;
 	margin-top: 1em;
 	margin-bottom: 1em;
 	font-size: 0.8em;
+	font-family: 'Oswald';
+	font-weight: 100;
+	letter-spacing: 0.15em;
 }
 
 /*
@@ -467,6 +479,8 @@ a.nav-btn {
 	color: #fff;
 	background: none;
 	width: 85%;
+	font-size: 0.9em;
+	font-weight: 100;
 }
 
 .search-btn {
@@ -683,8 +697,12 @@ a.nav-btn {
 
 .byline {
 	color: #777;
-	font-size: 0.8em;
+	font-size: 0.7em;
+	text-transform: uppercase;
+	letter-spacing: 0.15em;
 	margin-top: -1.8em;
+	font-family: 'Oswald';
+	font-weight: 100;
 }
 
 /* Sections and content */
@@ -731,11 +749,23 @@ a.nav-btn {
 
 .main .input-field {
 	background-color: white;
-	border: 0.1em solid #ccc;
+	box-shadow: 1px 1px 0 0 #dcdcdc;
+	border: 0;
 	color: #555;
 	font-size: 0.8em;
 	padding: 0.7em;
 	margin-bottom: 1.3em;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.main .form {
+	max-width: 25em;
+}
+
+.main .form .input-field {
+	width: 100%;
 }
 
 /* Info */
@@ -790,6 +820,8 @@ a.nav-btn {
 
 .comment-form-elements .list-item {
 	list-style: none;
+	text-align: center;
+	position: relative;
 }
 
 .main .comment-form-elements .form-label {
@@ -797,7 +829,7 @@ a.nav-btn {
 }
 
 .field-info {
-	display: inline-block;
+	display: none;
 }
 
 .commentlist {
@@ -824,6 +856,7 @@ a.nav-btn {
 .comment .datetime {
 	float: right;
 	font-size: 0.8em;
+	margin-top: 0.3em;
 	color: #999;
 }
 

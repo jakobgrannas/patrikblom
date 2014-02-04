@@ -19,7 +19,7 @@ The comments page for Bones
 <?php // You can start editing here. ?>
 
 <?php if ( have_comments() ) : ?>
-	<h3 id="comments" class="centered-header"><?php comments_number( __( '<span>No</span> comments', 'bonestheme' ), __( '<span>1</span> comment', 'bonestheme' ), _n( '<span>%</span> comments', '<span>%</span> comments', get_comments_number(), 'bonestheme' ) );?></h3>
+	<h3 id="comments" class="h3 centered-header"><?php comments_number( __( '<span>No</span> comments', 'bonestheme' ), __( '<span>1</span> comment', 'bonestheme' ), _n( '<span>%</span> comments', '<span>%</span> comments', get_comments_number(), 'bonestheme' ) );?></h3>
 
 	<nav id="comment-nav">
 		<ul class="clearfix">
@@ -55,7 +55,7 @@ The comments page for Bones
 
 <section id="respond" class="respond-form">
 
-	<h3 id="comment-form-title" class="h2"><?php comment_form_title( __( 'Leave a Reply', 'bonestheme' ), __( 'Leave a Reply to %s', 'bonestheme' )); ?></h3>
+	<h3 id="comment-form-title" class="h3 centered-header"><?php comment_form_title( __( 'Leave a Reply', 'bonestheme' ), __( 'Leave a Reply to %s', 'bonestheme' )); ?></h3>
 
 	<div id="cancel-comment-reply">
 		<p class="small"><?php cancel_comment_reply_link(); ?></p>
@@ -67,7 +67,7 @@ The comments page for Bones
 		</div>
 	<?php else : ?>
 
-	<form action="<?php echo get_option('siteurl'); ?>/wp-comments-post.php" method="post" id="commentform">
+	<form action="<?php echo get_option('siteurl'); ?>/wp-comments-post.php" method="post" id="commentform" class="form">
 
 	<?php if ( is_user_logged_in() ) : ?>
 
@@ -75,25 +75,25 @@ The comments page for Bones
 
 	<?php else : ?>
 
-	<ul id="comment-form-elements" class="comment-form-elements clearfix">
+	<div id="comment-form-elements" class="comment-form-elements clearfix">
 
-		<li class="list-item">
+		<div class="list-item">
 			<label for="author" class="form-label"><?php _e( 'Name', 'bonestheme' ); ?> <?php if ($req) _e( '(required)'); ?></label>
 			<input type="text" name="author" class="input-field" id="author" value="<?php echo esc_attr($comment_author); ?>" placeholder="<?php _e( 'Your Name*', 'bonestheme' ); ?>" tabindex="1" <?php if ($req) echo "aria-required='true'"; ?> />
-		</li>
+		</div>
 
-		<li class="list-item">
+		<div class="list-item">
 			<label for="email" class="form-label"><?php _e( 'Mail', 'bonestheme' ); ?> <?php if ($req) _e( '(required)'); ?></label>
 			<input type="email" name="email" class="input-field" id="email" value="<?php echo esc_attr($comment_author_email); ?>" placeholder="<?php _e( 'Your E-Mail*', 'bonestheme' ); ?>" tabindex="2" <?php if ($req) echo "aria-required='true'"; ?> />
 			<small class="field-info"><?php _e("(will not be published)", 'bonestheme' ); ?></small>
-		</li>
+		</div>
 
-		<li class="list-item">
+		<div class="list-item">
 			<label for="url" class="form-label"><?php _e( 'Website', 'bonestheme' ); ?></label>
 			<input type="url" name="url" class="input-field" id="url" value="<?php echo esc_attr($comment_author_url); ?>" placeholder="<?php _e( 'Got a website?', 'bonestheme' ); ?>" tabindex="3" />
-		</li>
+		</div>
 
-	</ul>
+	</div>
 
 	<?php endif; ?>
 
@@ -104,14 +104,14 @@ The comments page for Bones
 		<?php comment_id_fields(); ?>
 	</p>
 
+	<?php do_action( 'comment_form', $post->ID ); ?>
+
+	</form>
+	
 	<div class="alert alert-info post-info boxsized icon-paragraph">
 		<p class="icon-column"><span class="fa fa-code"></span></p>
 		<p id="allowed_tags" class="small text-column"><strong>XHTML:</strong> <?php _e( 'You can use these tags', 'bonestheme' ); ?>: <code><?php echo allowed_tags(); ?></code></p>
 	</div>
-
-	<?php do_action( 'comment_form', $post->ID ); ?>
-
-	</form>
 
 	<?php endif; // If registration required and not logged in ?>
 </section>

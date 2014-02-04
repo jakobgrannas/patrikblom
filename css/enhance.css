@@ -68,6 +68,14 @@ Breakpoints
 	.separator-line {
 		width: 8em;
 	}
+	
+	.field-info {
+		display: inline-block;
+		position: absolute;
+		width: 14em;
+		right: -14em;
+		top: 0;
+	}
 }
 
 @media all and (min-width: 40.5em) and (max-width: 62em) {
