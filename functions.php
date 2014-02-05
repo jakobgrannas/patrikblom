@@ -171,10 +171,10 @@ function bones_comments( $comment, $args, $depth ) {
 				</section>
 
 				<footer class="comment-footer">
-					<ul class="comment-links">
+					<ul class="comment-links clearfix">
 						<li class="comment-link"><span class="fa reply-icon"></span><?php comment_reply_link(array_merge($args, array('depth' => $depth, 'max_depth' => $args['max_depth']))) ?></li>
 						<li class="comment-link"><span class="fa permalink-icon"></span><a href="<?php echo htmlspecialchars(get_comment_link($comment->comment_ID)) ?>"><?php _e('Permalink', 'bonestheme'); ?></a></li>
-						<?php edit_comment_link(__('(Edit)', 'bonestheme'), '<li class="comment-link"><span class="fa edit-icon"></span>', '</li>') ?></li>
+						<?php edit_comment_link(__('(Edit)', 'bonestheme'), '<li class="comment-link align-right"><span class="fa edit-icon"></span>', '</li>') ?></li>
 					</ul>
 				</footer>
 			</article>
