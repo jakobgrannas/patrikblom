@@ -687,6 +687,16 @@ a.nav-btn {
 	line-height: 1.6em;
 }
 
+.featured-image {
+	border-radius: 50%;
+	/* TODO: Fix  */
+	filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale"); /* Firefox 10+, Firefox on Android */
+	filter: gray;
+	-webkit-filter: grayscale(1);
+	margin: 3em auto 4em auto;
+	display: block;
+}
+
 /* Post header */
 .post-header {
 	margin-bottom: 2.5em;
@@ -953,16 +963,6 @@ a.nav-btn {
  INDEX STYLING
 ===============
 */
-.profile-pic {
-	border-radius: 50%;
-	/* TODO: Fix  */
-	filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale"); /* Firefox 10+, Firefox on Android */
-	filter: gray;
-	-webkit-filter: grayscale(1);
-	margin: 3em auto 4em auto;
-	display: block;
-}
-
 /* Gallery section */
 .gallery-section {
 	max-width: 46em;
@@ -1029,16 +1029,6 @@ a.nav-btn {
 	display: block;
 }
 
-@supports not (flex-wrap: wrap) {
-	.gallery-section {
-		display: block;
-	}
-
-	.image-block {
-		min-width: 8em;
-	}
-}
-
 /*
 ===============
 Descriptive text
@@ -1069,6 +1059,10 @@ Descriptive text
 	flex: 0 1 auto;
 }
 
+.image-block p {
+	margin-bottom: 0;
+}
+
 .photo-feed .image-text {
 	background-color: #ffffff;
 	padding: 0.5em 1em 1em 1em;
@@ -1078,6 +1072,8 @@ Descriptive text
 	color: #469a73;
 	margin: 0;
 	font-weight: 100;
+	font-family: 'Noto Sans', sans-serif;
+	text-transform: none;
 }
 
 .image-title a {
@@ -1134,8 +1130,14 @@ Descriptive text
 }
 
 .image-block-footer > .footer-item {
-	display: inline-block;
+	float: left;
 	padding-left: 1.5em;
+}
+
+.image-block-footer .post-category {
+	max-width: 14em;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .footer-item > .fa {
@@ -1324,4 +1326,15 @@ a.scroll-top-btn {
 /* For IE 6/7 (trigger hasLayout) */
 .clearfix {
 	zoom:1;
+}
+
+/* Supports not */
+@supports not (flex-wrap: wrap) {
+	.gallery-section {
+		display: block;
+	}
+
+	.image-block {
+		min-width: 8em;
+	}
 }

@@ -6,15 +6,11 @@
 			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 					<article class="main-content" id="post-<?php the_ID(); ?>" role="article" itemscope itemtype="http://schema.org/BlogPosting">
 						<?php if (has_post_thumbnail()) : ?>
-							<?php the_post_thumbnail(array(250, 250), array('class' => 'profile-pic')); ?>
+							<?php the_post_thumbnail(array(250, 250), array('class' => 'featured-image')); ?>
 						<?php endif; ?>
-
 
 						<header class="post-header">
 							<h2><?php the_title(); ?></h2>
-							<p class="byline vcard"><?php
-								printf(__('Posted <time class="updated" datetime="%1$s" pubdate>%2$s</time> by <span class="author">%3$s</span>.', 'bonestheme'), get_the_time('Y-m-j'), get_the_time(__('F jS, Y', 'bonestheme')), bones_get_the_author_posts_link());
-								?></p>
 						</header>
 
 						<section itemprop="articleBody">
@@ -44,7 +40,7 @@
 						<p><?php _e('Uh Oh. Something is missing. Try double checking things.', 'bonestheme'); ?></p>
 					</section>
 					<footer class="article-footer">
-						<p><?php _e('This is the error message in the index.php template.', 'bonestheme'); ?></p>
+						<p><?php _e('This is the error message in the page.php template.', 'bonestheme'); ?></p>
 					</footer>
 				</article>
 			<?php endif; ?>

@@ -12,7 +12,7 @@ Template Name: Index Page
 						<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 							<article class="main-content" id="post-<?php the_ID(); ?>" role="article">
 								<?php if (has_post_thumbnail()) : ?>
-											<?php the_post_thumbnail(array(250,250), array('class' => 'profile-pic')); ?>
+											<?php the_post_thumbnail(array(250,250), array('class' => 'featured-image')); ?>
 								<?php endif; ?>
 								
 								<header class="post-header">

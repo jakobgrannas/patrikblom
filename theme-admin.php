@@ -1,9 +1,11 @@
 <?php
 // admin_init
-add_action('admin_init', 'pb_admin_init');
+add_action('init', 'pb_init');
+
+// Add custom taxonomy
 add_action('init', 'pb_create_gallery_taxonomies', 0);
 
-function pb_admin_init() {
+function pb_init() {
 	// admin custom columns
 	add_action('manage_posts_custom_column', 'pb_custom_columns');
 	add_filter('manage_edit-gallery_columns', 'pb_add_new_gallery_columns');
