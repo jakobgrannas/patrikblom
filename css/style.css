@@ -593,6 +593,7 @@ a.nav-btn {
 .sort-by-type label {
 	display: block;
 	min-width: 4em;
+	padding-top: 0.3em;
 }
 
 .sort-by-category {
@@ -604,6 +605,7 @@ a.nav-btn {
 	display: inline-block;
 	text-align: left;
 	margin-bottom: 0.6em;
+	padding-top: 0.3em;
 }
 
 /* Type select */

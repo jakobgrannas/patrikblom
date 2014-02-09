@@ -9,22 +9,81 @@
 	$(document).ready(function() {
 		$('#menu-btn').on('click', toggleMenuVisibility);
 		$('#wrapper').on('click', closeMenu);
-		$('.category-list-btn').on('click', toggleElementCollapsed);
 
 		$('#scroll-top-btn').on('click', scrollToTop);
+		
+		$('.category-list-btn').live('click', toggleElementCollapsed);
 
 		$(window).on('resize', hideMobileMenu);
 
-		var photoFeed = document.querySelector('#photo-feed');
+		// Get initial photo set
+		var photoFeed = $('#photo-feed');
 		if (photoFeed) {
-			new Masonry(photoFeed, {
-				itemSelector: '.image-block',
-				isAnimated: !Modernizr.csstransitions,
-				isFitWidth: true,
-				columnWidth: 280
-			});
+			getPhotos();
+		}
+		
+		// Set up filter checkbox listener
+		var sortCheckboxes = $('input[name="terms"]');
+		if(sortCheckboxes) {
+			$(document).on('change','input[name="terms"]', filterPhotos);
 		}
 	});
+	
+	function filterPhotos() {
+		var filterTerms = $('input[name="terms"]:checked').map(function() {
+			return $(this).val();
+		}).get();
+		
+		getTerms(filterTerms, function (scope, content) {
+			$('#photo-feed').html(content);
+		});
+	}
+	
+	function initMasonry (scope, content) {
+		scope.html(content);
+		new Masonry(scope[0], {
+			itemSelector: '.image-block',
+			isAnimated: !Modernizr.csstransitions,
+			isFitWidth: true,
+			columnWidth: 280
+		});
+	}
+	
+	function getPhotos() {
+		// TODO: Check localStorage for previous settings
+		var scope = $('#photo-feed');
+		var prevSorters = localStorage.getItem('image-sort-settings');
+		
+		if(prevSorters) {
+			getTerms(prevSorters, initMasonry, scope);
+		}
+		else {
+			getTerms(null, initMasonry, scope); // TODO: Remove after testing
+		}
+	}
+	
+	function getTerms(terms, successHandler, scope) {
+		// TODO: Add spinner
+		//jQuery("#loading-animation").show();
+		
+		$.ajax({
+			type: 'POST',
+			url: pbAjax.ajaxurl,
+			data: { 
+				action: "load-filter2",
+				taxonomy: 'phototype',
+				postType: 'gallery',
+				terms: terms && terms.length > 0 ? terms : ''
+			},
+			success: function(response) {
+				//$("#loading-animation").hide();
+				//localStorage.setItem('image-sort-settings', terms);
+				if(typeof successHandler === 'function') {
+					successHandler.call(this, scope, response);
+				}
+			}
+		});
+	}
 
 	function toggleMenuVisibility(e) {
 		if (e) {

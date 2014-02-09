@@ -141,6 +141,80 @@ function pb_get_excerpt() {
     return 20;
 }
 
+add_action( 'admin_print_scripts-index.php', 'pb_enqueue_scripts' ); // Dashboard
+add_action( 'admin_print_scripts', 'pb_enqueue_scripts' ); // Admin all
+add_action( 'wp_print_scripts', 'pb_enqueue_scripts' ); // Frontend
+
+function pb_enqueue_scripts() {
+	// This will localize the link for the ajax url to your 'my-script' js file (above). You can retreive it in 'script.js' with 'myAjax.ajaxurl'
+	wp_localize_script( 'base-js', 'pbAjax', array( 'ajaxurl' => admin_url( 'admin-ajax.php' )));
+}
+
+add_action( 'wp_ajax_nopriv_load-filter2', 'prefix_load_term_posts' );
+add_action( 'wp_ajax_load-filter2', 'prefix_load_term_posts' );
+function prefix_load_term_posts() {
+	$terms = $_POST['terms'];
+	$taxonomy = $_POST['taxonomy'];
+	$post_type = $_POST['postType'];
+	$args = array (
+			'posts_per_page' => -1,
+			'order' => 'DESC',
+			'orderby' => 'date',
+			'post_type' => $post_type,
+			'post_status' => 'publish'
+		);
+	
+	if(count($terms) > 0 && $terms !== '') {
+		$args_ext = array (
+			'tax_query' => array(
+				array(
+					'taxonomy' => $taxonomy,
+					'field' => 'name',
+					'terms' => $terms
+				)
+			)
+		);
+		$args = array_merge($args, $args_ext);
+	}
+	
+	global $post;
+	$myposts = get_posts($args);
+	ob_start();
+?>
+
+	<?php foreach ($myposts as $post) : setup_postdata($post); ?>
+	<div class="image-block" id="post-<?php the_ID(); ?>">
+			<?php if (has_post_thumbnail()) : ?>
+				<a href="<?php the_permalink(); ?>" class="image-link"><?php the_post_thumbnail(array(256, 256), array('class' => 'preview-thumbnail')); ?></a>
+			<?php endif; ?>
+			<div class="image-text boxsized">
+				<?php
+				printf(__('<time class="updated date-stamp" datetime="%1$s" pubdate><span class="fa clock-icon"></span>%2$s %3$s</time>', 'bonestheme'), get_the_time('Y-m-j'), human_time_diff(get_the_time('U'), current_time('timestamp')), __('ago', 'patrikblom'));
+				?>
+				<h3 class="image-title"><a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
+				<div class="image-description"><?php the_excerpt(); ?></div>
+			</div>
+			<div class="image-block-footer clearfix">
+				<div class="footer-item num-comments"><span class="fa"></span><a href="<?php echo get_comments_number() > 0 ? get_permalink() . '#comments' : get_permalink(); ?>"><?php echo get_comments_number(); ?></a></div>
+				<div class="footer-item num-likes"><span class="fa"></span><a href="#">-</a></div>
+				<?php $num_terms = count(wp_get_post_terms($post->ID, $taxonomy)); ?>
+				<?php if ($num_terms < 3) : ?>
+					<div class="footer-item post-category"><span class="fa"></span><?php echo get_the_term_list($post->ID, $taxonomy, '', ', '); ?></div>
+				<?php else : ?>
+					<div class="footer-item post-category"><span class="fa"></span><a href="#" class="category-list-btn"><?php echo $num_terms . ' ' . __('tags', 'patrikblom'); ?></a></div>
+					<div class="footer-item post-category-extended"><?php echo get_the_term_list($post->ID, $taxonomy, '', ', '); ?></div>
+				<?php endif; ?>
+			</div>
+		</div>
+	<?php endforeach; ?>
+
+<?php
+	wp_reset_postdata();
+	$response = ob_get_contents();
+	ob_end_clean();
+	echo $response;
+	die(1);
+}
 
 /************* COMMENT LAYOUT *********************/
 
