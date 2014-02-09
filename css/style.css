@@ -1063,6 +1063,10 @@ Descriptive text
 	flex: 0 1 auto;
 }
 
+.image-block .image-link {
+	display: block;
+}
+
 .image-block p {
 	margin-bottom: 0;
 }
@@ -1125,7 +1129,7 @@ Descriptive text
 	border-bottom-right-radius: 5px;
 }
 
-.slide-down {
+.image-block-footer.slide-down {
 	max-height: 10em;
 }
 
@@ -1149,6 +1153,10 @@ Descriptive text
 	max-width: 14em;
 	overflow: hidden;
 	text-overflow: ellipsis;
+}
+
+.image-block-footer .post-category-extended {
+	margin-top: 0.2em;
 }
 
 .footer-item > .fa {

@@ -104,7 +104,7 @@
 			<?php if ($image_query->have_posts()) : while ($image_query->have_posts()) : $image_query->the_post(); ?>
 					<div class="image-block" id="post-<?php the_ID(); ?>">
 						<?php if (has_post_thumbnail()) : ?>
-							<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail(array(256, 256), array('class' => 'preview-thumbnail')); ?></a>
+							<a href="<?php the_permalink(); ?>" class="image-link"><?php the_post_thumbnail(array(256, 256), array('class' => 'preview-thumbnail')); ?></a>
 						<?php endif; ?>
 						<div class="image-text boxsized">
 							<?php
