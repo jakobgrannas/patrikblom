@@ -11,6 +11,7 @@ function pb_init() {
 	add_filter('manage_edit-gallery_columns', 'pb_add_new_gallery_columns');
 	
 	register_post_type('gallery', pb_register_gallery_post_type());
+	flush_rewrite_rules();
 	add_image_size('admin-list-thumb', 40, 40, true); //admin thumbnail
 
 	//add thumbnail images to column
@@ -52,7 +53,7 @@ function pb_register_gallery_post_type () {
 		'hierarchical' => false,
 		'menu_position' => null,
 		'capability_type' => 'post',
-		'supports' => array('title', 'excerpt', 'editor', 'thumbnail'),
+		'supports' => array('title', 'excerpt', 'editor', 'thumbnail', 'comments'),
 		'menu_icon' => 'dashicons-format-gallery'
 	);
 	return $gallery_args;
@@ -61,7 +62,7 @@ function pb_register_gallery_post_type () {
 // Create custom taxonomy
 function pb_create_gallery_taxonomies(){
 	register_taxonomy(
-		'phototype', 'gallery', 
+		'phototype', 'gallery',
 		array(
 			'hierarchical'=> true, 
 			'label' => 'Categories',

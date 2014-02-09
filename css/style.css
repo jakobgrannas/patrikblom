@@ -148,6 +148,10 @@ h1, h2, h3 {
 	display: block !important;
 }
 
+.hidden {
+	display: none;
+}
+
 .bare-link,
 .bare-link:link,
 .bare-link:hover,
@@ -1101,21 +1105,28 @@ Descriptive text
 	text-transform: uppercase;
 }
 
-.date-stamp .calendar-icon {
+.date-stamp .fa {
 	padding-right: 0.7em;
 }
 
 .image-block-footer {
 	background-color: #eee;
 	border-top: 0.1em solid #d6d6d6;
-	padding: 0.5em 0 0 0;
+	padding: 0.5em 0 0.5em;
+	max-height: 2em;
+	-webkit-transition: max-height 350ms ease;
+	-moz-transition: max-height 350ms ease;
+	transition: max-height 350ms ease;
 	overflow: hidden;
-	height: 2.7em;
 	font-size: 0.7em;
 	color: #707070;
 	text-transform: uppercase;
 	border-bottom-left-radius: 5px;
 	border-bottom-right-radius: 5px;
+}
+
+.slide-down {
+	max-height: 10em;
 }
 
 .image-block-footer a {
@@ -1156,7 +1167,6 @@ Descriptive text
 .post-category > .fa:before {
 	content: "\f02b";
 }
-
 
 /*
 ===============

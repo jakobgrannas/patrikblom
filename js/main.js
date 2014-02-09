@@ -9,6 +9,7 @@
 	$(document).ready(function() {
 		$('#menu-btn').on('click', toggleMenuVisibility);
 		$('#wrapper').on('click', closeMenu);
+		$('.category-list-btn').on('click', toggleElementCollapsed);
 
 		$('#scroll-top-btn').on('click', scrollToTop);
 
@@ -67,6 +68,14 @@
 				};
 
 		animateLeft(position);
+	}
+	
+	function toggleElementCollapsed (e) {
+		e.preventDefault();
+		e.stopPropagation();
+		
+		var container = $(e.target).closest('.image-block-footer');
+		container.toggleClass('slide-down');
 	}
 
 	function scrollToTop(e) {
