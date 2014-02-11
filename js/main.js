@@ -23,9 +23,15 @@
 		}
 		
 		// Set up filter checkbox listener
-		var sortCheckboxes = $('input[name="terms"]');
-		if(sortCheckboxes) {
+		var filterCheckboxes = $('input[name="terms"]');
+		if(filterCheckboxes) {
 			$(document).on('change','input[name="terms"]', filterPhotos);
+		}
+		
+		// TODO: Add album filter listener
+		var filterSelectBox = $('.view-as option');
+		if(filterSelectBox) {
+			$(document).on('change', '.view-as', filterPhotos);
 		}
 	});
 	
@@ -34,7 +40,15 @@
 			return $(this).val();
 		}).get();
 		
-		getTerms(filterTerms, function (scope, content) {
+		var filterOption = $('#view-type option:selected').val();
+		    filterOption = parseInt(filterOption);
+				
+		var filters = {
+			terms: filterTerms,
+			includeChildren: filterOption !== NaN ? filterOption : 0
+		}
+		
+		getTerms(filters, function (scope, content) {
 			$('#photo-feed').html(content);
 		});
 	}
@@ -53,18 +67,23 @@
 		// TODO: Check localStorage for previous settings
 		var scope = $('#photo-feed');
 		var prevSorters = localStorage.getItem('image-sort-settings');
+		var data = {};
 		
 		if(prevSorters) {
-			getTerms(prevSorters, initMasonry, scope);
+			data.terms = prevSorters;
+			getTerms(data, initMasonry, scope);
 		}
 		else {
-			getTerms(null, initMasonry, scope); // TODO: Remove after testing
+			data.terms = null;
+			getTerms(data, initMasonry, scope); // TODO: Remove after testing
 		}
 	}
 	
-	function getTerms(terms, successHandler, scope) {
+	function getTerms(filters,  successHandler, scope) {
 		// TODO: Add spinner
 		//jQuery("#loading-animation").show();
+		
+		console.log(filters);
 		
 		$.ajax({
 			type: 'POST',
@@ -73,7 +92,8 @@
 				action: "load-filter2",
 				taxonomy: 'phototype',
 				postType: 'gallery',
-				terms: terms && terms.length > 0 ? terms : ''
+				includeChildren: filters.includeChildren === 1 ? 1 : 0, // Use true if not explicitly set to false
+				terms: filters.terms && filters.terms.length > 0 ? filters.terms : ''
 			},
 			success: function(response) {
 				//$("#loading-animation").hide();

@@ -13,8 +13,8 @@
 
 				<div class="select-container">
 					<select id="view-type" class="view-as">
-						<option>Album</option>
-						<option>Alla bilder</option>
+						<option value="0">Album</option>
+						<option value="1">Alla bilder</option>
 					</select>
 					<span class="fa drop-down-trigger"></span>
 				</div>

@@ -155,6 +155,7 @@ add_action( 'wp_ajax_load-filter2', 'prefix_load_term_posts' );
 function prefix_load_term_posts() {
 	$terms = $_POST['terms'];
 	$taxonomy = $_POST['taxonomy'];
+	$include_children = $_POST['includeChildren'];
 	$post_type = $_POST['postType'];
 	$args = array (
 			'posts_per_page' => -1,
@@ -164,19 +165,20 @@ function prefix_load_term_posts() {
 			'post_status' => 'publish'
 		);
 	
-	if(count($terms) > 0 && $terms !== '') {
+	if(count($terms) > 0 && $terms !== '') {		
 		$args_ext = array (
 			'tax_query' => array(
 				array(
 					'taxonomy' => $taxonomy,
 					'field' => 'name',
-					'terms' => $terms
+					'terms' => $terms,
+					'include_children' => $include_children
 				)
 			)
 		);
 		$args = array_merge($args, $args_ext);
 	}
-	
+		
 	global $post;
 	$myposts = get_posts($args);
 	ob_start();
