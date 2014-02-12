@@ -4,7 +4,8 @@
 		wrapperEl: $('#wrapper'),
 		menuBtn: $('#menu-btn'),
 		menuEl: $('#main-nav'),
-		menuClosedCls: 'menu-closed'
+		menuClosedCls: 'menu-closed',
+		masonryEl: ''
 	};
 	$(document).ready(function() {
 		$('#menu-btn').on('click', toggleMenuVisibility);
@@ -46,26 +47,36 @@
 		var filters = {
 			terms: filterTerms,
 			includeChildren: filterOption !== NaN ? filterOption : 0
-		}
+		};
 		
 		getTerms(filters, function (scope, content) {
-			$('#photo-feed').html(content);
+			var feed = $('#photo-feed');
+			feed.html(content);
+			
+			// Fix to make masonry properly calculate its height
+			var children = $('.image-block');
+			feed.imagesLoaded(function () {
+				config.masonryEl.prepended(children);
+			});
 		});
 	}
 	
 	function initMasonry (scope, content) {
 		scope.html(content);
-		new Masonry(scope[0], {
-			itemSelector: '.image-block',
-			isAnimated: !Modernizr.csstransitions,
-			isFitWidth: true,
-			columnWidth: 280
+		scope.imagesLoaded(function() {
+			config.masonryEl = new Masonry(scope[0], {
+				itemSelector: '.image-block',
+				isAnimated: !Modernizr.csstransitions,
+				isFitWidth: true,
+				containerStyle: null,
+				columnWidth: 280
+			});
 		});
 	}
 	
 	function getPhotos() {
-		// TODO: Check localStorage for previous settings
 		var scope = $('#photo-feed');
+		// TODO: Add localStorage handling - check checkboxes etc
 		var prevSorters = localStorage.getItem('image-sort-settings');
 		var data = {};
 		
@@ -75,15 +86,19 @@
 		}
 		else {
 			data.terms = null;
-			getTerms(data, initMasonry, scope); // TODO: Remove after testing
+			getTerms(data, initMasonry, scope);
 		}
 	}
 	
 	function getTerms(filters,  successHandler, scope) {
-		// TODO: Add spinner
+		// TODO: Add spinner beforeSend?
 		//jQuery("#loading-animation").show();
 		
 		console.log(filters);
+		
+		var errorHandler = function () {
+			$('#images-not-found').removeClass('hidden');
+		};
 		
 		$.ajax({
 			type: 'POST',
@@ -98,10 +113,19 @@
 			success: function(response) {
 				//$("#loading-animation").hide();
 				//localStorage.setItem('image-sort-settings', terms);
-				if(typeof successHandler === 'function') {
-					successHandler.call(this, scope, response);
+				if(response && response.toString().length > 0) {
+					if(typeof successHandler === 'function') {
+						successHandler.call(this, scope, response);
+					}
+					else {
+						$('#photo-feed').html(response);
+					}
 				}
-			}
+				else {
+					errorHandler();
+				}
+			},
+			error: errorHandler
 		});
 	}
 

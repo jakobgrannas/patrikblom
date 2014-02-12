@@ -157,16 +157,20 @@ function prefix_load_term_posts() {
 	$taxonomy = $_POST['taxonomy'];
 	$include_children = $_POST['includeChildren'];
 	$post_type = $_POST['postType'];
+	
+	if(count($terms) == 0 || $terms == '') {
+		$terms = get_terms($taxonomy, array (
+			'fields' => 'names',
+			'parent' => $include_children == 0 ? 0 : ''
+		));
+	}
+	
 	$args = array (
 			'posts_per_page' => -1,
 			'order' => 'DESC',
 			'orderby' => 'date',
 			'post_type' => $post_type,
-			'post_status' => 'publish'
-		);
-	
-	if(count($terms) > 0 && $terms !== '') {		
-		$args_ext = array (
+			'post_status' => 'publish',
 			'tax_query' => array(
 				array(
 					'taxonomy' => $taxonomy,
@@ -176,8 +180,6 @@ function prefix_load_term_posts() {
 				)
 			)
 		);
-		$args = array_merge($args, $args_ext);
-	}
 		
 	global $post;
 	$myposts = get_posts($args);

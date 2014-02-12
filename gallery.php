@@ -13,8 +13,8 @@
 
 				<div class="select-container">
 					<select id="view-type" class="view-as">
-						<option value="0">Album</option>
-						<option value="1">Alla bilder</option>
+						<option value="0" selected="selected"><?php _e('Album', 'patrikblom'); ?></option>
+						<option value="1"><?php _e('Alla bilder', 'patrikblom'); ?></option>
 					</select>
 					<span class="fa drop-down-trigger"></span>
 				</div>
@@ -85,9 +85,9 @@
 
 	<div class="section">
 		<div class="centered-inner photo-feed js-masonry flexed" id="photo-feed">
-			<article id="post-not-found" class="hentry clearfix">
+			<article id="images-not-found" class="hentry clearfix hidden">
 				<header class="article-header">
-					<h1><?php _e('Oops, Post(s) Not Found!', 'bonestheme'); ?></h1>
+					<h1><?php _e('Oops, Images(s) Not Found!', 'bonestheme'); ?></h1>
 				</header>
 				<section class="entry-content">
 					<p><?php _e('Uh Oh. Something is missing. Try double checking things.', 'bonestheme'); ?></p>
