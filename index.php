@@ -14,9 +14,7 @@ Template Name: Index Page
 							$gallery_IDs = array(); 
 							if ( get_post_gallery() ) {
 								$gallery = get_post_gallery( get_the_ID(), false );
-								$gallery_IDs = array_map('intval', explode(',', $gallery['ids']));
-
-								echo $gallery_IDs;
+								$gallery_IDs = $gallery['ids'];
 							}
 						?>
 							<article class="main-content" id="post-<?php the_ID(); ?>" role="article">
@@ -57,50 +55,10 @@ Template Name: Index Page
 						<span class="separator-line"></span>
 					</div>
 				</div>
-				<?php
-					if(count($gallery_IDs) > 0) :
-						
-						$attachments = get_posts(array(
-							'post_type' => 'attachment'
-						));
-						//$att_query = "SELECT post_parent FROM posts WHERE ID = " . ;
-						//$post_parents = $wpdb->get_results($att_query);
-						//echo '<pre>'; print_r($attachments); echo '</pre>';
-						$parents = array();
-								
-						foreach($attachments as $attachment) : setup_postdata($attachment);
-							array_push($parents, $attachment->post_parent);
-						endforeach;
-								
-						//print_r($parents);
-								
-								
-						wp_reset_postdata();
-						$gq = new WP_Query(array(
-							'post_per_page' => -1,
-							'post_status' => 'publish',
-							'post_type' => 'any', // TODO: Exclude index page
-							'ignore_sticky_posts' => 1,
-							'post__in' => $parents
-						));								
+				<?php 
+					if(isset($gallery_IDs) && !empty($gallery_IDs)) {
+						echo do_shortcode('[pb_gallery image_ids=' . $gallery_IDs . ']');
+					}
 				?>
-					<div class="section">
-						<div class="centered-inner gallery-section">
-
-							<?php if ($gq->have_posts()) : while ($gq->have_posts()) : $gq->the_post(); ?>
-								<a href="<?php the_permalink(); ?>" class="image-block">
-									<span class="preview-overlay"><span class="fa search-plus-icon"></span></span>
-									<?php the_post_thumbnail(array(180, 180), array('class' => 'preview-thumbnail')); ?>
-								</a>
-							<?php endwhile; ?>
-							<div class="button-row">
-								<a href="<?php echo home_url('/gallery'); ?>" class="btn btn-default btn-big"><?php _e('Hela galleriet', 'patrikblom'); ?></a>
-							</div>
-							<?php endif; ?>
-							<?php wp_reset_postdata(); ?>
-							
-						</div>
-					</div>
-				<?php endif; ?>
 			</main>
 <?php get_footer(); ?>

@@ -145,6 +145,64 @@ function pb_get_excerpt() {
 add_image_size('pb-gallery-thumb', 180, 180, true);
 
 /**
+ * Registers a custom gallery shortcode
+ * Gets the configured post gallery with permalinks to the
+ * to the associated gallery post
+ */
+add_shortcode('pb_gallery', 'register_gallery_shortcode');
+function register_gallery_shortcode($attr) {
+    $post = get_post();
+	$parents = array();
+	
+	extract(shortcode_atts(array(
+		'id'         => $post->ID,
+		'image_ids'  => '',
+		'include'    => '',
+		'exclude'    => ''
+	), $attr));
+	
+	$attachments = get_posts(array(
+		'post_type' => 'attachment',
+		'post__in' => array_map('intval', explode(',', $attr['image_ids']))
+	));
+
+	foreach ($attachments as $attachment) {
+		array_push($parents, $attachment->post_parent);
+	}
+	wp_reset_postdata();
+	
+	$gq = new WP_Query(array(
+		'post_per_page' => -1,
+		'post_status' => 'publish',
+		'post_type' => 'any',
+		'exclude' => $post->ID,
+		'ignore_sticky_posts' => 1,
+		'post__in' => $parents
+	));
+	ob_start();
+?>
+	<div class="section">
+		<div class="centered-inner gallery-section">
+			<?php if ($gq->have_posts()) : while ($gq->have_posts()) : $gq->the_post(); ?>
+				<a href="<?php the_permalink(); ?>" class="image-block">
+					<span class="preview-overlay"><span class="fa search-plus-icon"></span></span>
+					<?php the_post_thumbnail('pb-gallery-thumb', array('class' => 'preview-thumbnail')); ?>
+				</a>
+				<?php endwhile; ?>
+				<div class="button-row">
+					<a href="<?php echo home_url('/gallery'); ?>" class="btn btn-default btn-big"><?php _e('Hela galleriet', 'patrikblom'); ?></a>
+				</div>
+			<?php endif; ?>							
+		</div>
+	</div>
+<?php
+	wp_reset_postdata();
+	$response = ob_get_contents();
+	ob_end_clean();
+	return $response;
+}
+
+/**
  * Gets post based on filters supplied via AJAX
  * TODO: Refactor!!!
  */
@@ -193,9 +251,8 @@ function prefix_load_term_posts() {
 	$myposts = get_posts($args);
 	ob_start();
 ?>
-
-	<?php foreach ($myposts as $post) : setup_postdata($post); ?>
-	<div class="image-block" id="post-<?php the_ID(); ?>">
+<?php foreach ($myposts as $post) : setup_postdata($post); ?>
+		<div class="image-block" id="post-<?php the_ID(); ?>">
 			<?php if (has_post_thumbnail()) : ?>
 				<a href="<?php the_permalink(); ?>" class="image-link"><?php the_post_thumbnail(array(256, 256), array('class' => 'preview-thumbnail')); ?></a>
 			<?php endif; ?>
@@ -218,7 +275,7 @@ function prefix_load_term_posts() {
 				<?php endif; ?>
 			</div>
 		</div>
-	<?php endforeach; ?>
+<?php endforeach; ?>
 
 <?php
 	wp_reset_postdata();
