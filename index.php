@@ -10,6 +10,15 @@ Template Name: Index Page
 				<div class="section">
 					<div class="centered-inner">
 						<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+						<?php
+							$gallery_IDs = array(); 
+							if ( get_post_gallery() ) {
+								$gallery = get_post_gallery( get_the_ID(), false );
+								$gallery_IDs = array_map('intval', explode(',', $gallery['ids']));
+
+								echo $gallery_IDs;
+							}
+						?>
 							<article class="main-content" id="post-<?php the_ID(); ?>" role="article">
 								<?php if (has_post_thumbnail()) : ?>
 											<?php the_post_thumbnail(array(250,250), array('class' => 'featured-image')); ?>
@@ -20,7 +29,7 @@ Template Name: Index Page
 								</header>
 
 								<section>
-									<?php the_content(); ?>
+									<?php echo strip_shortcodes(get_the_content()); ?>
 								</section>
 							</article>
 						<?php endwhile; ?>
@@ -37,9 +46,10 @@ Template Name: Index Page
 								</footer>
 							</article>
 						<?php endif; ?>
+						<?php wp_reset_postdata(); ?>
 					</div>
 				</div>
-
+	
 				<div class="section">
 					<div class="separator">
 						<span class="separator-line"></span>
@@ -47,38 +57,50 @@ Template Name: Index Page
 						<span class="separator-line"></span>
 					</div>
 				</div>
+				<?php
+					if(count($gallery_IDs) > 0) :
+						
+						$attachments = get_posts(array(
+							'post_type' => 'attachment'
+						));
+						//$att_query = "SELECT post_parent FROM posts WHERE ID = " . ;
+						//$post_parents = $wpdb->get_results($att_query);
+						//echo '<pre>'; print_r($attachments); echo '</pre>';
+						$parents = array();
+								
+						foreach($attachments as $attachment) : setup_postdata($attachment);
+							array_push($parents, $attachment->post_parent);
+						endforeach;
+								
+						//print_r($parents);
+								
+								
+						wp_reset_postdata();
+						$gq = new WP_Query(array(
+							'post_per_page' => -1,
+							'post_status' => 'publish',
+							'post_type' => 'any', // TODO: Exclude index page
+							'ignore_sticky_posts' => 1,
+							'post__in' => $parents
+						));								
+				?>
+					<div class="section">
+						<div class="centered-inner gallery-section">
 
-				<div class="section">
-					<div class="centered-inner gallery-section">
-						<a href="#" class="image-block">
-							<span class="preview-overlay"><span class="fa search-plus-icon"></span></span>
-							<img src="<?php echo get_template_directory_uri(); ?>/images/patrik.jpg" width="100%" height="100%" class="preview-thumbnail">
-						</a>
-						<a href="#" class="image-block">
-							<span class="preview-overlay"><span class="fa search-plus-icon"></span></span>
-							<img src="<?php echo get_template_directory_uri(); ?>/images/patrik.jpg" width="100%" height="100%" class="preview-thumbnail">
-						</a>
-						<a href="#" class="image-block">
-							<span class="preview-overlay"><span class="fa search-plus-icon"></span></span>
-							<img src="<?php echo get_template_directory_uri(); ?>/images/patrik.jpg" width="100%" height="100%" class="preview-thumbnail">
-						</a>
-						<a href="#" class="image-block">
-							<span class="preview-overlay"><span class="fa search-plus-icon"></span></span>
-							<img src="<?php echo get_template_directory_uri(); ?>/images/patrik.jpg" width="100%" height="100%" class="preview-thumbnail">
-						</a>
-						<a href="#" class="image-block">
-							<span class="preview-overlay"><span class="fa search-plus-icon"></span></span>
-							<img src="<?php echo get_template_directory_uri(); ?>/images/patrik.jpg" width="100%" height="100%" class="preview-thumbnail">
-						</a>
-						<a href="#" class="image-block">
-							<span class="preview-overlay"><span class="fa search-plus-icon"></span></span>
-							<img src="<?php echo get_template_directory_uri(); ?>/images/patrik.jpg" width="100%" height="100%" class="preview-thumbnail">
-						</a>
-						<div class="button-row">
-							<button class="btn btn-default btn-big">Hela galleriet</button>
+							<?php if ($gq->have_posts()) : while ($gq->have_posts()) : $gq->the_post(); ?>
+								<a href="<?php the_permalink(); ?>" class="image-block">
+									<span class="preview-overlay"><span class="fa search-plus-icon"></span></span>
+									<?php the_post_thumbnail(array(180, 180), array('class' => 'preview-thumbnail')); ?>
+								</a>
+							<?php endwhile; ?>
+							<div class="button-row">
+								<a href="<?php echo home_url('/gallery'); ?>" class="btn btn-default btn-big"><?php _e('Hela galleriet', 'patrikblom'); ?></a>
+							</div>
+							<?php endif; ?>
+							<?php wp_reset_postdata(); ?>
+							
 						</div>
 					</div>
-				</div>
+				<?php endif; ?>
 			</main>
-
 <?php get_footer(); ?>

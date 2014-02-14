@@ -8,7 +8,6 @@ Breakpoints
 /* Front page images */
 @media all and (max-width: 25em) {
 	.image-block {
-		width: 100%;
 		margin-right:0;
 	}
 	
@@ -31,12 +30,6 @@ Breakpoints
 	}
 }
 
-@media all and (min-width: 25em) and (max-width: 40.5em) {
-	.image-block {
-		width: 40%;
-	}
-}
-
 /* General layout */
 @media all and (min-width: 40.5em) {
 	.sort-by-type,
@@ -51,14 +44,6 @@ Breakpoints
 
 	.sort-by-type {
 		margin-right: 2.5em;
-	}
-
-	.image-block .preview-overlay {
-		font-size: 2.2em;
-	}
-
-	.image-block .search-plus-icon {
-		top: 43%;
 	}
 
 	.separator {

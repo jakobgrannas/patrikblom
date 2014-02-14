@@ -141,6 +141,14 @@ function pb_get_excerpt() {
     return 20;
 }
 
+// Add index thumb image size
+add_image_size('pb-gallery-thumb', 180, 180, true);
+
+/**
+ * Gets post based on filters supplied via AJAX
+ * TODO: Refactor!!!
+ */
+
 add_action( 'admin_print_scripts-index.php', 'pb_enqueue_scripts' ); // Dashboard
 add_action( 'admin_print_scripts', 'pb_enqueue_scripts' ); // Admin all
 add_action( 'wp_print_scripts', 'pb_enqueue_scripts' ); // Frontend
