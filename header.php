@@ -54,8 +54,7 @@
 
 		<nav class="boxsized main-menu animate menu-right menu-closed" id="main-nav">
 			<div class="boxsized search-field-container">
-				<input type="text" id="search" class="search-field" name="search" placeholder="search...">
-				<button class="btn search-btn"><span class="fa search-icon"></span></button>
+				<?php get_search_form(); ?>
 			</div>
 			<?php
 			$defaults = array(

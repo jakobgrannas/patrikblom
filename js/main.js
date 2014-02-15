@@ -19,19 +19,19 @@
 
 		// Get initial photo set
 		var photoFeed = $('#photo-feed');
-		if (photoFeed) {
+		if (photoFeed.length > 0) {
 			getPhotos();
 		}
 		
 		// Set up filter checkbox listener
 		var filterCheckboxes = $('input[name="terms"]');
-		if(filterCheckboxes) {
+		if(filterCheckboxes.length > 0) {
 			$(document).on('change','input[name="terms"]', filterPhotos);
 		}
 		
 		// TODO: Add album filter listener
 		var filterSelectBox = $('.view-as option');
-		if(filterSelectBox) {
+		if(filterSelectBox.length > 0) {
 			$(document).on('change', '.view-as', filterPhotos);
 		}
 	});
