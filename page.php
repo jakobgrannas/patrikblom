@@ -10,7 +10,7 @@
 						<?php endif; ?>
 
 						<header class="post-header">
-							<h2><?php the_title(); ?></h2>
+							<h1 class="post-title"><?php the_title(); ?></h1>
 						</header>
 
 						<section itemprop="articleBody">
@@ -19,7 +19,6 @@
 
 						<footer class="article-footer">
 							<?php the_tags('<span class="tags">' . __('Tags:', 'bonestheme') . '</span> ', ', ', ''); ?>
-
 						</footer>
 						
 						<div class="separator">
@@ -34,7 +33,7 @@
 			<?php else : ?>
 				<article id="post-not-found" class="hentry clearfix">
 					<header class="article-header">
-						<h1><?php _e('Oops, Post Not Found!', 'bonestheme'); ?></h1>
+						<h1 class="title"><?php _e('Oops, Post Not Found!', 'bonestheme'); ?></h1>
 					</header>
 					<section class="entry-content">
 						<p><?php _e('Uh Oh. Something is missing. Try double checking things.', 'bonestheme'); ?></p>

@@ -80,12 +80,12 @@
 						<a href="#" class="nav-btn menu-btn close-menu-btn"><span class="fa menu-icon"></span></a>
 
 						<div class="logo-container">
-							<h1 class="logo">
+							<div class="logo">
 								<a href="<?php echo home_url(); ?>" class="bare-link" rel="nofollow">
 									<span class="row1">Patrik</span>
 									<span class="row2">Blom</span>
 								</a>
-							</h1>
+							</div>
 						</div>
 						
 						<div class="boxsized search-field-container">

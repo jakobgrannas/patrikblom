@@ -396,6 +396,11 @@ a.btn:hover {
 	z-index: 10;
 }
 
+.banner .logo {
+	font-size: 2em;
+	letter-spacing: 0.05em;
+}
+
 
 .banner-inner-container .inner {
 	height: inherit;
@@ -719,7 +724,7 @@ a.nav-btn {
 	text-align: center;
 }
 
-.post-header h2 {
+.post-title {
 	font-size: 2em;
 	line-height: 1.2em;
 	padding: 1em 0 0.3em 0;
@@ -1055,8 +1060,12 @@ a.nav-btn {
 .button-row .btn {
 	margin: 0 auto;
 	display: block;
-	width: 9em;
+	min-width: 9em;
 	text-align: center;
+}
+
+.gallery-section .button-row .btn {
+	width: 9em;
 }
 
 /*
