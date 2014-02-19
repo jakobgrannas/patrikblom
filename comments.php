@@ -20,24 +20,28 @@ The comments page for Bones
 
 <?php if ( have_comments() ) : ?>
 	<h3 id="comments" class="h3 centered-header"><?php comments_number( __( '<span>No</span> comments', 'bonestheme' ), __( '<span>1</span> comment', 'bonestheme' ), _n( '<span>%</span> comments', '<span>%</span> comments', get_comments_number(), 'bonestheme' ) );?></h3>
-
+	
+	<?php if (is_paged()) : ?>
 	<nav id="comment-nav">
 		<ul class="clearfix">
 				<li><?php previous_comments_link() ?></li>
 				<li><?php next_comments_link() ?></li>
 		</ul>
 	</nav>
+	<?php endif; ?>
 
 	<ol class="commentlist">
 		<?php wp_list_comments( 'type=comment&callback=bones_comments' ); ?>
 	</ol>
 
+	<?php if (is_paged()) : ?>
 	<nav id="comment-nav">
 		<ul class="clearfix">
 				<li><?php previous_comments_link() ?></li>
 				<li><?php next_comments_link() ?></li>
 		</ul>
 	</nav>
+	<?php endif; ?>
 
 	<?php else : // this is displayed if there are no comments so far ?>
 
