@@ -13,10 +13,10 @@ function init_scripts_and_styles() {
 		
 		wp_register_script('jquery', '//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js', '', true );
 		wp_register_script('base-js', get_stylesheet_directory_uri() . '/js/main.js', array( 'jquery' ), '', true );
-		wp_register_script('masonry', get_stylesheet_directory_uri() . '/js/vendor/masonry.pkgd.min.js', array( 'jquery' ), '', true );
-		wp_register_script('images-loaded', get_stylesheet_directory_uri() . '/js/vendor/imagesloaded.pkgd.min.js', array( 'jquery' ), '', true );
+		wp_register_script('masonry', '//cdnjs.cloudflare.com/ajax/libs/masonry/3.1.2/masonry.pkgd.js', array( 'jquery' ), '', true );
+		wp_register_script('images-loaded', '//cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/3.0.4/jquery.imagesloaded.min.js', array( 'jquery' ), '', true );
 		
-		wp_register_style('base-normalize', get_stylesheet_directory_uri() . '/css/vendor/normalize.min.css', array(), '', 'all');
+		wp_register_style('base-normalize', '//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.0/normalize.min.css', array(), '', 'all');
 		wp_register_style('theme-stylesheet', get_stylesheet_directory_uri() . '/css/style.css', array('base-normalize'), '', 'all');
 		wp_register_style('theme-enhanced-styles', get_stylesheet_directory_uri() . '/css/enhance.css', array('theme-stylesheet'), '', 'all');
 		
