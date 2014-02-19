@@ -17,7 +17,7 @@ class pb_widget extends WP_Widget {
 		$title = apply_filters( 'widget_title', $instance['title'] );
 		$text = apply_filters( 'widget_text', $instance['text']);
 		$class_name = isset($instance['class_name']) ? $instance['class_name'] : '';
-		$hide_title = isset($instance['hide_title']) ? $instance['hide_title'] : 0;
+		$show_title = isset($instance['show_title']) ? $instance['show_title'] : 0;
 		
 		//	Add custom classes to class list
 		$class_names = ltrim($args['class'] . ' ' . $class_name . ' ');
@@ -25,7 +25,7 @@ class pb_widget extends WP_Widget {
 		
 		// before and after widget arguments are defined by themes
 		echo $before_widget;
-		if ( ! empty( $title ) && !$hide_title)
+		if ( ! empty( $title ) && $show_title)
 			echo $args['before_title'] . $title . $args['after_title'];
 		if (!empty($text))
 			echo $text;
@@ -37,7 +37,7 @@ class pb_widget extends WP_Widget {
 	// Widget Backend 
 	public function form( $instance ) {
 		$title = isset($instance['title']) ? $instance['title'] : '';
-		$hide_title = isset($instance['hide_title']) ? $instance['hide_title'] : 0;
+		$show_title = isset($instance['show_title']) ? $instance['show_title'] : 0;
 		$text = isset($instance['text']) ? $instance['text'] : '';
 		$class_name = isset($instance['class_name']) ? $instance['class_name'] : '';
 		$class_name_place_holder = __('Eg. myClass or myClass1 myClass2', 'patrikblom');
@@ -48,8 +48,8 @@ class pb_widget extends WP_Widget {
 				   type="text" value="<?php echo esc_attr( $title ); ?>" />
 		</p>
 		<p>
-			<input type="checkbox" id="<?php echo $this->get_field_id( 'hide_title' ); ?>" name="<?php echo $this->get_field_name( 'hide_title' ); ?>" value="1" <?php checked('1', $hide_title); ?> />
-			<label for="<?php echo $this->get_field_id( 'hide_title' ); ?>"><?php _e( 'Hide title' ); ?></label>
+			<input type="checkbox" id="<?php echo $this->get_field_id( 'show_title' ); ?>" name="<?php echo $this->get_field_name( 'show_title' ); ?>" value="1" <?php checked('1', $show_title); ?> />
+			<label for="<?php echo $this->get_field_id( 'show_title' ); ?>"><?php _e( 'Show title' ); ?></label>
 		</p>
 		<p>
 			<textarea class="widefat" rows="16" cols="16" id="<?php echo $this->get_field_id( 'text' ); ?>" name="<?php echo $this->get_field_name( 'text' ); ?>"><?php echo esc_attr( $text ); ?></textarea>
@@ -68,7 +68,7 @@ class pb_widget extends WP_Widget {
 		$instance['title'] = ( ! empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
 		$instance['text'] = ( ! empty( $new_instance['text'] ) ) ? $new_instance['text'] : '';
 		$instance['class_name'] = ( ! empty( $new_instance['class_name'] ) ) ? strip_tags( $new_instance['class_name'] ) : '';
-		$instance['hide_title'] =  !empty( $new_instance['hide_title'] ) ? $new_instance['hide_title'] : 0;
+		$instance['show_title'] =  !empty( $new_instance['show_title'] ) ? $new_instance['show_title'] : 0;
 		return $instance;
 	}
 }

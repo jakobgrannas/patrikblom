@@ -53,7 +53,7 @@ if ( function_exists('register_sidebar') ) {
        'name'=> __('Footer', 'patrikblom'),
        'before_widget' => '<div class="footer-block widget %2$s" id=%1$s">',
        'after_widget' => '</div>',
-       'before_title' => '<h4 class="widgettitle">',
+       'before_title' => '<h4 class="widget-title">',
        'after_title' => '</h4>',
    ));
 }

@@ -1253,12 +1253,16 @@ Descriptive text
 }
 
 
-.footer-block{
+.footer-block {
 	width: 100%;
 	border-bottom: 1px solid #4c4c4c;
 	padding-bottom: 2em;
 	margin-bottom: 2em;
 	display: inline-block;
+}
+
+.footer-block .widget-title {
+	margin: 0 0 1em 0;
 }
 
 /* Communication */
