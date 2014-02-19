@@ -3,6 +3,8 @@ add_action( 'after_setup_theme', 'init_theme', 17 );
 
 function init_theme() {
 	add_action( 'wp_enqueue_scripts', 'init_scripts_and_styles', 999 );
+	
+	pb_add_gallery_page();
 }
 
 function init_scripts_and_styles() {
@@ -23,4 +25,35 @@ function init_scripts_and_styles() {
 		wp_enqueue_script('masonry');
 		wp_enqueue_script('images-loaded');
 	}
+}
+
+function pb_add_gallery_page () {
+	if (isset($_GET['activated']) && is_admin()) {
+		$page_title = 'Gallery';
+		$page_template = 'gallery.php';
+		$page_check = get_page_by_title($page_title);
+		$new_page = array(
+			'post_type' => 'page',
+			'post_title' => $page_title,
+			'post_content' => '',
+			'post_status' => 'publish',
+			'post_author' => 1,
+		);
+		if (!isset($page_check->ID)) {
+			$new_page_id = wp_insert_post($new_page);
+			if (!empty($page_template)) {
+				update_post_meta($new_page_id, '_wp_page_template', $page_template);
+			}
+		}
+	}
+}
+
+if ( function_exists('register_sidebar') ) {
+   register_sidebar(array(
+       'name'=> __('Footer', 'patrikblom'),
+       'before_widget' => '<div class="footer-block widget %2$s" id=%1$s">',
+       'after_widget' => '</div>',
+       'before_title' => '<h4 class="widgettitle">',
+       'after_title' => '</h4>',
+   ));
 }

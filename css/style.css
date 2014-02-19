@@ -75,9 +75,13 @@ button, input, select, textarea {
 }
 
 a,
-a:link,
-a:visited {
+a:link {
 	color: #469a73;
+}
+
+a:visited {
+	color: #9d0a2d;
+	border-color: #9d0a2d;
 }
 
 a {
@@ -85,7 +89,7 @@ a {
 }
 
 a:hover {
-	color: inherit;
+	color: #469a73;
 	text-decoration: none;
 }
 

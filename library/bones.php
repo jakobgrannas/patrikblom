@@ -39,8 +39,6 @@ function bones_ahoy() {
 	// launching this stuff after theme setup
 	bones_theme_support();
 
-	// adding sidebars to Wordpress (these are created in functions.php)
-	add_action( 'widgets_init', 'bones_register_sidebars' );
 	// adding the bones search form (created in functions.php)
 
 	// cleaning up random code around images
