@@ -9,6 +9,9 @@ function init_theme() {
 
 function init_scripts_and_styles() {
 	if (!is_admin()) {
+		wp_deregister_script('jquery');
+		
+		wp_register_script('jquery', '//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js', '', true );
 		wp_register_script('base-js', get_stylesheet_directory_uri() . '/js/main.js', array( 'jquery' ), '', true );
 		wp_register_script('masonry', get_stylesheet_directory_uri() . '/js/vendor/masonry.pkgd.min.js', array( 'jquery' ), '', true );
 		wp_register_script('images-loaded', get_stylesheet_directory_uri() . '/js/vendor/imagesloaded.pkgd.min.js', array( 'jquery' ), '', true );

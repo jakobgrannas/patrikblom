@@ -13,7 +13,7 @@
 
 		$('#scroll-top-btn').on('click', scrollToTop);
 		
-		$('.category-list-btn').live('click', toggleElementCollapsed);
+		$(document).on('click', '.category-list-btn', toggleElementCollapsed);
 
 		$(window).on('resize', hideMobileMenu);
 
@@ -23,13 +23,13 @@
 			getPhotos();
 		}
 		
-		// Set up filter checkbox listener
+		// Set up checkbox filterlistener
 		var filterCheckboxes = $('input[name="terms"]');
 		if(filterCheckboxes.length > 0) {
 			$(document).on('change','input[name="terms"]', filterPhotos);
 		}
 		
-		// TODO: Add album filter listener
+		// Set up selectbox filter listener
 		var filterSelectBox = $('.view-as option');
 		if(filterSelectBox.length > 0) {
 			$(document).on('change', '.view-as', filterPhotos);

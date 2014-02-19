@@ -129,18 +129,9 @@ function bones_scripts_and_styles() {
 			wp_enqueue_script( 'comment-reply' );
 		}
 
-		//adding scripts file in the footer
-		wp_register_script( 'bones-js', get_stylesheet_directory_uri() . '/library/js/scripts.js', array( 'jquery' ), '', true );
-
 		// enqueue styles and scripts
 		wp_enqueue_script( 'bones-modernizr' );
 
-		/*
-		I recommend using a plugin to call jQuery
-		using the google cdn. That way it stays cached
-		and your site will load faster.
-		*/
-		wp_enqueue_script( 'jquery' );
 		wp_enqueue_script( 'bones-js' );
 
 	}
