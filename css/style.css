@@ -491,7 +491,6 @@ a.nav-btn {
 	transform: translate3d(-15em,0,0);
 }
 
-/* Testing */
 .main-nav-open {
 	position: relative !important;
 	width: auto !important;
@@ -884,6 +883,10 @@ a.nav-btn {
 	margin-bottom: 1em;
 }
 
+.comment .children {
+	padding-left: 1em;
+}
+
 .comment .avatar {
 	border-radius: 50%;
 	border: 0.25em solid white;
@@ -898,9 +901,10 @@ a.nav-btn {
 
 .comment .datetime {
 	float: right;
-	font-size: 0.8em;
+	font-size: 0.65em;
 	margin-top: 0.3em;
 	color: #999;
+	text-transform: uppercase;
 }
 
 .comment .clock-icon {
@@ -930,6 +934,7 @@ a.nav-btn {
 	background: white;
 	box-shadow: 1px 1px 0 0 #dcdcdc;
 	padding: 0.6em;
+	font-size: 0.8em;
 }
 
 .comment-content p {
@@ -953,7 +958,7 @@ a.nav-btn {
 .comment-link {
 	list-style: none;
 	display: inline-block;
-	margin-right: 1em;
+	margin-right: 0.6em;
 }
 
 .comment-link .fa {

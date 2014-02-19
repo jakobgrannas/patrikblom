@@ -163,7 +163,8 @@ Breakpoints
 	}
 
 	.menu-items a:hover,
-	.menu-items a:active {
+	.menu-items a:active,
+	.menu-items .current_page_item {
 		border-bottom: 0.15em dotted rgb(255,255,255);
 		border-bottom: 0.15em dotted rgba(255,255,255,0.5);
 	}
