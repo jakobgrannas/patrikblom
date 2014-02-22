@@ -19,7 +19,7 @@ Template Name: Index Page
 						?>
 							<article class="main-content" id="post-<?php the_ID(); ?>" role="article">
 								<?php if (has_post_thumbnail()) : ?>
-											<?php the_post_thumbnail(array(250,250), array('class' => 'featured-image')); ?>
+									<?php the_post_thumbnail('pb-featured-image', array('class' => 'featured-image')); ?>
 								<?php endif; ?>
 								
 								<header class="post-header">

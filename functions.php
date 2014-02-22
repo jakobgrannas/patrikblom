@@ -70,8 +70,10 @@ function pb_get_excerpt() {
     return 20;
 }
 
-// Add index thumb image size
-add_image_size('pb-gallery-thumb', 180, 180, true);
+// Add custom image sizes
+add_image_size('pb-index-thumb', 180, 180, true);
+add_image_size('pb-featured-image', 250, 250, true);
+add_image_size('pb-gallery-thumb', 256, 0, true);
 
 /**
  * Registers a custom gallery shortcode
@@ -115,7 +117,7 @@ function register_gallery_shortcode($attr) {
 			<?php if ($gq->have_posts()) : while ($gq->have_posts()) : $gq->the_post(); ?>
 				<a href="<?php the_permalink(); ?>" class="image-block">
 					<span class="preview-overlay"><span class="fa search-plus-icon"></span></span>
-					<?php the_post_thumbnail('pb-gallery-thumb', array('class' => 'preview-thumbnail')); ?>
+					<?php the_post_thumbnail('pb-index-thumb', array('class' => 'preview-thumbnail')); ?>
 				</a>
 				<?php endwhile; ?>
 				<div class="button-row">
@@ -183,7 +185,7 @@ function prefix_load_term_posts() {
 <?php foreach ($myposts as $post) : setup_postdata($post); ?>
 		<div class="image-block" id="post-<?php the_ID(); ?>">
 			<?php if (has_post_thumbnail()) : ?>
-				<a href="<?php the_permalink(); ?>" class="image-link"><?php the_post_thumbnail(array(256, 256), array('class' => 'preview-thumbnail')); ?></a>
+				<a href="<?php the_permalink(); ?>" class="image-link"><?php the_post_thumbnail('pb-gallery-thumb', array('class' => 'preview-thumbnail')); ?></a>
 			<?php endif; ?>
 			<div class="image-text boxsized">
 				<?php
