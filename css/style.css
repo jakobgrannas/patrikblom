@@ -1032,6 +1032,11 @@ a.nav-btn {
 	border-radius: inherit;
 }
 
+.unveil { 
+	opacity: 0;
+	transition: opacity .7s ease-in;
+}
+
 .image-block .preview-overlay {
 	border-radius: inherit;
 	visibility: hidden;

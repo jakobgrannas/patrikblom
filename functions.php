@@ -116,8 +116,14 @@ function register_gallery_shortcode($attr) {
 		<div class="centered-inner gallery-section">
 			<?php if ($gq->have_posts()) : while ($gq->have_posts()) : $gq->the_post(); ?>
 				<a href="<?php the_permalink(); ?>" class="image-block">
+					<?php
+						$thumbnail = wp_get_attachment_image_src( get_post_thumbnail_id(), 'pb-index-thumb');
+						$thumb_src = $thumbnail[0];
+						$thumb_width = $thumbnail[1];
+						$thumb_height = $thumbnail[2];
+					?>
 					<span class="preview-overlay"><span class="fa search-plus-icon"></span></span>
-					<?php the_post_thumbnail('pb-index-thumb', array('class' => 'preview-thumbnail')); ?>
+					<img data-original="<?php echo $thumb_src; ?>" width="<?php echo $thumb_width; ?>" height="<?php echo $thumb_height; ?>" class="preview-thumbnail">
 				</a>
 				<?php endwhile; ?>
 				<div class="button-row">
@@ -185,7 +191,13 @@ function prefix_load_term_posts() {
 <?php foreach ($myposts as $post) : setup_postdata($post); ?>
 		<div class="image-block" id="post-<?php the_ID(); ?>">
 			<?php if (has_post_thumbnail()) : ?>
-				<a href="<?php the_permalink(); ?>" class="image-link"><?php the_post_thumbnail('pb-gallery-thumb', array('class' => 'preview-thumbnail')); ?></a>
+				<?php
+					$thumb = wp_get_attachment_image_src( get_post_thumbnail_id(), 'pb-gallery-thumb');
+					$src = $thumb[0];
+					$width = $thumb[1];
+					$height = $thumb[2];
+				?>
+				<a href="<?php the_permalink(); ?>" class="image-link"><img data-original="<?php echo $src; ?>" width="<?php echo $width; ?>" height="<?php echo $height; ?>" class="preview-thumbnail"></a>
 			<?php endif; ?>
 			<div class="image-text boxsized">
 				<?php

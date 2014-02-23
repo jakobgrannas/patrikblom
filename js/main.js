@@ -16,6 +16,10 @@
 		$(document).on('click', '.category-list-btn', toggleElementCollapsed);
 
 		$(window).on('resize', hideMobileMenu);
+		
+		$('.image-block .preview-thumbnail').lazyload({
+			effect: 'fadeIn'
+		});
 
 		// Get initial photo set
 		var photoFeed = $('#photo-feed');
@@ -70,6 +74,9 @@
 				isFitWidth: true,
 				containerStyle: null,
 				columnWidth: 280
+			});
+			$('.image-block .preview-thumbnail').lazyload({
+				effect: 'fadeIn'
 			});
 		});
 	}
