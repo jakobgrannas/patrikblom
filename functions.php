@@ -160,6 +160,7 @@ function prefix_load_term_posts() {
 	$taxonomy = $_POST['taxonomy'];
 	$include_children = $_POST['includeChildren'];
 	$post_type = $_POST['postType'];
+	$offset = $_POST['offset'];
 	
 	if(count($terms) == 0 || $terms == '') {
 		$terms = get_terms($taxonomy, array (
@@ -169,7 +170,8 @@ function prefix_load_term_posts() {
 	}
 	
 	$args = array (
-			'posts_per_page' => -1,
+			'posts_per_page' => 2, // TODO: 4 after testing!
+			'offset' => $offset,
 			'order' => 'DESC',
 			'orderby' => 'date',
 			'post_type' => $post_type,
@@ -223,6 +225,7 @@ function prefix_load_term_posts() {
 <?php
 	wp_reset_postdata();
 	$response = ob_get_contents();
+	//$response = json_encode($response_html, JSON_FORCE_OBJECT);
 	ob_end_clean();
 	echo $response;
 	die(1);

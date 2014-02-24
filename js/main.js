@@ -20,6 +20,8 @@
 		$('.image-block .preview-thumbnail').lazyload({
 			effect: 'fadeIn'
 		});
+		
+		$(document).on('click', '#load-more', loadMorePhotos);
 
 		// Get initial photo set
 		var photoFeed = $('#photo-feed');
@@ -61,6 +63,9 @@
 			var children = $('.image-block');
 			feed.imagesLoaded(function () {
 				config.masonryEl.prepended(children);
+				$('.image-block .preview-thumbnail').lazyload({
+					effect: 'fadeIn'
+				});
 			});
 		});
 	}
@@ -81,28 +86,52 @@
 		});
 	}
 	
-	function getPhotos() {
+	function loadMorePhotos() {
+		var offset = $('.image-block').length;
+		getPhotos(offset, appendPhotos);
+	}
+	
+	function appendPhotos(scope, content) {		
+		var feed = $('#photo-feed');
+		feed.imagesLoaded(function() {
+			var el = $(content);
+			if(el.length > 0) {
+				feed.append(el).masonry( 'appended', el, true );
+				config.masonryEl.appended(el);
+				$('.image-block .preview-thumbnail').lazyload({
+					effect: 'fadeIn'
+				});
+			}
+		});
+	}
+	
+	function getPhotos(offset, successHandler) {
 		var scope = $('#photo-feed');
 		// TODO: Add localStorage handling - check checkboxes etc
 		var prevSorters = localStorage.getItem('image-sort-settings');
-		var data = {};
+		var data = {
+			offset: offset || 0
+		};
+		var callback = initMasonry;
+		
+		if(successHandler && typeof successHandler === 'function') {
+			callback = successHandler;
+		}
 		
 		if(prevSorters) {
 			data.terms = prevSorters;
-			getTerms(data, initMasonry, scope);
+			getTerms(data, callback, scope);
 		}
 		else {
 			data.terms = null;
-			getTerms(data, initMasonry, scope);
+			getTerms(data, callback, scope);
 		}
 	}
 	
 	function getTerms(filters,  successHandler, scope) {
 		// TODO: Add spinner beforeSend?
 		//jQuery("#loading-animation").show();
-		
-		console.log(filters);
-		
+				
 		var errorHandler = function () {
 			$('#images-not-found').removeClass('hidden');
 		};
@@ -112,6 +141,7 @@
 			url: pbAjax.ajaxurl,
 			data: { 
 				action: "load-filter2",
+				offset: filters.offset || 0,
 				taxonomy: 'phototype',
 				postType: 'gallery',
 				includeChildren: filters.includeChildren === 1 ? 1 : 0, // Use true if not explicitly set to false
@@ -126,6 +156,9 @@
 					}
 					else {
 						$('#photo-feed').html(response);
+						$('.image-block .preview-thumbnail').lazyload({
+							effect: 'fadeIn'
+						});
 					}
 				}
 				else {

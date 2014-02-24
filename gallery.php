@@ -98,7 +98,7 @@
 			</article>
 		</div>
 		<div class="button-row">
-			<button class="btn btn-default btn-big">Hämta mer</button>
+			<button id="load-more" class="btn btn-default btn-big">Hämta mer</button>
 		</div>
 	</div>
 </main>
