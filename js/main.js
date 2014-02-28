@@ -5,6 +5,8 @@
 		menuBtn: $('#menu-btn'),
 		menuEl: $('#main-nav'),
 		menuClosedCls: 'menu-closed',
+		lastScrollPos: 0,
+		photoFeed: $('#photo-feed'),
 		masonryEl: ''
 	};
 	$(document).ready(function() {
@@ -17,16 +19,12 @@
 
 		$(window).on('resize', hideMobileMenu);
 		
-		$('.image-block .preview-thumbnail').lazyload({
-			effect: 'fadeIn'
-		});
-		
 		$(document).on('click', '#load-more', loadMorePhotos);
-
+				
 		// Get initial photo set
 		var photoFeed = $('#photo-feed');
-		if (photoFeed.length > 0) {
-			getPhotos();
+		if (photoFeed) {
+			loadMorePhotos();
 		}
 		
 		// Set up checkbox filterlistener
@@ -42,6 +40,10 @@
 		}
 	});
 	
+	function onScroll(e) {
+		
+	}
+	
 	function filterPhotos() {
 		var filterTerms = $('input[name="terms"]:checked').map(function() {
 			return $(this).val();
@@ -56,8 +58,7 @@
 		};
 		
 		getTerms(filters, function (scope, content) {
-			var feed = $('#photo-feed');
-			feed.html(content);
+			config.photoFeed.html(content);
 			
 			// Fix to make masonry properly calculate its height
 			var children = $('.image-block');
@@ -70,19 +71,17 @@
 		});
 	}
 	
-	function initMasonry (scope, content) {
-		scope.html(content);
-		scope.imagesLoaded(function() {
-			config.masonryEl = new Masonry(scope[0], {
+	function initMasonry (callback) {
+		var feed = config.photoFeed;
+		feed.imagesLoaded(function() {
+			config.masonryEl = new Masonry(feed[0], {
 				itemSelector: '.image-block',
 				isAnimated: !Modernizr.csstransitions,
 				isFitWidth: true,
 				containerStyle: null,
 				columnWidth: 280
 			});
-			$('.image-block .preview-thumbnail').lazyload({
-				effect: 'fadeIn'
-			});
+			callback(config.masonryEl);
 		});
 	}
 	
@@ -92,12 +91,21 @@
 	}
 	
 	function appendPhotos(scope, content) {		
-		var feed = $('#photo-feed');
+		var feed = config.photoFeed;
+		var msnry = config.masonryEl;
+		
 		feed.imagesLoaded(function() {
-			var el = $(content);
-			if(el.length > 0) {
-				feed.append(el).masonry( 'appended', el, true );
-				config.masonryEl.appended(el);
+			var elems = $(content);
+			if(elems.length > 0) {
+				feed.append(elems).masonry( 'appended', elems, true );
+				if(msnry) {
+					msnry.appended(elems);
+				}
+				else {
+					initMasonry(function (scope) {
+						scope.addItems(elems);						
+					});
+				}
 				$('.image-block .preview-thumbnail').lazyload({
 					effect: 'fadeIn'
 				});
@@ -106,13 +114,13 @@
 	}
 	
 	function getPhotos(offset, successHandler) {
-		var scope = $('#photo-feed');
+		var scope = config.photoFeed;
 		// TODO: Add localStorage handling - check checkboxes etc
 		var prevSorters = localStorage.getItem('image-sort-settings');
 		var data = {
 			offset: offset || 0
 		};
-		var callback = initMasonry;
+		var callback = appendPhotos;
 		
 		if(successHandler && typeof successHandler === 'function') {
 			callback = successHandler;

@@ -84,19 +84,7 @@
 	</div>
 
 	<div class="section">
-		<div class="centered-inner photo-feed js-masonry flexed" id="photo-feed">
-			<article id="images-not-found" class="hentry clearfix hidden">
-				<header class="article-header">
-					<h1><?php _e('Oops, Images(s) Not Found!', 'bonestheme'); ?></h1>
-				</header>
-				<section class="entry-content">
-					<p><?php _e('Uh Oh. Something is missing. Try double checking things.', 'bonestheme'); ?></p>
-				</section>
-				<footer class="article-footer">
-					<p><?php _e('This is the error message in the gallery.php template.', 'bonestheme'); ?></p>
-				</footer>
-			</article>
-		</div>
+		<div class="centered-inner photo-feed js-masonry flexed" id="photo-feed"></div>
 		<div class="button-row">
 			<button id="load-more" class="btn btn-default btn-big">Hämta mer</button>
 		</div>
