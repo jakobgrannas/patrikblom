@@ -83,12 +83,14 @@ The comments page for Bones
 
 		<div class="list-item">
 			<label for="author" class="form-label"><?php _e( 'Name', 'bonestheme' ); ?> <?php if ($req) _e( '(required)'); ?></label>
-			<input type="text" name="author" class="input-field" id="author" value="<?php echo esc_attr($comment_author); ?>" placeholder="<?php _e( 'Your Name*', 'bonestheme' ); ?>" tabindex="1" <?php if ($req) echo "aria-required='true'"; ?> />
+			<input type="text" name="author" class="input-field" id="author" value="<?php echo esc_attr($comment_author); ?>" placeholder="<?php _e( 'Name *', 'bonestheme' ); ?>" required tabindex="1" <?php if ($req) echo "aria-required='true'"; ?>>
+			<span class="fa"></span>
 		</div>
 
 		<div class="list-item">
 			<label for="email" class="form-label"><?php _e( 'Mail', 'bonestheme' ); ?> <?php if ($req) _e( '(required)'); ?></label>
-			<input type="email" name="email" class="input-field" id="email" value="<?php echo esc_attr($comment_author_email); ?>" placeholder="<?php _e( 'Your E-Mail*', 'bonestheme' ); ?>" tabindex="2" <?php if ($req) echo "aria-required='true'"; ?> />
+			<input type="email" name="email" class="input-field" id="email" value="<?php echo esc_attr($comment_author_email); ?>" placeholder="<?php _e( 'E-Mail *', 'bonestheme' ); ?>" required tabindex="2" <?php if ($req) echo "aria-required='true'"; ?>>
+			<span class="fa"></span>
 			<small class="field-info"><?php _e("(will not be published)", 'bonestheme' ); ?></small>
 		</div>
 
@@ -96,7 +98,7 @@ The comments page for Bones
 
 	<?php endif; ?>
 
-	<p><textarea name="comment" id="comment" class="boxsized input-field comment-field" placeholder="<?php _e( 'Your Comment here...', 'bonestheme' ); ?>" tabindex="4"></textarea></p>
+	<p><textarea name="comment" id="comment" class="boxsized input-field comment-field" placeholder="<?php _e( 'Comment here...', 'bonestheme' ); ?>" tabindex="4"></textarea></p>
 
 	<p>
 		<input name="submit" type="submit" id="submit" class="btn btn-default btn-submit" tabindex="5" value="<?php _e( 'Submit', 'bonestheme' ); ?>" />

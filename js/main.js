@@ -10,22 +10,41 @@
 		masonryEl: ''
 	};
 	$(document).ready(function() {
+		// Load gravatars if not on mobile (hopefully)
+		var responsive_viewport = $(window).width();
+		if (responsive_viewport >= 768) {
+			$('.comment img[data-gravatar]').each(function(){
+				$(this).attr('src',$(this).attr('data-gravatar'));
+			});
+		}
+		
+		addEvtListeners();
+	});
+	
+	function addEvtListeners () {
+		/*
+		 *  Menu listeners
+		 */
 		$('#menu-btn').on('click', toggleMenuVisibility);
 		$('#wrapper').on('click', closeMenu);
+		$(window).on('resize', hideMobileMenu);
 
 		$('#scroll-top-btn').on('click', scrollToTop);
 		
-		$(document).on('click', '.category-list-btn', toggleElementCollapsed);
-
-		$(window).on('resize', hideMobileMenu);
-		
+		/**
+		 * Image loading listeners
+		 */
 		$(document).on('click', '#load-more', loadMorePhotos);
-				
+		
 		// Get initial photo set
 		var photoFeed = $('#photo-feed');
-		if (photoFeed) {
+		if (photoFeed.length > 0) {
 			loadMorePhotos();
 		}
+		
+		/**
+		 * Gallery filter listeners
+		 */
 		
 		// Set up checkbox filterlistener
 		var filterCheckboxes = $('input[name="terms"]');
@@ -38,10 +57,52 @@
 		if(filterSelectBox.length > 0) {
 			$(document).on('change', '.view-as', filterPhotos);
 		}
-	});
-	
-	function onScroll(e) {
 		
+		/**
+		 * Validation event listeners
+		 * If browser has no native validation, use js validation
+		 */
+		if (!Modernizr.input.required) {
+			$(document).on('change', '.input-field[type="email"]', validateEmail);
+			$(document).on('change', '.input-field[required]', validateRequired);
+		}
+	}
+	
+	function validateEmail(e) {
+		var el = $(e.target);
+		var val = el.val();
+		if (/[a-z0-9!#$%&'*+/=?^_`{|}~.-]+@[a-z0-9-]+(\.[a-z0-9-]+)*/.test(val)) {
+			toggleClass(el, 'valid', 'invalid');
+		}
+		else {
+			toggleClass(el, 'invalid', 'valid');
+		}
+	}
+	
+	function validateRequired(e) {
+		var el = $(e.target);
+		var val = el.val();
+		
+		if(el.attr('type') === 'email') {
+			return false;
+		}
+		
+		if(val && val.length > 0) {
+			toggleClass(el, 'valid', 'invalid');
+		}
+		else {
+			toggleClass(el, 'invalid', 'valid');
+		}
+	}
+	
+	function toggleClass(el, primCls, secCls) {
+		if (el.hasClass(secCls)) {
+			el.removeClass(secCls);
+			el.addClass(primCls);
+		}
+		else {
+			el.addClass(primCls);
+		}
 	}
 	
 	function filterPhotos() {
@@ -58,7 +119,8 @@
 		};
 		
 		getTerms(filters, function (scope, content) {
-			config.photoFeed.html(content);
+			var feed = config.photoFeed
+			feed.html(content);
 			
 			// Fix to make masonry properly calculate its height
 			var children = $('.image-block');
@@ -163,7 +225,7 @@
 						successHandler.call(this, scope, response);
 					}
 					else {
-						$('#photo-feed').html(response);
+						config.photoFeed.html(response);
 						$('.image-block .preview-thumbnail').lazyload({
 							effect: 'fadeIn'
 						});

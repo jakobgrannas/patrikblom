@@ -265,7 +265,7 @@ h1, h2, h3 {
 	padding: 0.8em 2em;
 	width: 13em;
 	margin-bottom: 1em;
-	font-size: 0.8em;
+	font-size: 1em;
 	font-family: 'Oswald', 'Noto Sans', sans-serif;
 	font-weight: 100;
 	letter-spacing: 0.15em;
@@ -707,7 +707,7 @@ a.nav-btn {
 }
 
 .main-content {
-	font-size: 1.15em;
+	font-size: 1em;
 	line-height: 1.6em;
 }
 
@@ -793,12 +793,44 @@ a.nav-btn {
 	box-shadow: 1px 1px 0 0 #dcdcdc;
 	border: 0;
 	color: #555;
-	font-size: 0.8em;
 	padding: 0.7em;
 	margin-bottom: 1.3em;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
+}
+
+
+.main .input-field:required:valid,
+.main .input-field.valid{
+	border: 1px solid #469a73;
+}
+
+.main .input-field:required:invalid,
+.main .input-field.invalid {
+	border: 1px solid #9d0a2d;
+}
+
+.main .input-field:required:valid ~ span:after,
+.main .input-field.valid ~ span:after,
+.main .input-field:required:invalid ~ span:after,
+.main .input-field.invalid ~ span:after {
+	position: absolute;
+	top: 0.6em;
+	right: 0.4em;
+	font-size: 1.4em;
+}
+
+.main .input-field:required:valid ~ span:after,
+.main .input-field.valid ~ span:after {
+	content: "\f05d";
+	color: #469a73;
+}
+
+.main .input-field:required:invalid ~ span:after,
+.main .input-field.invalid ~ span:after {
+	content: "\f05c";
+	color: #9d0a2d;
 }
 
 .main .form {
@@ -947,7 +979,7 @@ a.nav-btn {
 }
 
 .comment-footer {
-	font-size: 0.8em;
+	font-size: 0.9em;
 	margin-top: 0.5em;
 }
 
@@ -1030,11 +1062,6 @@ a.nav-btn {
 
 .image-block .preview-thumbnail {
 	border-radius: inherit;
-}
-
-.unveil { 
-	opacity: 0;
-	transition: opacity .7s ease-in;
 }
 
 .image-block .preview-overlay {
