@@ -917,6 +917,7 @@ a.nav-btn {
 
 .comment .children {
 	padding-left: 1em;
+	margin-top: 1em;
 }
 
 .comment .avatar {
@@ -926,7 +927,6 @@ a.nav-btn {
 }
 
 .comment-body {
-	float: left;
 	display: block;
 	width: 100%;
 }
