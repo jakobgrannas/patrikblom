@@ -42,6 +42,12 @@
 			loadMorePhotos();
 		}
 		
+		var previewImage = $('.preview-thumbnail');
+		if (previewImage.length > 0) {
+			previewImage.lazyload({
+				effect: 'fadeIn'
+			});
+		}
 		/**
 		 * Gallery filter listeners
 		 */
@@ -126,7 +132,7 @@
 			var children = $('.image-block');
 			feed.imagesLoaded(function () {
 				config.masonryEl.prepended(children);
-				$('.image-block .preview-thumbnail').lazyload({
+				$('.preview-thumbnail').lazyload({
 					effect: 'fadeIn'
 				});
 			});
@@ -168,7 +174,7 @@
 						scope.addItems(elems);						
 					});
 				}
-				$('.image-block .preview-thumbnail').lazyload({
+				$('.preview-thumbnail').lazyload({
 					effect: 'fadeIn'
 				});
 			}

@@ -24,8 +24,8 @@ The comments page for Bones
 	<?php if (is_paged()) : ?>
 	<nav id="comment-nav">
 		<ul class="clearfix">
-				<li><?php previous_comments_link() ?></li>
-				<li><?php next_comments_link() ?></li>
+			<li><?php previous_comments_link() ?></li>
+			<li><?php next_comments_link() ?></li>
 		</ul>
 	</nav>
 	<?php endif; ?>
@@ -37,8 +37,8 @@ The comments page for Bones
 	<?php if (is_paged()) : ?>
 	<nav id="comment-nav">
 		<ul class="clearfix">
-				<li><?php previous_comments_link() ?></li>
-				<li><?php next_comments_link() ?></li>
+			<li><?php previous_comments_link() ?></li>
+			<li><?php next_comments_link() ?></li>
 		</ul>
 	</nav>
 	<?php endif; ?>
@@ -46,8 +46,7 @@ The comments page for Bones
 	<?php else : // this is displayed if there are no comments so far ?>
 
 	<?php if ( comments_open() ) : ?>
-			<?php // If comments are open, but there are no comments. ?>
-
+		<?php // If comments are open, but there are no comments. ?>
 	<?php else : // comments are closed ?>
 		<p class="nocomments"><?php _e( 'Comments are closed.', 'bonestheme' ); ?></p>
 	<?php endif; ?>
@@ -100,7 +99,7 @@ The comments page for Bones
 
 	<p><textarea name="comment" id="comment" class="boxsized input-field comment-field" placeholder="<?php _e( 'Comment here...', 'bonestheme' ); ?>" tabindex="4"></textarea></p>
 
-	<p>
+	<p class="submit-container">
 		<input name="submit" type="submit" id="submit" class="btn btn-default btn-submit" tabindex="5" value="<?php _e( 'Submit', 'bonestheme' ); ?>" />
 		<?php comment_id_fields(); ?>
 	</p>

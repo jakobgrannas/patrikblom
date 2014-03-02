@@ -121,9 +121,12 @@ function register_gallery_shortcode($attr) {
 						$thumb_src = $thumbnail[0];
 						$thumb_width = $thumbnail[1];
 						$thumb_height = $thumbnail[2];
+						
+						$thumb_id = get_post_thumbnail_id(get_the_ID());
+						$alt = get_post_meta($thumb_id, '_wp_attachment_image_alt', true);
 					?>
 					<span class="preview-overlay"><span class="fa search-plus-icon"></span></span>
-					<img data-original="<?php echo $thumb_src; ?>" width="<?php echo $thumb_width; ?>" height="<?php echo $thumb_height; ?>" class="preview-thumbnail">
+					<img data-original="<?php echo $thumb_src; ?>" width="<?php echo $thumb_width; ?>" height="<?php echo $thumb_height; ?>" class="preview-thumbnail" alt="<?php echo $alt; ?>">
 				</a>
 				<?php endwhile; ?>
 				<div class="button-row">
@@ -198,8 +201,11 @@ function prefix_load_term_posts() {
 					$src = $thumb[0];
 					$width = $thumb[1];
 					$height = $thumb[2];
+					
+					$thumb_id = get_post_thumbnail_id(get_the_ID());
+					$alt = get_post_meta($thumb_id, '_wp_attachment_image_alt', true);
 				?>
-				<a href="<?php the_permalink(); ?>" class="image-link"><img data-original="<?php echo $src; ?>" width="<?php echo $width; ?>" height="<?php echo $height; ?>" class="preview-thumbnail"></a>
+				<a href="<?php the_permalink(); ?>" class="image-link"><img data-original="<?php echo $src; ?>" width="<?php echo $width; ?>" height="<?php echo $height; ?>" alt="<?php echo $alt; ?>" class="preview-thumbnail"></a>
 			<?php endif; ?>
 			<div class="image-text boxsized">
 				<?php

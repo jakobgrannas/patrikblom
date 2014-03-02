@@ -61,6 +61,10 @@ Breakpoints
 		right: -14em;
 		top: 0;
 	}
+	
+	.submit-container {
+		text-align: left;
+	}
 }
 
 @media all and (min-width: 40.5em) and (max-width: 62em) {
