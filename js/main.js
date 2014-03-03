@@ -205,8 +205,7 @@
 	}
 	
 	function getTerms(filters,  successHandler, scope) {
-		// TODO: Add spinner beforeSend?
-		//jQuery("#loading-animation").show();
+		$("#spinner").show();
 				
 		var errorHandler = function () {
 			$('#images-not-found').removeClass('hidden');
@@ -224,7 +223,7 @@
 				terms: filters.terms && filters.terms.length > 0 ? filters.terms : ''
 			},
 			success: function(response) {
-				//$("#loading-animation").hide();
+				$("#spinner").hide();
 				//localStorage.setItem('image-sort-settings', terms);
 				if(response && response.toString().length > 0) {
 					if(typeof successHandler === 'function') {

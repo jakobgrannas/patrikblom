@@ -86,7 +86,17 @@
 	<div class="section">
 		<div class="centered-inner photo-feed js-masonry flexed" id="photo-feed"></div>
 		<div class="button-row">
-			<button id="load-more" class="btn btn-default btn-big">Hämta mer</button>
+			<button id="load-more" class="btn btn-default btn-big"><?php _e('Load more'); ?></button>
+		</div>
+		<div id="spinner" class="spinner loading-spinner">
+			<div class="spinner-circle spinner-circle_01"></div>
+			<div class="spinner-circle spinner-circle_02"></div>
+			<div class="spinner-circle spinner-circle_03"></div>
+			<div class="spinner-circle spinner-circle_04"></div>
+			<div class="spinner-circle spinner-circle_05"></div>
+			<div class="spinner-circle spinner-circle_06"></div>
+			<div class="spinner-circle spinner-circle_07"></div>
+			<div class="spinner-circle spinner-circle_08"></div>
 		</div>
 	</div>
 </main>
