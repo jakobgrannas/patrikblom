@@ -194,19 +194,25 @@ h1, h2, h3 {
 	float: right;
 }
 
-.loading-spinner {
-	width: 50px;
-	height: 50px;
-	z-index: 9999;
-	position: relative;
-	top: 50%;
-	left: 50%;
+/* Loading */
+.btn.load-more {
+	padding: 0;
+	width: 13em;
+	height: 3.6em;
 }
 
-.spinner.loading-spinner {
-	position: absolute;
+.spinner.hidden + .btn-text {
+	display: block;
 }
 
+.btn-text {
+	display: none;
+}
+
+.loading {
+	border-top-color: rgba(255,255,255,0.3);
+	border-right-color: rgba(255,255,255,0.3);
+}
 
 /*
 ===============

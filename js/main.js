@@ -31,6 +31,8 @@
 
 		$('#scroll-top-btn').on('click', scrollToTop);
 		
+		$(document).on('click', '.category-list-btn', toggleElementCollapsed);
+		
 		/**
 		 * Image loading listeners
 		 */
@@ -205,7 +207,7 @@
 	}
 	
 	function getTerms(filters,  successHandler, scope) {
-		$("#spinner").show();
+		$("#spinner").toggleClass('hidden');
 				
 		var errorHandler = function () {
 			$('#images-not-found').removeClass('hidden');
@@ -223,7 +225,7 @@
 				terms: filters.terms && filters.terms.length > 0 ? filters.terms : ''
 			},
 			success: function(response) {
-				$("#spinner").hide();
+				$("#spinner").toggleClass('hidden');
 				//localStorage.setItem('image-sort-settings', terms);
 				if(response && response.toString().length > 0) {
 					if(typeof successHandler === 'function') {
