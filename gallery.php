@@ -4,42 +4,6 @@
  */
 ?>
 <?php get_header(); ?>
-
-<aside class="flexed boxsized sorter-bar">
-	<form class="boxsized form-container">
-		<div class="boxsized form-inner">
-			<fieldset class="sort-by-type">
-				<label for="view-type"><?php _e('View as', 'patrikblom'); ?>:</label>
-
-				<div class="select-container">
-					<select id="view-type" class="view-as">
-						<option value="0" selected="selected"><?php _e('Album', 'patrikblom'); ?></option>
-						<option value="1"><?php _e('Alla bilder', 'patrikblom'); ?></option>
-					</select>
-					<span class="fa drop-down-trigger"></span>
-				</div>
-			</fieldset>
-
-			<fieldset class="sort-by-category">
-				<legend><?php _e('Category', 'patrikblom'); ?>:</legend>
-				<div class="checkbox-group">
-					<?php
-						$sort_args = array(
-							'orderby' => 'name',
-							'parent' => 0
-						);
-						$sort_terms = get_terms('phototype', $sort_args);
-					?>
-					<?php foreach ($sort_terms as $term ) : ?>
-					<input id="term-<?php echo $term->term_id; ?>-checkbox" type="checkbox" name="terms" class="visibly-hidden" value="<?php echo $term->name; ?>"/>
-					<label for="term-<?php echo $term->term_id; ?>-checkbox" class="checkbox-button"><?php echo $term->name; ?></label>
-					<?php endforeach; ?>
-				</div>
-			</fieldset>
-		</div>
-	</form>
-</aside>
-
 <main role="main" class="boxsized main">
 	<div class="section descriptive-text">
 		<div class="centered-inner">
@@ -82,6 +46,41 @@
 			<span class="separator-line"></span>
 		</div>
 	</div>
+	
+	<aside class="flexed boxsized sorter-bar">
+		<form class="boxsized form-container">
+			<div class="boxsized form-inner">
+				<fieldset class="sort-by-type">
+					<label for="view-type"><?php _e('View', 'patrikblom'); ?>:</label>
+
+					<div class="select-container">
+						<select id="view-type" class="view-as">
+							<option value="0" selected="selected"><?php _e('Album', 'patrikblom'); ?></option>
+							<option value="1"><?php _e('All', 'patrikblom'); ?></option>
+						</select>
+						<span class="fa drop-down-trigger"></span>
+					</div>
+				</fieldset>
+
+				<fieldset class="sort-by-category">
+					<legend><?php _e('Category', 'patrikblom'); ?>:</legend>
+					<div class="checkbox-group">
+						<?php
+							$sort_args = array(
+								'orderby' => 'name',
+								'parent' => 0
+							);
+							$sort_terms = get_terms('phototype', $sort_args);
+						?>
+						<?php foreach ($sort_terms as $term ) : ?>
+						<input id="term-<?php echo $term->term_id; ?>-checkbox" type="checkbox" name="terms" class="visibly-hidden" value="<?php echo $term->name; ?>"/>
+						<label for="term-<?php echo $term->term_id; ?>-checkbox" class="checkbox-button"><?php echo $term->name; ?></label>
+						<?php endforeach; ?>
+					</div>
+				</fieldset>
+			</div>
+		</form>
+	</aside>
 
 	<div class="section">
 		<div class="centered-inner photo-feed js-masonry flexed" id="photo-feed"></div>
