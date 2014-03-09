@@ -75,6 +75,12 @@ add_image_size('pb-index-thumb', 180, 180, true);
 add_image_size('pb-featured-image', 250, 250, true);
 add_image_size('pb-gallery-thumb', 256, 0, true);
 
+// Responsive formats
+add_image_size('resp-tiny', 320, 0, true);
+add_image_size('resp-small', 480, 0, true);
+add_image_size('resp-medium', 640, 0, true);
+add_image_size('resp-large', 1024, 0, true);
+
 /**
  * Registers a custom gallery shortcode
  * Gets the configured post gallery with permalinks to the
@@ -214,7 +220,7 @@ function prefix_load_term_posts() {
 				<h3 class="image-title"><a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
 				<div class="image-description"><?php the_excerpt(); ?></div>
 			</div>
-			<div class="image-block-footer clearfix">
+			<div class="image-footer clearfix">
 				<div class="footer-item num-comments"><span class="fa"></span><a href="<?php echo get_comments_number() > 0 ? get_permalink() . '#comments' : get_permalink(); ?>"><?php echo get_comments_number(); ?></a></div>
 				<div class="footer-item num-likes"><span class="fa"></span><a href="#">-</a></div>
 				<?php $num_terms = count(wp_get_post_terms($post->ID, $taxonomy)); ?>
@@ -231,10 +237,58 @@ function prefix_load_term_posts() {
 <?php
 	wp_reset_postdata();
 	$response = ob_get_contents();
-	//$response = json_encode($response_html, JSON_FORCE_OBJECT);
 	ob_end_clean();
 	echo $response;
 	die(1);
+}
+
+/* Site header */
+
+function pb_get_header() {
+?>
+		<nav class="boxsized main-menu animate menu-right menu-closed" id="main-nav">
+			<div class="boxsized search-field-container">
+				<?php get_search_form(); ?>
+			</div>
+			<?php
+			$defaults = array(
+				'container_class' => 'boxsized menu-items menu',
+				'menu' => 'Main nav',
+				'echo' => true,
+				'fallback_cb' => 'wp_page_menu',
+				'items_wrap' => '%3$s',
+				'depth' => 0
+			);
+
+			wp_nav_menu($defaults);
+			?>
+		</nav>
+
+		<div id="wrapper" class="wrapper animate menu-push">
+
+			<header id="banner" class="banner animate">
+				<div class="banner-img"></div>
+				<div class="banner-inner-container">
+					<div class="inner">
+						<a href="#main-nav" id="menu-btn" class="nav-btn menu-btn open-menu-btn"><span class="fa menu-icon"></span></a>
+						<a href="#" class="nav-btn menu-btn close-menu-btn"><span class="fa menu-icon"></span></a>
+
+						<div class="logo-container">
+							<div class="logo">
+								<a href="<?php echo home_url(); ?>" class="bare-link" rel="nofollow">
+									<span class="row1">Patrik</span>
+									<span class="row2">Blom</span>
+								</a>
+							</div>
+						</div>
+						
+						<div class="boxsized search-field-container">
+						<?php get_search_form(); ?>
+						</div>
+					</div>
+				</div>
+			</header>
+<?php
 }
 
 /************* COMMENT LAYOUT *********************/

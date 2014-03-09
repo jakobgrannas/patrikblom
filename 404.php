@@ -1,4 +1,5 @@
 <?php get_header(); ?>
+<?php pb_get_header(); ?>
 
 			<div id="content">
 

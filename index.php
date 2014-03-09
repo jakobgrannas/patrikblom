@@ -5,6 +5,7 @@
 ?>
 
 <?php get_header(); ?>
+<?php pb_get_header(); ?>
 
 <main role="main" class="boxsized main">
 	<div class="section">

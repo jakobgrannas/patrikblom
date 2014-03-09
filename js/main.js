@@ -18,8 +18,29 @@
 			});
 		}
 		
+		//$(document).on('load', '.full-width-image img', onSingleGalleryPhotoLoad);
+		
+		/*var respImg = $('.full-width-image');
+		
+		if (respImg.length > 0) {
+			respImg.imagesLoaded(function () {
+				respImg.find('img').cover({
+					backgroundPosition:"center",
+					checkWindowResize:true,
+				});
+			});
+		}*/
+		
 		addEvtListeners();
 	});
+	
+	function onSingleGalleryPhotoLoad (e) {
+		var elem = $(e.target);
+		var src = elem.attr('src');
+		var newEl = document.createElement('div');
+		newEl.style = 'background-image:' +  src;
+		elem.appendChild(newEl);
+	}
 	
 	function addEvtListeners () {
 		/*

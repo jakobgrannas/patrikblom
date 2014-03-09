@@ -1,4 +1,4 @@
-<footer class="boxsized footer">
+			<footer class="boxsized footer">
 				<a href="#" class="scroll-top-btn" id="scroll-top-btn" title="Scroll to top"><span class="fa"></span></a>
 				<div class="vcard top-row">
 					<div class="footer-block copyright">
