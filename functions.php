@@ -291,7 +291,16 @@ function pb_get_header() {
 <?php
 }
 
-/************* COMMENT LAYOUT *********************/
+/************* COMMENTS*********************/
+
+function pb_get_cancel_comment_reply_link($text = '') {
+      if ( empty($text) ) {
+          $text = __('Click here to cancel reply.');
+	  }
+      $hiddenCls = isset($_GET['replytocom']) ? '' : 'hidden';
+      $link = esc_html( remove_query_arg('replytocom') ) . '#respond';
+      return apply_filters('cancel_comment_reply_link', '<a rel="nofollow" id="cancel-comment-reply-link" class="btn btn-light cancel-reply ' . $hiddenCls . '" href="' . $link . '">' . $text . '</a>', $link, $text);
+  }
 
 // Comment Layout
 function bones_comments( $comment, $args, $depth ) {

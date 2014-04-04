@@ -9,6 +9,7 @@
 		photoFeed: $('#photo-feed'),
 		masonryEl: ''
 	};
+	
 	$(document).ready(function() {
 		// Load gravatars if not on mobile (hopefully)
 		var responsive_viewport = $(window).width();
@@ -53,7 +54,7 @@
 		$('#scroll-top-btn').on('click', scrollToTop);
 		
 		$(document).on('click', '.category-list-btn', toggleElementCollapsed);
-		
+				
 		/**
 		 * Image loading listeners
 		 */

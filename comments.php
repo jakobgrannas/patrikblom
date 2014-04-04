@@ -57,12 +57,10 @@ The comments page for Bones
 <?php if ( comments_open() ) : ?>
 
 <section id="respond" class="respond-form">
+	<p class="centered-inner-container"><?php echo pb_get_cancel_comment_reply_link(__('Cancel reply','patrikblom')); ?></p>
 
 	<h3 id="comment-form-title" class="h3 centered-header"><?php comment_form_title( __( 'Leave a Reply', 'bonestheme' ), __( 'Leave a Reply to %s', 'bonestheme' )); ?></h3>
 
-	<div id="cancel-comment-reply">
-		<p class="small"><?php cancel_comment_reply_link(); ?></p>
-	</div>
 
 	<?php if ( get_option('comment_registration') && !is_user_logged_in() ) : ?>
 		<div class="alert alert-help">
@@ -72,39 +70,38 @@ The comments page for Bones
 
 	<form action="<?php echo get_option('siteurl'); ?>/wp-comments-post.php" method="post" id="commentform" class="form">
 
-	<?php if ( is_user_logged_in() ) : ?>
+		<?php if ( is_user_logged_in() ) : ?>
 
-	<p class="info comments-logged-in-as"><?php _e( 'Logged in as', 'bonestheme' ); ?> <a href="<?php echo get_option( 'siteurl' ); ?>/wp-admin/profile.php"><?php echo $user_identity; ?></a>. <a href="<?php echo wp_logout_url( get_permalink() ); ?>" title="<?php _e( 'Log out of this account', 'bonestheme' ); ?>"><?php _e( 'Log out', 'bonestheme' ); ?> <?php _e( '&raquo;', 'bonestheme' ); ?></a></p>
+		<p class="info comments-logged-in-as"><?php _e( 'Logged in as', 'bonestheme' ); ?> <a href="<?php echo get_option( 'siteurl' ); ?>/wp-admin/profile.php"><?php echo $user_identity; ?></a>. <a href="<?php echo wp_logout_url( get_permalink() ); ?>" title="<?php _e( 'Log out of this account', 'bonestheme' ); ?>"><?php _e( 'Log out', 'bonestheme' ); ?> <?php _e( '&raquo;', 'bonestheme' ); ?></a></p>
 
-	<?php else : ?>
+		<?php else : ?>
 
-	<div id="comment-form-elements" class="comment-form-elements clearfix">
+		<div id="comment-form-elements" class="comment-form-elements clearfix">
 
-		<div class="list-item">
-			<label for="author" class="form-label"><?php _e( 'Name', 'bonestheme' ); ?> <?php if ($req) _e( '(required)'); ?></label>
-			<input type="text" name="author" class="input-field" id="author" value="<?php echo esc_attr($comment_author); ?>" placeholder="<?php _e( 'Name *', 'bonestheme' ); ?>" required tabindex="1" <?php if ($req) echo "aria-required='true'"; ?>>
-			<span class="fa"></span>
+			<div class="list-item">
+				<label for="author" class="form-label"><?php _e( 'Name', 'bonestheme' ); ?> <?php if ($req) _e( '(required)'); ?></label>
+				<input type="text" name="author" class="input-field" id="author" value="<?php echo esc_attr($comment_author); ?>" placeholder="<?php _e( 'Name *', 'bonestheme' ); ?>" required tabindex="1" <?php if ($req) echo "aria-required='true'"; ?>>
+				<span class="fa"></span>
+			</div>
+
+			<div class="list-item">
+				<label for="email" class="form-label"><?php _e( 'Mail', 'bonestheme' ); ?> <?php if ($req) _e( '(required)'); ?></label>
+				<input type="email" name="email" class="input-field" id="email" value="<?php echo esc_attr($comment_author_email); ?>" placeholder="<?php _e( 'E-Mail *', 'bonestheme' ); ?>" required tabindex="2" <?php if ($req) echo "aria-required='true'"; ?>>
+				<span class="fa"></span>
+			</div>
+
 		</div>
 
-		<div class="list-item">
-			<label for="email" class="form-label"><?php _e( 'Mail', 'bonestheme' ); ?> <?php if ($req) _e( '(required)'); ?></label>
-			<input type="email" name="email" class="input-field" id="email" value="<?php echo esc_attr($comment_author_email); ?>" placeholder="<?php _e( 'E-Mail *', 'bonestheme' ); ?>" required tabindex="2" <?php if ($req) echo "aria-required='true'"; ?>>
-			<span class="fa"></span>
-			<small class="field-info"><?php _e("(will not be published)", 'bonestheme' ); ?></small>
-		</div>
+		<?php endif; ?>
 
-	</div>
+		<p><textarea name="comment" id="comment" class="boxsized input-field comment-field" placeholder="<?php _e( 'Comment here...', 'bonestheme' ); ?>" tabindex="4"></textarea></p>
 
-	<?php endif; ?>
+		<p class="submit-container">
+			<input name="submit" type="submit" id="submit" class="btn btn-default btn-submit" tabindex="5" value="<?php _e( 'Submit', 'bonestheme' ); ?>" />
+			<?php comment_id_fields(); ?>
+		</p>
 
-	<p><textarea name="comment" id="comment" class="boxsized input-field comment-field" placeholder="<?php _e( 'Comment here...', 'bonestheme' ); ?>" tabindex="4"></textarea></p>
-
-	<p class="submit-container">
-		<input name="submit" type="submit" id="submit" class="btn btn-default btn-submit" tabindex="5" value="<?php _e( 'Submit', 'bonestheme' ); ?>" />
-		<?php comment_id_fields(); ?>
-	</p>
-
-	<?php do_action( 'comment_form', $post->ID ); ?>
+		<?php do_action( 'comment_form', $post->ID ); ?>
 
 	</form>
 	

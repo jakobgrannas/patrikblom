@@ -1,8 +1,19 @@
 <?php get_header(); ?>
-<div id="wrapper" class="wrapper boxsized">
-<div class="boxsized single-image-post">
+<div id="wrapper" class="single-image-post">
+	<nav id="single-image-nav" class="single-image-nav">
+		<?php
+		$pages = get_pages(array(
+			'meta_key' => '_wp_page_template',
+			'meta_value' => 'gallery.php'
+		));
+		if(count($pages) === 1) {
+			$permalink = get_permalink($pages[0]->ID);
+		}
+		?>
+		<a href="<?php echo !empty($permalink) ? $permalink : '#' ?>" id="back-button" class="back-button"><span class="fa chevron-left"></span></a>
+	</nav>
 	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-		<article class="main-content" id="post-<?php the_ID(); ?>" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+		<section class="image-meta" id="post-<?php the_ID(); ?>">
 				<?php if ( has_post_thumbnail() ) : ?>
 					<a title="<?php the_title_attribute( "echo=1" ); ?>" rel="bookmark" class="full-width-image">
 					<?php if (class_exists( 'RIP' )){
@@ -12,23 +23,22 @@
 					}?>
 					</a>
 				<?php endif; ?>
-			
-			<?php //the_content(); ?>
-
-			<?php //comments_template(); ?>
-		</article>
-	<footer class="single-image-footer image-footer clearfix">
-			<div class="footer-item num-comments"><span class="fa"></span><?php echo get_comments_number(); ?></div>
-			<div class="footer-item num-likes"><span class="fa"></span><a href="#">-</a></div>
-			<?php $taxonomy = 'phototype'; ?>
-			<?php $num_terms = count(wp_get_post_terms($post->ID, $taxonomy)); ?>
-			<?php if ($num_terms < 3) : ?>
-				<div class="footer-item post-category"><span class="fa"></span><?php echo get_the_term_list($post->ID, $taxonomy, '', ', '); ?></div>
-				<?php else : ?>
-				<div class="footer-item post-category"><span class="fa"></span><span class="category-list-btn"><?php echo $num_terms . ' ' . __('tags', 'patrikblom'); ?></div>
-				<div class="footer-item post-category-extended"><?php echo get_the_term_list($post->ID, $taxonomy, '', ', '); ?></div>
-			<?php endif; ?>
-	</footer>
+		</section>
+		<aside id="main-content" class="image-content">
+			<section class="section content">
+				<div class="inner">
+					<header class="post-header">
+						<h1 class="post-title"><?php the_title(); ?></h1>
+					</header>
+					<?php the_content(); ?>
+				</div>
+			</section>
+			<section class="section comments">
+				<div class="inner">
+					<?php comments_template(); ?>
+				</div>
+			</section>
+		</aside>
 	<?php endwhile; ?>
 	<?php else : ?>
 		<article id="post-not-found" class="hentry clearfix">
@@ -44,8 +54,6 @@
 		</article>
 	<?php endif; ?>
 </div>
-</div>
-<?php // all js scripts are loaded in library/bones.php ?>
-<?php wp_footer(); ?>
+<?php get_footer(); ?>
 </body>
 </html>
