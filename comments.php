@@ -57,10 +57,7 @@ The comments page for Bones
 <?php if ( comments_open() ) : ?>
 
 <section id="respond" class="respond-form">
-	<p class="centered-inner-container"><?php echo pb_get_cancel_comment_reply_link(__('Cancel reply','patrikblom')); ?></p>
-
 	<h3 id="comment-form-title" class="h3 centered-header"><?php comment_form_title( __( 'Leave a Reply', 'bonestheme' ), __( 'Leave a Reply to %s', 'bonestheme' )); ?></h3>
-
 
 	<?php if ( get_option('comment_registration') && !is_user_logged_in() ) : ?>
 		<div class="alert alert-help">
@@ -96,8 +93,9 @@ The comments page for Bones
 
 		<p><textarea name="comment" id="comment" class="boxsized input-field comment-field" placeholder="<?php _e( 'Comment here...', 'bonestheme' ); ?>" tabindex="4"></textarea></p>
 
-		<p class="submit-container">
-			<input name="submit" type="submit" id="submit" class="btn btn-default btn-submit" tabindex="5" value="<?php _e( 'Submit', 'bonestheme' ); ?>" />
+		<p class="centered-inner-container">
+			<?php echo pb_get_cancel_comment_reply_link(__('Cancel reply','patrikblom')); ?>
+			<input name="submit" type="submit" id="submit" class="btn btn-default btn-action" tabindex="5" value="<?php _e( 'Submit', 'bonestheme' ); ?>" />
 			<?php comment_id_fields(); ?>
 		</p>
 

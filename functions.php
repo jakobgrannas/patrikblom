@@ -299,7 +299,7 @@ function pb_get_cancel_comment_reply_link($text = '') {
 	  }
       $hiddenCls = isset($_GET['replytocom']) ? '' : 'hidden';
       $link = esc_html( remove_query_arg('replytocom') ) . '#respond';
-      return apply_filters('cancel_comment_reply_link', '<a rel="nofollow" id="cancel-comment-reply-link" class="btn btn-light cancel-reply ' . $hiddenCls . '" href="' . $link . '">' . $text . '</a>', $link, $text);
+      return apply_filters('cancel_comment_reply_link', '<a rel="nofollow" id="cancel-comment-reply-link" class="btn btn-default cancel-reply ' . $hiddenCls . '" href="' . $link . '">' . $text . '</a>', $link, $text);
   }
 
 // Comment Layout

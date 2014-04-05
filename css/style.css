@@ -202,8 +202,8 @@ h1, h2, h3 {
 }
 
 .loading {
-	border-top-color: rgba(255,255,255,0.3);
-	border-right-color: rgba(255,255,255,0.3);
+	border-top-color: rgba(0,0,0,0.3);
+	border-right-color: rgba(0,0,0,0.3);
 }
 
 /*
@@ -248,10 +248,7 @@ h1, h2, h3 {
 ===============
 */
 .btn {
-	border: 0;
 	color: #ffffff;
-	padding: 0;
-	margin: 0;
 	background-color: transparent;
 	-webkit-appearance: none;
 	-moz-appearance: none;
@@ -261,54 +258,40 @@ h1, h2, h3 {
 }
 
 .btn-default {
-	background-color: #469a73;
-	padding: 1em;
-	font-size: 0.9em;
-	font-family: 'Noto Sans', sans-serif;
+	font-size: 0.8em;
+	text-decoration: none;
 	text-transform: uppercase;
+	display: inline-block;
+	font-weight: bold;
+	padding: 1.1em 2em;
+	line-height: 1em;
 }
 
-.btn-default:hover {
-	background-color: #555;
+.btn-action {
+	min-width: 12em;
+}
+
+.btn-default,
+.btn-default:visited,
+.btn-default.btn-action:hover {
+	border: 2px solid #bababa;
+	color: #888;
+}
+
+.btn-default:hover,
+.btn-default.btn-action {
+	color: #469a73;
+	border-color: #469a73;
+}
+
+.btn-small {
+	padding: 0.5em 1em;
+	font-weight: normal;
+	min-width: inherit;
 }
 
 .btn-big {
 	padding: 1.2em 3.5em 1.2em 3.5em;
-}
-
-.btn-submit {
-	padding: 0.8em 2em;
-	width: 13em;
-	margin-bottom: 1em;
-	font-size: 1em;
-	font-family: 'Oswald', 'Noto Sans', sans-serif;
-	font-weight: 100;
-	letter-spacing: 0.15em;
-}
-
-.btn {
-	color: white;
-	text-decoration: none;
-}
-
-.btn:hover {
-	color: white;
-}
-
-.btn-light,
-.btn-light:visited {
-	border: 2px solid #bababa;
-	padding: 0.9em 2em;
-	font-size: 0.8em;
-	text-decoration: none;
-	text-transform: uppercase;
-	font-weight: bold;
-	color: #888;
-}
-
-.btn-light:hover {
-	color: #469a73;
-	border-color: #469a73;
 }
 
 .centered-inner-container {
@@ -1062,6 +1045,7 @@ a.nav-btn {
 
 .respond-form .form {
 	max-width: 30em;
+	margin: 0 auto;
 }
 
 .respond-form .form .input-field {
@@ -1388,17 +1372,8 @@ a.back-button:hover {
 }
 
 /* Image post comment form */
-.single-image-post .respond-form .form {
-	margin: 0 auto;
-}
-
 .single-image-post .respond-form .post-info {
 	display: none;
-}
-
-.cancel-reply {
-	margin: 2em 1em;
-	display: inline-block;
 }
 
 /*
