@@ -316,7 +316,7 @@
 		e.preventDefault();
 		e.stopPropagation();
 		
-		var container = $(e.target).closest('.image-block-footer');
+		var container = $(e.target).closest('.image-footer');
 		container.toggleClass('slide-down');
 	}
 

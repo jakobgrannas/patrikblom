@@ -868,6 +868,10 @@ a.nav-btn {
 	display: none;
 }
 
+.respond-form .cancel-reply {
+	margin-right: 0.5em;
+}
+
 .field-info {
 	display: none;
 }
@@ -1219,6 +1223,7 @@ Descriptive text
 
 .date-stamp .fa {
 	padding-right: 0.7em;
+	font-size: 1.1em;
 }
 
 .image-footer {
@@ -1355,7 +1360,7 @@ a.back-button:hover {
 
 .image-content {
 	padding: 1em 1em 6em 1em;
-	background-color: #fafafa;
+	background-color: #f3f5f0;
 	color: #444;
 }
 

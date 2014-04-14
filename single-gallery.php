@@ -1,16 +1,8 @@
 <?php get_header(); ?>
 <div id="wrapper" class="single-image-post">
 	<nav id="single-image-nav" class="single-image-nav">
-		<?php
-		$pages = get_pages(array(
-			'meta_key' => '_wp_page_template',
-			'meta_value' => 'gallery.php'
-		));
-		if(count($pages) === 1) {
-			$permalink = get_permalink($pages[0]->ID);
-		}
-		?>
-		<a href="<?php echo !empty($permalink) ? $permalink : '#' ?>" id="back-button" class="back-button"><span class="fa chevron-left"></span></a>
+		<?php $referer = htmlspecialchars($_SERVER['HTTP_REFERER']); ?>
+		<a href="<?php echo !empty($referer) ? $referer : '#' ?>" id="back-button" class="back-button"><span class="fa chevron-left"></span></a>
 	</nav>
 	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 		<section class="image-meta" id="post-<?php the_ID(); ?>">
