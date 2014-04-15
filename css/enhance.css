@@ -218,15 +218,13 @@ Breakpoints
 	===============
 	*/
 
-	.footer .top-row {
+	.footer .container {
 		display: flex;
-		border-bottom: 1px dashed #4f4f4f;
-		padding-bottom: 2.5em;
-		margin-bottom: 2.5em;
+		justify-content: center;
 	}
 
 	/* IE Fix */
-	.no-flexbox .footer .top-row {
+	.no-flexbox .footer .container {
 		display: table;
 		border-spacing: 2.5em 0;
 		border-collapse: separate;

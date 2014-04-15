@@ -1397,21 +1397,17 @@ a.back-button:hover {
 	padding: 0 3em 3em;
 }
 
-.top-row {
+.footer .container {
 	width: 100%;
 	color: #c6c6c6;
 }
 
-.top-row a {
+.footer .container a {
 	color: #c6c6c6;
 }
 
-.top-row a:hover {
+.footer .container a:hover {
 	color: #4aa982;
-}
-
-.bottom-row {
-	width: 100%;
 }
 
 .footer a {
@@ -1429,6 +1425,10 @@ a.back-button:hover {
 
 .footer-block .widget-title {
 	margin: 0 0 1em 0;
+}
+
+.copyright {
+	display: block;
 }
 
 /* Communication */
@@ -1485,6 +1485,8 @@ a.back-button:hover {
 /* Logo */
 .footer .logo {
 	font-size: 1.7em;
+	border: 0;
+	padding: 0;
 }
 
 .footer .logo > .row1 {
