@@ -1,0 +1,16 @@
+{
+  "name": "demostore",
+  "description": "A demo store site",
+  "version": "1.0.0",
+  "private": true,
+  "author": "Jakob Grannas",
+  "dependencies": {},
+  "devDependencies": {
+    "gulp-uglify": "~0.2.1",
+    "gulp-minify-css": "~0.3.0",
+    "gulp-clean": "~0.2.4",
+    "gulp-rename": "~1.2.0",
+    "gulp-imagemin": "~0.1.5",
+    "gulp": "~3.6.0"
+  }
+}
