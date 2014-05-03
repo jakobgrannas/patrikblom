@@ -6,7 +6,7 @@
 <?php get_header(); ?>
 <?php pb_get_header(); ?>
 <main role="main" class="boxsized main">
-	<div class="section descriptive-text">
+	<section class="section descriptive-text">
 		<div class="centered-inner">
 			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 					<article class="main-content" id="post-<?php the_ID(); ?>" role="article" itemscope itemtype="http://schema.org/BlogPosting">
@@ -38,15 +38,15 @@
 			<?php endif; ?>
 			<?php wp_reset_postdata(); ?>
 		</div>
-	</div>
+	</section>
 
-	<div class="section">
-		<div class="separator">
+	<section class="section">
+		<div class="separator"> 
 			<span class="separator-line"></span>
 			<span class="x-icon">x</span>
 			<span class="separator-line"></span>
 		</div>
-	</div>
+	</section>
 	
 	<aside class="flexed boxsized sorter-bar">
 		<form class="boxsized form-container">
@@ -83,11 +83,12 @@
 		</form>
 	</aside>
 
-	<div class="section">
+	<section class="section">
 		<div class="centered-inner photo-feed js-masonry flexed" id="photo-feed"></div>
 		<div class="button-row">
 			<button id="load-more" class="btn btn-default btn-big load-more"><span id="spinner" class="loading spinner hidden"></span><span class="btn-text"><?php _e('Load more', 'patrikblom'); ?></span></button>
 		</div>
+	</section>
 </main>
 
 <?php get_footer(); ?>

@@ -7,7 +7,7 @@ Template Name: Search Results Page
 <?php pb_get_header(); ?>
 
 <main role="main" class="boxsized main">
-	<div class="section">
+	<section class="section">
 		<div class="centered-inner">
 			<h1 class="post-title"><?php printf(__('Search Results for: %s', 'bones'), get_search_query()); ?></h1>
 			<div class="main-content">
@@ -41,7 +41,7 @@ Template Name: Search Results Page
 				</article>
 			<?php endif; ?>
 		</div>
-	</div>
+	</section>
 </main>
 
 <?php get_footer(); ?>

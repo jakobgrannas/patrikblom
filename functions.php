@@ -118,7 +118,7 @@ function register_gallery_shortcode($attr) {
 	));
 	ob_start();
 ?>
-	<div class="section">
+	<section class="section">
 		<div class="centered-inner gallery-section">
 			<?php if ($gq->have_posts()) : while ($gq->have_posts()) : $gq->the_post(); ?>
 				<a href="<?php the_permalink(); ?>" class="image-block">
@@ -140,7 +140,7 @@ function register_gallery_shortcode($attr) {
 				</div>
 			<?php endif; ?>							
 		</div>
-	</div>
+	</section>
 <?php
 	wp_reset_postdata();
 	$response = ob_get_contents();

@@ -2,7 +2,7 @@
 <?php pb_get_header(); ?>
 
 <main role="main" class="boxsized main">
-	<div class="section">
+	<section class="section">
 		<div class="centered-inner">
 			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 					<article class="main-content" id="post-<?php the_ID(); ?>" role="article" itemscope itemtype="http://schema.org/BlogPosting">
@@ -45,7 +45,7 @@
 				</article>
 			<?php endif; ?>
 		</div>
-	</div>
+	</section>
 </main>
 
 <?php get_footer(); ?>

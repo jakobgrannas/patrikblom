@@ -8,7 +8,7 @@
 <?php pb_get_header(); ?>
 
 <main role="main" class="boxsized main">
-	<div class="section">
+	<section class="section">
 		<div class="centered-inner">
 			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 				<?php
@@ -47,15 +47,15 @@
 			<?php endif; ?>
 			<?php wp_reset_postdata(); ?>
 		</div>
-	</div>
+	</section>
 
-	<div class="section">
+	<section class="section">
 		<div class="separator">
 			<span class="separator-line"></span>
 			<span class="x-icon">x</span>
 			<span class="separator-line"></span>
 		</div>
-	</div>
+	</section>
 	<?php
 	if (isset($gallery_IDs) && !empty($gallery_IDs)) {
 		echo do_shortcode('[pb_gallery image_ids=' . $gallery_IDs . ']');
