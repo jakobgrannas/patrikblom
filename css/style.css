@@ -1263,7 +1263,7 @@ Descriptive text
 }
 
 .image-footer .post-category {
-	max-width: 14em;
+	max-width: 16em;
 	overflow: hidden;
 	text-overflow: ellipsis;
 }

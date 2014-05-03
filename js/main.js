@@ -19,19 +19,6 @@
 			});
 		}
 		
-		//$(document).on('load', '.full-width-image img', onSingleGalleryPhotoLoad);
-		
-		/*var respImg = $('.full-width-image');
-		
-		if (respImg.length > 0) {
-			respImg.imagesLoaded(function () {
-				respImg.find('img').cover({
-					backgroundPosition:"center",
-					checkWindowResize:true,
-				});
-			});
-		}*/
-		
 		addEvtListeners();
 	});
 	
@@ -58,7 +45,7 @@
 		/**
 		 * Image loading listeners
 		 */
-		$(document).on('click', '#load-more', loadMorePhotos);
+		$(document).on('load', '.full-width-image img', loadMorePhotos);
 		
 		// Get initial photo set
 		var photoFeed = $('#photo-feed');

@@ -85,9 +85,6 @@
 
 	<section class="section">
 		<div class="centered-inner photo-feed js-masonry flexed" id="photo-feed"></div>
-		<div class="button-row">
-			<button id="load-more" class="btn btn-default btn-big load-more"><span id="spinner" class="loading spinner hidden"></span><span class="btn-text"><?php _e('Load more', 'patrikblom'); ?></span></button>
-		</div>
 	</section>
 </main>
 

@@ -179,7 +179,7 @@ function prefix_load_term_posts() {
 	}
 	
 	$args = array (
-			'posts_per_page' => 2, // TODO: 4 after testing!
+			'posts_per_page' => -1, // TODO: 4 after testing!
 			'offset' => $offset,
 			'order' => 'DESC',
 			'orderby' => 'date',
@@ -222,9 +222,8 @@ function prefix_load_term_posts() {
 			</div>
 			<div class="image-footer clearfix">
 				<div class="footer-item num-comments"><span class="fa"></span><a href="<?php echo get_comments_number() > 0 ? get_permalink() . '#comments' : get_permalink(); ?>"><?php echo get_comments_number(); ?></a></div>
-				<div class="footer-item num-likes"><span class="fa"></span><a href="#">-</a></div>
 				<?php $num_terms = count(wp_get_post_terms($post->ID, $taxonomy)); ?>
-				<?php if ($num_terms < 3) : ?>
+				<?php if ($num_terms < 4) : ?>
 					<div class="footer-item post-category"><span class="fa"></span><?php echo get_the_term_list($post->ID, $taxonomy, '', ', '); ?></div>
 				<?php else : ?>
 					<div class="footer-item post-category"><span class="fa"></span><a href="#" class="category-list-btn"><?php echo $num_terms . ' ' . __('tags', 'patrikblom'); ?></a></div>
