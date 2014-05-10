@@ -1,11 +1,7 @@
 <?php
 /*
-Author: Eddie Machado
-URL: htp://themble.com/bones/
-
-This is where you can drop your custom functions or
-just edit things like thumbnail sizes, header images,
-sidebars, comments, ect.
+Author: Jakob Grannas
+URL: https://github.com/jakobgrannas/patrikblom
 */
 
 /************* INCLUDE NEEDED FILES ***************/
@@ -33,36 +29,11 @@ require_once( 'library/theme-init.php' );
 require_once( 'theme-admin.php' );
 
 require_once( 'custom-widgets.php' );
-
-/*
-2. library/custom-post-type.php
-	- an example custom post type
-	- example custom taxonomy (like categories)
-	- example custom taxonomy (like tags)
-*/
-//require_once( 'library/custom-post-type.php' ); // you can enable this if you like
-/*
-3. library/admin.php
-	- removing some default WordPress dashboard widgets
-	- an example custom dashboard widget
-	- adding custom login css
-	- changing text in footer of admin
-*/
-// require_once( 'library/admin.php' ); // this comes turned off by default
 /*
 4. library/translation/translation.php
 	- adding support for other languages
 */
 // require_once( 'library/translation/translation.php' ); // this comes turned off by default
-
-add_filter( 'image_size_names_choose', 'bones_custom_image_sizes' );
-
-function bones_custom_image_sizes( $sizes ) {
-    return array_merge( $sizes, array(
-        'bones-thumb-600' => __('600px by 150px'),
-        'bones-thumb-300' => __('300px by 100px'),
-    ) );
-}
 
 add_filter('excerpt_length', 'pb_get_excerpt');
 

@@ -11,6 +11,7 @@
     "gulp-clean": "~0.2.4",
     "gulp-rename": "~1.2.0",
     "gulp-imagemin": "~0.1.5",
-    "gulp": "~3.6.0"
+    "gulp": "~3.6.0",
+    "gulp-concat": "~2.2.0"
   }
 }

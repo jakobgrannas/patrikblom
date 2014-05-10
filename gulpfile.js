@@ -1,5 +1,6 @@
 var gulp = require('gulp'),
 	clean = require('gulp-clean'),
+	concat = require('gulp-concat'),
 	rename = require('gulp-rename'),
 	imagemin = require('gulp-imagemin'),
 	minifyCSS = require('gulp-minify-css'),
@@ -22,9 +23,7 @@ gulp.task('scripts', function() {
 gulp.task('styles', function() {
 	return gulp.src(paths.styles)
 		.pipe(minifyCSS())
-		.pipe(rename(function(path) {
-			path.extname = ".min.css"
-		}))
+		.pipe(concat('styles.min.css'))
 		.pipe(gulp.dest('./dist/css/'));
 });
 
