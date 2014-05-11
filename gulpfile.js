@@ -14,6 +14,7 @@ var gulp = require('gulp'),
 
 gulp.task('scripts', function() {
 	return gulp.src(paths.scripts)
+		.pipe(gulp.dest('./dist/js/'))
 		.pipe(uglify())
 		.pipe(rename(function (path) {
 			path.extname = '.min.js';
