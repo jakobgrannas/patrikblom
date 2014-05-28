@@ -1,0 +1,75 @@
+/**
+ * Single image post
+ */
+.single-image-post {
+	background-color: #151515;
+	color: white;
+	position: relative;
+}
+
+.single-image-nav {
+	background-color: inherit;
+	color: white;
+	z-index: 20;
+	position: absolute
+}
+
+.single-image-footer {
+	background-color: #000;
+	border: 0;
+	border-radius: 0;
+	width: 100%;
+}
+
+.single-image-footer .footer-item .fa {
+	font-size: 2em;
+}
+
+.full-width-image img {
+	max-height: 100%;
+	max-width: 100%;
+	display: block;
+	position: absolute;
+    left: 50%;
+    top: 50%;
+	margin: 0;
+    transform: translate(-50%, -50%);    
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
+
+.full-width-image {
+	display: block;
+}
+
+.single-image-post .wp-post-image {
+	display: block;
+	position: relative;
+	height: 100vh;
+}
+
+/* Image meta */
+
+.image-content {
+	padding: 1em 1em 6em 1em;
+	background-color: #f3f5f0;
+	color: #444;
+}
+
+.image-content .section {
+	text-align: center;
+	padding-top: 3em;
+}
+
+.image-content .section .inner {
+	text-align: left;
+	max-width: 45em;
+	width: 100%;
+	display: inline-block;
+}
+
+/* Image post comment form */
+.single-image-post .respond-form .post-info {
+	display: none;
+}

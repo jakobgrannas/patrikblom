@@ -1,0 +1,100 @@
+/**
+ * Comment
+ */
+.comment {
+	list-style: none;
+	margin-bottom: 1em;
+}
+
+.comment .children {
+	padding-left: 1em;
+	margin-top: 1em;
+}
+
+.comment .avatar {
+	border-radius: 50%;
+	border: 0.25em solid white;
+	margin-right: 0.4em;
+}
+
+.comment-body {
+	display: block;
+	width: 100%;
+}
+
+.comment .datetime {
+	float: right;
+	font-size: 0.7em;
+	margin-top: 0.3em;
+	color: #999;
+	text-transform: uppercase;
+}
+
+.comment .clock-icon {
+	padding-right: 0.4em;
+}
+
+.comment .comment-author {
+	margin-bottom: 0.5em;
+}
+
+.comment-author .author {
+	font-family: 'Oswald', 'Noto-sans', sans-serif;
+	font-style: normal;
+	text-transform: uppercase;
+	font-size: 0.8em;
+}
+
+.comment .alert-info {
+	padding: 0.5em;
+}
+
+.comment .alert-info p {
+	margin-bottom: 0.5em;
+}
+
+.comment-content {
+	background: white;
+	box-shadow: 1px 1px 0 0 #dcdcdc;
+	padding: 0.6em;
+	font-size: 0.8em;
+}
+
+.comment-content p {
+	margin-top: 0;
+	margin-bottom: 1em;
+}
+
+.comment-content p:last-child {
+	margin-bottom: 0;
+}
+
+.comment-footer {
+	font-size: 0.9em;
+	margin-top: 0.5em;
+}
+
+.comment-links {
+	padding: 0;
+}
+
+.comment-link {
+	list-style: none;
+	display: inline-block;
+	margin-right: 0.6em;
+}
+
+.comment-link .fa {
+	color: #aaa;
+	padding-right: 0.5em;
+}
+
+.edit-icon {
+	text-align: right;
+}
+
+.comment-link:last-child {
+	border: 0;
+	padding-right: 0;
+	margin-right: 0;
+}

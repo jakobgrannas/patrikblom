@@ -1,0 +1,64 @@
+/**
+ * Icons
+ */
+
+/* Font awesome icons */
+.fa {
+	font-family: FontAwesome;
+	font-style: normal;
+	font-weight: normal;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.search-icon:before {
+	content: "\f002";
+}
+
+.search-plus-icon:before {
+	content: "\f00e";
+}
+
+.clock-icon:before {
+	content: "\f017";
+}
+
+.calendar-icon:before {
+	content: "\f133";
+}
+
+.chevron-left:before {
+	content: "\f053";
+}
+
+.fa-code:before { /* TODO: Remove color */
+	content: "\f121";
+	color: #cfcfcf;
+}
+
+/* Comment icons */
+.reply-icon:before {
+	content: "\f112";
+}
+
+.permalink-icon:before {
+	content: "\f0c1";
+}
+
+.edit-icon:before {
+	content: "\f044";
+}
+
+/* Social media icons */
+.facebook-icon .fa:before {
+	content: "\f09a";
+}
+
+.linkedin-icon .fa:before {
+	content: "\f0e1";
+}
+
+.flickr-icon .fa:before {
+	content: "\f16e";
+}

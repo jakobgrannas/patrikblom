@@ -1,0 +1,35 @@
+/**
+ * Comments 
+ */
+.respond-form .comment-field {
+	max-width: 35em;
+	width: 100%;
+	min-height: 10em;
+	padding: 0.8em;
+}
+
+.comment-form-elements {
+	padding: 0;
+}
+
+.comment-form-elements .list-item {
+	list-style: none;
+	text-align: center;
+	position: relative;
+}
+
+.respond-form .comment-form-elements .form-label {
+	display: none;
+}
+
+.respond-form .cancel-reply {
+	margin-right: 0.5em;
+}
+
+.field-info {
+	display: none;
+}
+
+.commentlist {
+	padding: 0;
+}

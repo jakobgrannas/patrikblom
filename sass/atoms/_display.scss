@@ -1,0 +1,48 @@
+/**
+ * Display
+ *
+ * Here goes styles that handle visibility or display of elements
+ * eg. display: flex; or visibility: hidden;
+ */
+.visually-active {
+	display: block !important;
+}
+
+.hidden {
+	display: none;
+}
+
+.visibly-hidden { // TODO: Rename to visually-hidden
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+}
+
+.flexed {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+}
+
+.boxsized {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.animate {
+	-webkit-transition: -webkit-transform 350ms ease;
+	-moz-transition: -moz-transform 350ms ease;
+	transition: transform 350ms ease;
+}
+
+.align-right {
+	float: right;
+}

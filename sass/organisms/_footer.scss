@@ -1,0 +1,97 @@
+/**
+ * Footer
+ */
+.footer {
+	width: 100%;
+	display: inline-block;
+	background-color: #222;
+	position: relative;
+	color: #ffffff;
+	font-size: 0.9em;
+	padding: 0 3em 3em;
+}
+
+.footer .container {
+	width: 100%;
+	color: #c6c6c6;
+}
+
+.footer .container a {
+	color: #c6c6c6;
+}
+
+.footer .container a:hover {
+	color: #4aa982;
+}
+
+.footer a {
+	text-decoration: none;
+}
+
+
+.footer-block {
+	width: 100%;
+	border-bottom: 1px solid #4c4c4c;
+	padding-bottom: 2em;
+	margin-bottom: 2em;
+	display: inline-block;
+}
+
+.footer-block .widget-title {
+	margin: 0 0 1em 0;
+}
+
+.copyright {
+	display: block;
+}
+
+/* Communication */
+.footer .communication a {
+	display: block;
+}
+
+.footer .communication .tel {
+	font-size: 2em;
+	margin-bottom: 0.6em;
+}
+
+.tel .fa:before {
+	content: "\f095";
+	font-size: 0.6em;
+	padding-right: 0.6em;
+}
+
+.email .fa:before {
+	content: "\f0e0";
+	font-size: 0.7em;
+	padding-right: 1em;
+}
+
+/* Address */
+.address p {
+	display: block;
+	margin: 0.5em 0;
+}
+
+/* Social media icons */
+.social-media-icons a {
+	display: inline-block;
+	font-size: 2.3em;
+	margin-right: 1em;
+}
+
+.social-media-icons a:last-child {
+	margin-right: 0;
+}
+
+/* Logo */
+.footer .logo {
+	font-size: 1.7em;
+	border: 0;
+	padding: 0;
+}
+
+.footer .logo > .row1 {
+	padding-bottom: 0;
+}
+

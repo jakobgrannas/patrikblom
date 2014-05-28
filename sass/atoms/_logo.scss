@@ -1,0 +1,51 @@
+/*
+===============
+   LOGO
+===============
+*/
+
+.logo-container {
+	position: relative;
+	top: 40%;
+	margin: 0;
+}
+
+.logo {
+	font-family: 'Oswald', 'Noto Sans', sans-serif;
+	text-transform: uppercase;
+	text-align: left;
+	border-right: 0.05em solid rgba(255,255,255,0.3);
+	border-left: 0.05em solid rgba(255,255,255,0.3);
+	padding: 0 0.3em 0 0.3em;
+	margin: 0;
+	display: inline-block;
+}
+
+.logo .row1,
+.logo .row2 {
+	display: block;
+}
+
+.logo .row1 {
+	font-weight: 100;
+	letter-spacing: 0.05em;
+	padding-bottom: 0.3em;
+}
+
+.logo .row2 {
+	font-weight: 700;
+	font-size: 0.9em;
+	letter-spacing: 0.3em;
+	margin-right: -0.3em;
+}
+
+.no-fontface .logo {
+	background: transparent image-url('logo.png') center center no-repeat;
+	width: 95px;
+	height: 53px;
+}
+
+.no-fontface .logo .row1,
+.no-fontface .logo .row2 {
+	display: none;
+}

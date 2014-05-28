@@ -1,0 +1,160 @@
+/**
+ * Sorter bar
+ */
+.sorter-bar {
+	padding: 2em 1.8em 2em 1.8em;
+	/* If no flexbox */
+	float: left;
+	width: 100%;
+}
+
+/* If no flexbox */
+.no-flexbox .form-inner {
+	margin: 0 auto;
+	display: inline-block;
+}
+
+.no-flexbox .form-container {
+	text-align: center; /* Hack to center div in IE 8 & 9 */
+}
+
+.no-flexbox .select-container .drop-down-trigger:before {
+	margin-left: -2.3em;
+}
+
+.form-container {
+	/* If no flexbox */
+	float: left;
+	width: 100%;
+	display: block;
+	text-align: left;
+	/* Flexed content */
+	align-items: flex-start;
+	flex-direction: row;
+	justify-content: center;
+	display: flex;
+}
+
+.sort-by-type,
+.sort-by-category {
+	margin: 0 auto;
+	display: block;
+	width: 50%;
+	max-width: 40em;
+	min-width: 17em;
+	-webkit-box-flex: 1;
+	-moz-box-flex:  1;
+	-webkit-flex:  1;
+	-ms-flex:  1;
+	flex: 1;
+}
+
+.sort-by-category legend,
+.sort-by-type label {
+	width: 3em;
+	margin-right: 2em;
+}
+
+.select-container,
+.sort-by-type label,
+.sort-by-category legend,
+.checkbox-group {
+	float: left;
+}
+
+.select-container {
+	display: inline-block;
+}
+
+.sort-by-type label {
+	display: block;
+	min-width: 4em;
+	padding-top: 0.3em;
+}
+
+.sort-by-category {
+	margin-top: 0.7em;
+}
+
+.sort-by-category legend {
+	min-width: 4em;
+	display: inline-block;
+	text-align: left;
+	margin-bottom: 0.6em;
+	padding-top: 0.3em;
+}
+
+/* Type select */
+
+.view-as {
+	background-color: $base-color; /*#4aa982;*/
+	color: #ffffff;
+	padding: 0.6em;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	border-radius: 0;
+	border: 0;
+	width: 12em;
+	font-size: 0.9em;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-ms-appearance: none;
+	-o-appearance: none;
+	appearance: none;
+}
+
+.drop-down-trigger {
+	display: inline-block;
+}
+
+.select-container .drop-down-trigger:before {
+	margin-left: -1.7em;
+	content: "\f107";
+	font-size: 1.2em;
+	vertical-align: middle;
+	background-color: $base-color; /*#4aa982;*/
+	padding: 0.2em 0.2em 0 0.2em;
+	color: #ffffff;
+	pointer-events: auto;
+}
+
+/* Toggler */
+.sort-by-type .toggle-button {
+	padding: 0.4em 0;
+	margin-right: 0;
+	min-width: 0;
+	text-align: center;
+	width: 4em;
+	color: white;
+	background: $base-color;
+	border: 0;
+}
+
+/* Checkbox buttons */
+
+.toggle-button {
+	border: 2px solid #b1b1b1;
+	color: #b1b1b1;
+	cursor: pointer;
+	font-size: 0.9em;
+	padding: 0.3em 0.9em 0.3em 0.9em;
+	margin-right: 0.7em;
+	margin-bottom: 0.7em;
+	display: inline-block;
+	float: left;
+}
+
+.toggle-button:last-child {
+	margin-right: 0;
+}
+
+.checkbox:checked + .toggle-button {
+	border-color: $base-color;
+	color: $base-color;
+}
+
+.toggler:checked + .toggle-button {
+	background-color: darken($base-color, 20%);
+	color: white;
+}
+

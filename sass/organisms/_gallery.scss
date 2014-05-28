@@ -1,0 +1,116 @@
+/* Gallery section */
+.gallery-section {
+	max-width: 42em;
+	display: flex;
+	@include flex-direction(row);
+	@include justify-content(center);
+	@include flex-wrap(wrap);
+}
+
+.gallery-section > .inner {
+	margin: 0 auto;
+}
+
+.image-block {
+	display: block;
+	float: left;
+	position: relative;
+	margin-right: 10%;
+	margin-bottom: 10%;
+	width: 26%;
+	border-radius: 50%;
+	@include flex(1);
+	min-width: 10em;
+}
+
+.gallery-section > .image-block {
+	width: 180px;
+	max-width: 180px;
+}
+
+.gallery-section > .image-block:nth-child(even),
+.gallery-section > a.image-block:last-of-type {
+	margin-right: 0;
+}
+
+.image-block .preview-thumbnail {
+	border-radius: inherit;
+}
+
+.image-block .preview-overlay {
+	border-radius: inherit;
+	visibility: hidden;
+	position: absolute;
+	background: rgba(161, 41, 23, 0.80);
+	color: #fff;
+	font-size: 2.2em;
+	text-align: center;
+	width: inherit;
+	height: 100%;
+	display: block;
+	opacity: 0;
+	transition:visibility 0s linear 0.3s,opacity 0.3s linear;
+	-moz-transition:visibility 0s linear 0.3s,opacity 0.3s linear;
+	-webkit-transition:visibility 0s linear 0.3s,opacity 0.3s linear;
+}
+
+.gallery-section > .image-block:hover .preview-overlay {
+	visibility: visible;
+	opacity: 1;
+	transition-delay: 0s;
+}
+
+.image-block .search-plus-icon {
+	position: relative;
+	top: 43%;
+}
+
+.button-row {
+	width: 100%;
+	display: inline-block;
+	margin-top: 2em;
+}
+
+.button-row .btn {
+	margin: 0 auto;
+	display: block;
+	min-width: 9em;
+	text-align: center;
+}
+
+.gallery-section .button-row .btn {
+	width: 9em;
+}
+
+/*
+===============
+Descriptive text
+===============
+*/
+.descriptive-text > .centered-inner {
+	margin-top: 6em;
+	margin-bottom: 2em;
+	text-align: center;
+}
+
+/* Photo feed */
+.photo-feed {
+	max-width: 70em;
+	flex-direction: row;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	margin-top: 2em;
+}
+
+.photo-feed > .image-block {
+	margin: 0.7em;
+	width: 16em;
+	flex: 0 1 auto;
+}
+
+.photo-feed .image-description {
+	color: #555;
+	margin-top: 0.6em;
+	margin-bottom: 0;
+	font-size: 0.8em;
+}

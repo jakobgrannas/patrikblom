@@ -1,0 +1,71 @@
+/**
+ * Menu
+ */
+.main-menu {
+	background: #222;/*#711414;*/
+	position: absolute;
+	width: 15em;
+	height: 100%;
+	min-height: 100%;
+	color: white;
+	top: 0;
+	z-index: 0;
+}
+
+.menu-item {
+	list-style: none;
+}
+
+.main-menu a {
+	color: #ddd;
+	text-decoration: none;
+	font-size: 0.9em;
+	padding: 0.8em 1.2em 0.8em 1.2em;
+	display: block;
+}
+
+.main-menu a:hover {
+	color: #fff; /*#e43d3d;*/
+}
+
+/* Orientation-dependent styles for the content of the menu */
+
+.menu-right {
+	right: 0;
+}
+
+.menu-closed {
+	overflow: hidden;
+	max-height: 100%;
+}
+
+.menu-animate-left {
+	-webkit-transform: translate3d(-15em,0,0);
+	transform: translate3d(-15em,0,0);
+}
+
+.main-nav-open {
+	position: relative !important;
+	width: auto !important;
+}
+
+/* No js nav*/
+.close-menu-btn {
+	display: none;
+}
+
+.no-js #main-nav:target + .wrapper {
+	left: -15em;
+}
+
+.no-js #main-nav:target + .wrapper .open-menu-btn {
+	display: none;
+}
+.no-js #main-nav:target + .wrapper .close-menu-btn {
+	display: block;
+}
+
+.no-js #main-nav:target + .wrapper .banner {
+	left: 0;
+}
+

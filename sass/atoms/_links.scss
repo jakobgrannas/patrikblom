@@ -1,0 +1,28 @@
+/**
+ * Links
+ */
+a {
+	color: $base-color;
+}
+
+a:visited {
+	color: #9d0a2d;
+	border-color: #9d0a2d;
+}
+
+a {
+	text-decoration: underline;
+}
+
+a:hover {
+	color: $base-color;
+	text-decoration: none;
+}
+
+.bare-link,
+.bare-link:link,
+.bare-link:hover,
+.bare-link:visited {
+	text-decoration: none;
+	color: inherit;
+}

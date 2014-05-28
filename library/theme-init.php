@@ -20,15 +20,13 @@ function init_scripts_and_styles() {
 		wp_register_script('lazyload', '//cdnjs.cloudflare.com/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload'. $suffix .'.js', array( 'jquery' ), '', true );
 		//wp_register_script('infinite-scroll-helper', get_stylesheet_directory_uri() . '/js/vendor/infinite-scroll-helper.min.js', array( 'jquery' ), '', true );
 		
-		wp_register_style('base-normalize', '//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.0/normalize'. $suffix .'.css', array(), '', 'all');
+		wp_register_style('base-normalize', '//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize'. $suffix .'.css', array(), '', 'all');
 
 		wp_register_style('styles', get_stylesheet_directory_uri() . '/dist/css/style'. $suffix .'.css', array(), '', 'all');
-		wp_register_style('breakpoints', get_stylesheet_directory_uri() . '/dist/css/enhance'. $suffix .'.css', array('styles'), '', 'all');
 		
 		wp_enqueue_style('base-normalize');
 		
 		wp_enqueue_style('styles');
-		wp_enqueue_style('breakpoints');
 		
 		wp_enqueue_script('base-js');
 		wp_enqueue_script('masonry');

@@ -1,0 +1,97 @@
+/**
+ * Buttons
+ */
+.btn {
+	color: #ffffff;
+	background-color: transparent;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-ms-appearance: none;
+	-o-appearance: none;
+	appearance: none;
+}
+
+.btn-default {
+	font-size: 0.8em;
+	text-decoration: none;
+	text-transform: uppercase;
+	display: inline-block;
+	font-weight: bold;
+	padding: 1.1em 2em;
+	line-height: 1em;
+}
+
+.btn-action {
+	min-width: 12em;
+}
+
+.btn-default,
+.btn-default:visited,
+.btn-default.btn-action:hover {
+	border: 2px solid #bababa;
+	color: #888;
+}
+
+.btn-default:hover,
+.btn-default.btn-action {
+	color: $base-color;
+	border-color: $base-color;
+}
+
+.btn-small {
+	padding: 0.5em 1em;
+	font-weight: normal;
+	min-width: inherit;
+}
+
+.btn-big {
+	padding: 1.2em 3.5em 1.2em 3.5em;
+}
+
+.centered-inner-container { // TODO: Move to somewhere else
+	display: block;
+	text-align: center;
+}
+
+/* Back button */
+a.back-button,
+a:visited.back-button {
+	font-size: 1.7em;
+	padding: 0.5em;
+	display: inline-block;
+	text-align: center;
+	color: #fff;
+	text-decoration: none;
+}
+
+a.back-button:hover {
+	opacity: 0.6;
+}
+
+/* Scroll top button */
+.scroll-top-btn {
+	background-color: #222;
+	text-decoration: none;
+	color: #ffffff;
+	text-align: center;
+	padding: 0.3em 0 0.4em 0;
+	font-size: 1.9em;
+	text-transform: uppercase;
+	margin: -0.8em auto 1.5em auto;
+	width: 1.8em;
+	display: block;
+}
+
+.scroll-top-btn .fa:before {
+	content: "\f106";
+}
+
+a.scroll-top-btn,
+a:visited.scroll-top-btn {
+	color: white;
+}
+
+/* Button text */
+.btn-text {
+	display: none;
+}

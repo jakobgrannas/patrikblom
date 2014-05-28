@@ -1,0 +1,45 @@
+/**
+ * Respond form
+ */
+.respond-form .input-field {
+	background-color: white;
+	box-shadow: 1px 1px 0 0 #dcdcdc;
+	border: 0;
+	color: #555;
+	padding: 0.7em;
+	margin-bottom: 1.3em;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.respond-form .input-field:required:valid ~ span:after,
+.respond-form .input-field.valid ~ span:after,
+.respond-form .input-field:required:invalid ~ span:after,
+.respond-form .input-field.invalid ~ span:after {
+	position: absolute;
+	top: 0.6em;
+	right: 0.4em;
+	font-size: 1.4em;
+}
+
+.respond-form .input-field:required:valid ~ span:after,
+.respond-form .input-field.valid ~ span:after {
+	content: "\f05d";
+	color: $base-color;
+}
+
+.respond-form .input-field:required:invalid ~ span:after,
+.respond-form .input-field.invalid ~ span:after {
+	content: "\f05c";
+	color: #9d0a2d;
+}
+
+.respond-form .form {
+	max-width: 30em;
+	margin: 0 auto;
+}
+
+.respond-form .form .input-field {
+	width: 100%;
+}

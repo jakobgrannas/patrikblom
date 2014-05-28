@@ -95,7 +95,7 @@
 	</aside>
 
 	<section class="section">
-		<div class="centered-inner photo-feed js-masonry flexed" id="photo-feed"></div>
+		<div class="full-inner photo-feed js-masonry flexed" id="photo-feed"></div>
 	</section>
 </main>
 
