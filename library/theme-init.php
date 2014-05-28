@@ -22,7 +22,7 @@ function init_scripts_and_styles() {
 		
 		wp_register_style('base-normalize', '//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.0/normalize'. $suffix .'.css', array(), '', 'all');
 
-		wp_register_style('styles', get_stylesheet_directory_uri() . '/dist/css/styles'. $suffix .'.css', array(), '', 'all');
+		wp_register_style('styles', get_stylesheet_directory_uri() . '/dist/css/style'. $suffix .'.css', array(), '', 'all');
 		wp_register_style('breakpoints', get_stylesheet_directory_uri() . '/dist/css/enhance'. $suffix .'.css', array('styles'), '', 'all');
 		
 		wp_enqueue_style('base-normalize');

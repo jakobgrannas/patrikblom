@@ -1,3 +1,12 @@
+/**
+ * Vars
+ */
+$base-color: #469a73;
+
+/*
+ * Imports
+ */
+@import 'flex';
 
 /* FONTS */
 @font-face {
@@ -76,7 +85,7 @@ button, input, select, textarea {
 }
 
 a {
-	color: #469a73;
+	color: $base-color;
 }
 
 a:visited {
@@ -89,7 +98,7 @@ a {
 }
 
 a:hover {
-	color: #469a73;
+	color: $base-color;
 	text-decoration: none;
 }
 
@@ -280,8 +289,8 @@ h1, h2, h3 {
 
 .btn-default:hover,
 .btn-default.btn-action {
-	color: #469a73;
-	border-color: #469a73;
+	color: $base-color;
+	border-color: $base-color;
 }
 
 .btn-small {
@@ -612,7 +621,7 @@ a.nav-btn {
 .sort-by-category legend,
 .sort-by-type label {
 	width: 3em;
-	margin-right: 2.5em;
+	margin-right: 2em;
 }
 
 .select-container,
@@ -647,7 +656,7 @@ a.nav-btn {
 /* Type select */
 
 .view-as {
-	background-color: #469a73; /*#4aa982;*/
+	background-color: $base-color; /*#4aa982;*/
 	color: #ffffff;
 	padding: 0.6em;
 	-webkit-border-radius: 0;
@@ -672,7 +681,7 @@ a.nav-btn {
 	content: "\f107";
 	font-size: 1.2em;
 	vertical-align: middle;
-	background-color: #469a73; /*#4aa982;*/
+	background-color: $base-color; /*#4aa982;*/
 	padding: 0.2em 0.2em 0 0.2em;
 	color: #ffffff;
 	pointer-events: auto;
@@ -680,13 +689,13 @@ a.nav-btn {
 
 /* Toggler */
 .sort-by-type .toggle-button {
-	padding-top: 0.4em;
-	padding-bottom: 0.4em;
+	padding: 0.4em 0;
 	margin-right: 0;
 	min-width: 0;
-	width: 2em;
+	text-align: center;
+	width: 4em;
 	color: white;
-	background: #469a73;
+	background: $base-color;
 	border: 0;
 }
 
@@ -718,9 +727,13 @@ a.nav-btn {
 	margin-right: 0;
 }
 
-.checkbox-group .value-area:checked + .toggle-button {
-	border-color: #469a73;
-	background-color: #469a73;
+.checkbox:checked + .toggle-button {
+	border-color: $base-color;
+	color: $base-color;
+}
+
+.toggler:checked + .toggle-button {
+	background-color: darken($base-color, 20%);
 	color: white;
 }
 
@@ -748,7 +761,7 @@ a.nav-btn {
 	/* TODO: Fix  */
 	filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale"); /* Firefox 10+, Firefox on Android */
 	filter: gray;
-	-webkit-filter: grayscale(1);
+	-webkit-filter: #{'grayscale(1px)'};
 	margin: 3em auto 4em auto;
 	display: block;
 }
@@ -765,7 +778,7 @@ a.nav-btn {
 	padding: 1em 0 0.3em 0;
 	margin: 0 0 0.5em;
 	font-weight: 400;
-	color: #469a73;
+	color: $base-color;
 }
 
 .byline {
@@ -799,7 +812,7 @@ a.nav-btn {
 /* Main content element styling */
 
 .main-content blockquote {
-	border-left: 4px solid #469a73;
+	border-left: 4px solid $base-color;
 	padding-left: 1em;
 	font-style: italic;
 	font-family: 'Inika', sans;
@@ -1040,7 +1053,7 @@ a.nav-btn {
 .respond-form .input-field:required:valid ~ span:after,
 .respond-form .input-field.valid ~ span:after {
 	content: "\f05d";
-	color: #469a73;
+	color: $base-color;
 }
 
 .respond-form .input-field:required:invalid ~ span:after,
@@ -1067,9 +1080,9 @@ a.nav-btn {
 .gallery-section {
 	max-width: 42em;
 	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	flex-wrap: wrap;
+	@include flex-direction(row);
+	@include justify-content(center);
+	@include flex-wrap(wrap);
 }
 
 .gallery-section > .inner {
@@ -1084,7 +1097,7 @@ a.nav-btn {
 	margin-bottom: 10%;
 	width: 26%;
 	border-radius: 50%;
-	flex: 1;
+	@include flex(1);
 	min-width: 10em;
 }
 
@@ -1191,7 +1204,7 @@ Descriptive text
 }
 
 .photo-feed .image-title {
-	color: #469a73;
+	color: $base-color;
 	margin: 0;
 	font-weight: 100;
 	font-family: 'Noto Sans', sans-serif;
@@ -1199,11 +1212,11 @@ Descriptive text
 }
 
 .image-title a {
-	color: #469a73;
+	color: $base-color;
 }
 
 .image-title a:hover {
-	color: #469a73;
+	color: $base-color;
 }
 
 .photo-feed .image-description {
@@ -1256,7 +1269,7 @@ Descriptive text
 
 .image-footer a:hover {
 	text-decoration: underline;
-	color: #469a73;
+	color: $base-color;
 }
 
 .image-footer > .footer-item {
@@ -1572,7 +1585,7 @@ a.scroll-top-btn {
 	zoom:1;
 }
 
-/* Supports not */
+/* Supports not 
 @supports not (flex-wrap: wrap) {
 	.gallery-section {
 		display: block;
@@ -1582,3 +1595,4 @@ a.scroll-top-btn {
 		min-width: 8em;
 	}
 }
+*/

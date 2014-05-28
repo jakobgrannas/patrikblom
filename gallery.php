@@ -54,12 +54,23 @@
 				<fieldset class="sort-by-type">
 					<label for="view-type"><?php _e('View', 'patrikblom'); ?>:</label>
 
-					<div class="select-container">
-						<select id="view-type" class="view-as">
-							<option value="0" selected="selected"><?php _e('Album', 'patrikblom'); ?></option>
-							<option value="1"><?php _e('All', 'patrikblom'); ?></option>
-						</select>
-						<span class="fa drop-down-trigger"></span>
+					<div class="checkbox-group">
+						<?php
+							$options = array(
+								'all' => array(
+									'label' => __('All', 'patrikblom'),
+									'isChecked' => false,
+								),
+								'album' => array(
+									'label' => __('Album', 'patrikblom'),
+									'isChecked' => true,
+								)
+							);
+						?>
+						<?php foreach ($options as $key => $option) : ?>
+							<input id="view-option-<?php echo $key; ?>" type="radio" name="view-as" class="radio toggler visibly-hidden value-area" value="<?php echo $key; ?>" <?php checked($option['isChecked']); ?>/>
+							<label for="view-option-<?php echo $key; ?>" class="toggle-button"><?php echo $option['label']; ?></label>
+						<?php endforeach; ?>
 					</div>
 				</fieldset>
 
@@ -74,8 +85,8 @@
 							$sort_terms = get_terms('phototype', $sort_args);
 						?>
 						<?php foreach ($sort_terms as $term ) : ?>
-						<input id="term-<?php echo $term->term_id; ?>-checkbox" type="checkbox" name="terms" class="visibly-hidden" value="<?php echo $term->name; ?>"/>
-						<label for="term-<?php echo $term->term_id; ?>-checkbox" class="checkbox-button"><?php echo $term->name; ?></label>
+						<input id="term-<?php echo $term->term_id; ?>-checkbox" type="checkbox" name="terms" class="checkbox visibly-hidden value-area" value="<?php echo $term->name; ?>"/>
+						<label for="term-<?php echo $term->term_id; ?>-checkbox" class="toggle-button"><?php echo $term->name; ?></label>
 						<?php endforeach; ?>
 					</div>
 				</fieldset>

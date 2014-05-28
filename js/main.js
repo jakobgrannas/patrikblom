@@ -70,9 +70,9 @@
 		}
 		
 		// Set up selectbox filter listener
-		var filterSelectBox = $('.view-as option');
+		var filterSelectBox = $('input[name="view-as"]');
 		if(filterSelectBox.length > 0) {
-			$(document).on('change', '.view-as', filterPhotos);
+			$(document).on('change', 'input[name="view-as"]', filterPhotos);
 		}
 		
 		/**
@@ -127,12 +127,11 @@
 			return $(this).val();
 		}).get();
 		
-		var filterOption = $('#view-type option:selected').val();
-		    filterOption = parseInt(filterOption);
-				
+		var filterOption = $('input[name="view-as"]:checked').val();
+							
 		var filters = {
 			terms: filterTerms,
-			includeChildren: filterOption !== NaN ? filterOption : 0
+			includeChildren: filterOption.toLowerCase() === 'all' || !filterOption
 		};
 		
 		getTerms(filters, function (scope, content) {
@@ -230,7 +229,7 @@
 				offset: filters.offset || 0,
 				taxonomy: 'phototype',
 				postType: 'gallery',
-				includeChildren: filters.includeChildren === 1 ? 1 : 0, // Use true if not explicitly set to false
+				includeChildren: filters.includeChildren === true ? 1 : 0, // Use true if not explicitly set to false
 				terms: filters.terms && filters.terms.length > 0 ? filters.terms : ''
 			},
 			success: function(response) {
