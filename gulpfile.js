@@ -93,7 +93,7 @@ gulp.task('clean', function() {
 
 gulp.task('watch', function() {
 	gulp.watch(paths.scripts, ['scripts']);
-	gulp.watch(paths.styles, ['styles']);
+	//gulp.watch(paths.styles, ['styles']);
 	gulp.watch(paths.images, ['images']);
 	gulp.watch(paths.sass.src, ['sass']);
 });

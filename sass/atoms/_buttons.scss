@@ -95,3 +95,51 @@ a:visited.scroll-top-btn {
 .btn-text {
 	display: none;
 }
+
+/* Toggle button */
+.toggle-button { // Toggler
+	padding: 0.4em 0;
+	margin-right: 0;
+	min-width: 0;
+	text-align: center;
+	width: 5.3em;
+	color: $toggler-inactive-color;
+	background: $toggler-inactive-bg-color;
+	cursor: pointer;
+	font-size: 0.9em;
+	float: left;
+}
+
+.check-button:last-child {
+	margin-right: 0;
+}
+
+.toggler:checked + .toggle-button {
+	background-color: $base-color;
+	color: white;
+}
+
+.toggler:checked + .toggle-button:before {
+	@extend .fa;
+	padding-right: 0.3em;
+	content: "\f00c";
+	color: darken($base-color, 15%);
+}
+
+// Checkboxes
+.check-button { // Regular checkbox
+	@extend .toggle-button;
+	border: 2px solid #b1b1b1;
+	color: #b1b1b1;
+	padding: 0.3em 0.9em 0.3em 0.9em;
+	background: none;
+	width: auto;
+	margin-right: 0.7em;
+	margin-bottom: 0.7em;
+	display: inline-block;
+}
+
+.checkbox:checked + .check-button {
+	border-color: $base-color;
+	color: $base-color;
+}

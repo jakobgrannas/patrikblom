@@ -2,4 +2,12 @@
  * Variables
  */
 $base-color: #469a73;
+$secondary-disabled-color: darken($base-color, 20%);
+$primary-bg-color: #f3f5f0;
+
+// Toggler
+$toggler-inactive-color: darken(desaturate($primary-bg-color, 20%), 40%);
+$toggler-inactive-bg-color: darken(desaturate($primary-bg-color, 10%), 15%);
+
+// Paths
 $font-path: '../../fonts';

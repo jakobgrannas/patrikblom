@@ -52,7 +52,7 @@
 		<form class="boxsized form-container">
 			<div class="boxsized form-inner">
 				<fieldset class="sort-by-type">
-					<label for="view-type"><?php _e('View', 'patrikblom'); ?>:</label>
+					<legend class="sort-label"><?php _e('View', 'patrikblom'); ?>:</legend>
 
 					<div class="checkbox-group">
 						<?php
@@ -75,7 +75,7 @@
 				</fieldset>
 
 				<fieldset class="sort-by-category">
-					<legend><?php _e('Category', 'patrikblom'); ?>:</legend>
+					<legend class="sort-label"><?php _e('Category', 'patrikblom'); ?>:</legend>
 					<div class="checkbox-group">
 						<?php
 							$sort_args = array(
@@ -86,7 +86,7 @@
 						?>
 						<?php foreach ($sort_terms as $term ) : ?>
 						<input id="term-<?php echo $term->term_id; ?>-checkbox" type="checkbox" name="terms" class="checkbox visibly-hidden value-area" value="<?php echo $term->name; ?>"/>
-						<label for="term-<?php echo $term->term_id; ?>-checkbox" class="toggle-button"><?php echo $term->name; ?></label>
+						<label for="term-<?php echo $term->term_id; ?>-checkbox" class="check-button"><?php echo $term->name; ?></label>
 						<?php endforeach; ?>
 					</div>
 				</fieldset>
