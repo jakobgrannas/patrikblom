@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: patrikblom\n"
-"POT-Creation-Date: 2014-05-31 14:33+0100\n"
-"PO-Revision-Date: 2014-05-31 14:34+0100\n"
+"POT-Creation-Date: 2014-05-31 23:46+0100\n"
+"PO-Revision-Date: 2014-05-31 23:48+0100\n"
 "Last-Translator: Jakob Grannas <jakob.grannas@gmail.com>\n"
 "Language-Team: \n"
 "Language: sv_SE\n"
@@ -98,12 +98,18 @@ msgstr ""
 "kommentarerna."
 
 #: patrikblom/comments.php:22
-msgid "<span>No</span> comments"
+#, fuzzy
+msgid "<span>No</span> Comments"
 msgstr "<span>Inga</span> kommentarer"
 
 #: patrikblom/comments.php:22
-msgid "<span>1</span> comment"
+#, fuzzy
+msgid "<span>1</span> Comment"
 msgstr "<span>1</span> kommentar"
+
+#: patrikblom/comments.php:22
+msgid "<span>%</span> Comments"
+msgstr "<span>%</span> kommentarer"
 
 #: patrikblom/comments.php:51 twentyfourteen/comments.php:59
 #: twentythirteen/comments.php:52 twentytwelve/comments.php:53
@@ -204,7 +210,7 @@ msgstr "CSS-klasser (separerade med mellanslag)"
 msgid "View Gallery"
 msgstr "Hela Galleriet"
 
-#: patrikblom/functions.php:193 patrikblom/functions.php:377
+#: patrikblom/functions.php:193 patrikblom/functions.php:350
 msgid "ago"
 msgstr "sen"
 
@@ -261,28 +267,28 @@ msgstr "år"
 msgid "years"
 msgstr "år"
 
-#: patrikblom/functions.php:355
+#: patrikblom/functions.php:328
 msgid "Click here to cancel reply."
 msgstr "Klicka här för att avsluta svar"
 
-#: patrikblom/functions.php:382 twentytwelve/functions.php:344
+#: patrikblom/functions.php:355 twentytwelve/functions.php:344
 msgid "Your comment is awaiting moderation."
 msgstr "Din kommentar väntar på godkännande"
 
-#: patrikblom/functions.php:392 twentytwelve/functions.php:353
+#: patrikblom/functions.php:365 twentytwelve/functions.php:353
 msgid "Reply"
 msgstr "Svara"
 
-#: patrikblom/functions.php:393
+#: patrikblom/functions.php:366
 #, fuzzy
 msgid "Log in to leave a comment"
 msgstr "Skriv en kommentar"
 
-#: patrikblom/functions.php:402
+#: patrikblom/functions.php:375
 msgid "Permalink"
 msgstr "Permalänk"
 
-#: patrikblom/functions.php:403 twentytwelve/functions.php:317
+#: patrikblom/functions.php:376 twentytwelve/functions.php:317
 msgid "(Edit)"
 msgstr "(Ändra)"
 

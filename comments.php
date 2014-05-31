@@ -19,7 +19,7 @@ The comments page for Bones
 <?php // You can start editing here. ?>
 
 <?php if ( have_comments() ) : ?>
-	<h3 id="comments" class="h3 centered-header"><?php comments_number( __( '<span>No</span> comments', 'patrikblom' ), __( '<span>1</span> comment', 'patrikblom' ), _n( '<span>%</span> comments', '<span>%</span> comments', get_comments_number(), 'patrikblom' ) );?></h3>
+	<h3 id="comments" class="h3 centered-header"><?php comments_number( __( '<span>No</span> Comments', 'patrikblom' ), __( '<span>1</span> Comment', 'patrikblom' ), _n( __('<span>%</span> Comment', 'patrikblom'), __('<span>%</span> Comments', 'patrikblom'), get_comments_number() ) );?></h3>
 	
 	<?php if (is_paged()) : ?>
 	<nav id="comment-nav">
