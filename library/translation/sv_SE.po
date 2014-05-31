@@ -1,380 +1,1047 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: wp theme bones\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-02 22:11+0100\n"
-"PO-Revision-Date: \n"
-"Language-Team: fulgor <frag.fulgor@gmail.com>\n"
-"Language-Team: fulgor <frag.fulgor@gmail.com>\n"
+"Project-Id-Version: patrikblom\n"
+"POT-Creation-Date: 2014-05-31 14:33+0100\n"
+"PO-Revision-Date: 2014-05-31 14:34+0100\n"
+"Last-Translator: Jakob Grannas <jakob.grannas@gmail.com>\n"
+"Language-Team: \n"
+"Language: sv_SE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-SourceCharset: utf-8\n"
-"X-Poedit-KeywordsList: __;_e;_n\n"
-"X-Poedit-Basepath: /home/fulgor/GIT/bones\n"
-"Last-Translator: Mathias Hellquist <mathias.hellquist@gmail.com>\n"
-"X-Poedit-SearchPath-0: /home/fulgor/GIT/bones\n"
+"X-Generator: Poedit 1.6.5\n"
+"X-Poedit-Basepath: /Users/jakobgrannas/Sites/wordpress/wp-content/themes\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-SearchPath-0: .\n"
 
-#: comments.php:12
+#: patrikblom/404.php:14
+msgid "Epic 404 - Article Not Found"
+msgstr "Epic 404 - Sidan verkar inte finnas"
+
+#: patrikblom/404.php:20
+msgid ""
+"The article you were looking for was not found, but maybe try looking again!"
+msgstr "Artikeln du letade efter verkar inte finnas"
+
+#: patrikblom/404.php:32
+msgid "This is the 404.php template."
+msgstr ""
+
+#: patrikblom/archive.php:11
+msgid "Posts Categorized:"
+msgstr "Kategoriserade inlägg:"
+
+#: patrikblom/archive.php:16
+msgid "Posts Tagged:"
+msgstr "Taggade inlägg:"
+
+#: patrikblom/archive.php:25
+msgid "Posts By:"
+msgstr "Inlägg av:"
+
+#: patrikblom/archive.php:30
+msgid "Daily Archives:"
+msgstr "Dagliga arkiv:"
+
+#: patrikblom/archive.php:35
+msgid "Monthly Archives:"
+msgstr "Månatliga arkiv:"
+
+#: patrikblom/archive.php:40
+msgid "Yearly Archives:"
+msgstr "Årliga arkiv:"
+
+#: patrikblom/archive.php:52
+#, php-format
+msgid ""
+"Posted <time class=\"updated\" datetime=\"%1$s\" pubdate>%2$s</time> by "
+"<span class=\"author\">%3$s</span> <span class=\"amp\">&</span> filed under "
+"%4$s."
+msgstr ""
+"Publicerat <time class=\"updated\" datetime=\"%1$s\" pubdate>%2$s</time> av "
+"<span class=\"author\">%3$s</span> <span class=\"amp\">&</span> under %4$s."
+
+#: patrikblom/archive.php:52
+msgid "F jS, Y"
+msgstr ""
+
+#: patrikblom/archive.php:78
+msgid "&laquo; Older Entries"
+msgstr "&laquo; Äldre inlägg"
+
+#: patrikblom/archive.php:79
+msgid "Newer Entries &raquo;"
+msgstr "Nyare inlägg &raquo;"
+
+#: patrikblom/archive.php:88 patrikblom/gallery.php:29 patrikblom/index.php:38
+#: patrikblom/page.php:37 patrikblom/search.php:33
+#: patrikblom/single-gallery.php:38 patrikblom/single.php:37
+msgid "Oops, Post Not Found!"
+msgstr "Hoppsan, inlägget verkar inte finnas :("
+
+#: patrikblom/archive.php:91 patrikblom/gallery.php:32 patrikblom/index.php:41
+#: patrikblom/page.php:40 patrikblom/search.php:36
+#: patrikblom/single-gallery.php:41 patrikblom/single.php:40
+msgid "Uh Oh. Something is missing. Try double checking things."
+msgstr "Något saknas. Är du säker på att allt finns där?"
+
+#: patrikblom/archive.php:94
+msgid "This is the error message in the archive.php template."
+msgstr ""
+
+#: patrikblom/comments.php:12
 msgid "This post is password protected. Enter the password to view comments."
-msgstr "Detta inlägg är lösenordsskyddat. Skriv in lösenordet för att se kommentarer."
+msgstr ""
+"Det här inlägget är lösenordsskyddat. Skriv in lösenordet för att se "
+"kommentarerna."
 
-#: comments.php:23
-msgid "Response"
-msgstr "Svar"
+#: patrikblom/comments.php:22
+msgid "<span>No</span> comments"
+msgstr "<span>Inga</span> kommentarer"
 
-#: comments.php:24
-msgid "Responses"
-msgstr "Svar"
+#: patrikblom/comments.php:22
+msgid "<span>1</span> comment"
+msgstr "<span>1</span> kommentar"
 
-#: comments.php:25
-msgid "One"
-msgstr "En"
-
-#: comments.php:26
-msgid "No"
-msgstr "Nej"
-
-#: comments.php:32
-msgid "to"
-msgstr "till"
-
-#: comments.php:59
+#: patrikblom/comments.php:51 twentyfourteen/comments.php:59
+#: twentythirteen/comments.php:52 twentytwelve/comments.php:53
 msgid "Comments are closed."
-msgstr "Det går inte längre att kommentera."
+msgstr "Kommentarer är avstängda."
 
-#: comments.php:70
+#: patrikblom/comments.php:60
 msgid "Leave a Reply"
-msgstr "Lämna en kommentar"
+msgstr "Svara"
 
-#: comments.php:70
+#: patrikblom/comments.php:60
 #, php-format
 msgid "Leave a Reply to %s"
-msgstr "Lämna en kommentar till %s"
+msgstr "Svara på %s"
 
-#: comments.php:78
-msgid "You must be"
-msgstr "Du måste vara"
+#: patrikblom/comments.php:64
+#, php-format
+msgid "You must be %1$slogged in%2$s to post a comment."
+msgstr "You must be %1$slogged in%2$s to post a comment."
 
-#: comments.php:78
-msgid "logged in"
-msgstr "inloggad"
-
-#: comments.php:78
-msgid "to post a comment"
-msgstr "för att kunna kommentera"
-
-#: comments.php:86
+#: patrikblom/comments.php:72
 msgid "Logged in as"
 msgstr "Inloggad som"
 
-#: comments.php:86
+#: patrikblom/comments.php:72
 msgid "Log out of this account"
-msgstr "Logga ut från detta konto"
+msgstr "Logga ut från det här kontot"
 
-#: comments.php:86
+#: patrikblom/comments.php:72
 msgid "Log out"
 msgstr "Logga ut"
 
-#: comments.php:93
+#: patrikblom/comments.php:72
+msgid "&raquo;"
+msgstr ""
+
+#: patrikblom/comments.php:79
 msgid "Name"
 msgstr "Namn"
 
-#: comments.php:93
-#: comments.php:98
+#: patrikblom/comments.php:79 patrikblom/comments.php:85
 msgid "(required)"
-msgstr "(obligatorisk)"
+msgstr "(obligatoriskt)"
 
-#: comments.php:94
-msgid "Your Name"
-msgstr "Ditt namn"
+#: patrikblom/comments.php:80
+msgid "Name *"
+msgstr "Namn *"
 
-#: comments.php:98
-msgid "Email"
+#: patrikblom/comments.php:85
+msgid "Mail"
 msgstr "E-post"
 
-#: comments.php:99
-msgid "Your Email"
-msgstr "Din E-post"
+#: patrikblom/comments.php:86
+msgid "E-Mail *"
+msgstr "E-post *"
 
-#: comments.php:100
-msgid "will not be published"
-msgstr "kommer inte att bli publicerad"
+#: patrikblom/comments.php:94
+msgid "Comment here..."
+msgstr "Kommentera..."
 
-#: comments.php:104
-msgid "Website"
-msgstr "Webbsajt"
+#: patrikblom/comments.php:97
+msgid "Cancel reply"
+msgstr "Avsluta svar"
 
-#: comments.php:105
-msgid "Your Website"
-msgstr "Din webbsajt"
+#: patrikblom/comments.php:98
+msgid "Submit"
+msgstr "Skicka"
 
-#: comments.php:112
-msgid "Your Comment Here..."
-msgstr "Din kommentar här..."
-
-#: comments.php:115
-msgid "Submit Comment"
-msgstr "Skicka kommentar"
-
-#: comments.php:120
+#: patrikblom/comments.php:108
 msgid "You can use these tags"
 msgstr "Du kan använda dessa taggar"
 
-#: header.php:23
+#: patrikblom/custom-widgets.php:7
+msgid "Add footer text (or HTML) block with optional CSS classes"
+msgstr "Lägg till fot-text-block (eller HTML) med frivilliga CSS-klasser"
+
+#: patrikblom/custom-widgets.php:9
+msgid "Footer block"
+msgstr "Sidfot-block"
+
+#: patrikblom/custom-widgets.php:43
+msgid "Eg. myClass or myClass1 myClass2"
+msgstr "T.ex. myClass eller myClass1 myClass2"
+
+#: patrikblom/custom-widgets.php:46 twentyfourteen/inc/widgets.php:236
+msgid "Title:"
+msgstr "Titel:"
+
+#: patrikblom/custom-widgets.php:52
+msgid "Show title"
+msgstr "Visa titel:"
+
+#: patrikblom/custom-widgets.php:58
+msgid "CSS Classes (space separated):"
+msgstr "CSS-klasser (separerade med mellanslag)"
+
+#: patrikblom/functions.php:114
+msgid "View Gallery"
+msgstr "Hela Galleriet"
+
+#: patrikblom/functions.php:193 patrikblom/functions.php:377
+msgid "ago"
+msgstr "sen"
+
+#: patrikblom/functions.php:204
+msgid "tags"
+msgstr "taggar"
+
+#. translators: min=minute
+#: patrikblom/functions.php:293
+msgid "min"
+msgstr "minut"
+
+#: patrikblom/functions.php:293
+msgid "mins"
+msgstr "minuter"
+
+#: patrikblom/functions.php:298
+msgid "hour"
+msgstr "timme"
+
+#: patrikblom/functions.php:298
+msgid "hours"
+msgstr "timmar"
+
+#: patrikblom/functions.php:303
+msgid "day"
+msgstr "dag"
+
+#: patrikblom/functions.php:303
+msgid "days"
+msgstr "dagar"
+
+#: patrikblom/functions.php:308
+msgid "week"
+msgstr "vecka"
+
+#: patrikblom/functions.php:308
+msgid "weeks"
+msgstr "veckor"
+
+#: patrikblom/functions.php:313
+msgid "month"
+msgstr "månad"
+
+#: patrikblom/functions.php:313
+msgid "months"
+msgstr "månader"
+
+#: patrikblom/functions.php:318
+msgid "year"
+msgstr "år"
+
+#: patrikblom/functions.php:318
+msgid "years"
+msgstr "år"
+
+#: patrikblom/functions.php:355
+msgid "Click here to cancel reply."
+msgstr "Klicka här för att avsluta svar"
+
+#: patrikblom/functions.php:382 twentytwelve/functions.php:344
+msgid "Your comment is awaiting moderation."
+msgstr "Din kommentar väntar på godkännande"
+
+#: patrikblom/functions.php:392 twentytwelve/functions.php:353
+msgid "Reply"
+msgstr "Svara"
+
+#: patrikblom/functions.php:393
+#, fuzzy
+msgid "Log in to leave a comment"
+msgstr "Skriv en kommentar"
+
+#: patrikblom/functions.php:402
+msgid "Permalink"
+msgstr "Permalänk"
+
+#: patrikblom/functions.php:403 twentytwelve/functions.php:317
+msgid "(Edit)"
+msgstr "(Ändra)"
+
+#: patrikblom/gallery.php:35
+msgid "This is the error message in the gallery.php template."
+msgstr ""
+
+#: patrikblom/gallery.php:55
+msgid "View"
+msgstr "Visa"
+
+#: patrikblom/gallery.php:61
+msgid "All"
+msgstr "Alla"
+
+#: patrikblom/gallery.php:65
+msgid "Album"
+msgstr "Album"
+
+#: patrikblom/gallery.php:78
+msgid "Category"
+msgstr "Kategori"
+
+#: patrikblom/index.php:44 patrikblom/search.php:39
+msgid "This is the error message in the index.php template."
+msgstr ""
+
+#: patrikblom/library/bones.php:190 patrikblom/library/bones.php:207
+msgid "The Main Menu"
+msgstr "Huvudmenyn"
+
+#: patrikblom/library/bones.php:191 patrikblom/library/bones.php:225
+msgid "Footer Links"
+msgstr "Fotlänkar"
+
+#: patrikblom/library/bones.php:279
+msgid "No Related Posts Yet!"
+msgstr "Inga relaterade inlägg än!"
+
+#: patrikblom/library/bones.php:327
+msgid "Read"
+msgstr "Läs"
+
+#: patrikblom/library/bones.php:327
+msgid "Read more &raquo;"
+msgstr "Läs mer &raquo;"
+
+#: patrikblom/library/bones.php:342
+#, php-format
+msgid "Posts by %s"
+msgstr "Inlägg av %s"
+
+#: patrikblom/library/theme-init.php:62
+msgid "Footer"
+msgstr "Sidfot"
+
+#: patrikblom/page.php:22 patrikblom/single.php:22
+msgid "Tags:"
+msgstr "Taggar:"
+
+#: patrikblom/page.php:43 patrikblom/single-gallery.php:44
+#: patrikblom/single.php:43
+msgid "This is the error message in the page.php template."
+msgstr ""
+
+#: patrikblom/search.php:12 twentyfourteen/search.php:18
+#: twentythirteen/search.php:18 twentytwelve/search.php:18
+#, php-format
+msgid "Search Results for: %s"
+msgstr "Sökresultat för: %s"
+
+#: patrikblom/searchform.php:2
+msgid "search..."
+msgstr "sök..."
+
+#: patrikblom/theme-admin.php:36
+msgid "Add New Image"
+msgstr "Lägg till ny bild"
+
+#: patrikblom/theme-admin.php:37
+msgid "Edit Image"
+msgstr "Ändra bild"
+
+#: patrikblom/theme-admin.php:38
+msgid "New Image"
+msgstr "Ny bild"
+
+#: patrikblom/theme-admin.php:39
+msgid "View Image"
+msgstr "Visa bild"
+
+#: patrikblom/theme-admin.php:40
+msgid "Search Images"
+msgstr "Sök bilder"
+
+#: patrikblom/theme-admin.php:41
+msgid "No images found"
+msgstr "Inga bilder hittades"
+
+#: patrikblom/theme-admin.php:42
+msgid "No images found in Trash"
+msgstr "Inga bilder hittades i papperskorgen"
+
+#: patrikblom/theme-admin.php:100
+msgid "Thumbnail"
+msgstr ""
+
+#: twentyfourteen/404.php:17 twentythirteen/404.php:16
+msgid "Not Found"
+msgstr "Hittades inte"
+
+#: twentyfourteen/404.php:21 twentythirteen/404.php:22
+msgid "It looks like nothing was found at this location. Maybe try a search?"
+msgstr "Det verkar som att inget finns här. Prova att söka!"
+
+#: twentyfourteen/archive.php:31 twentythirteen/archive.php:29
+#: twentytwelve/archive.php:29
+#, php-format
+msgid "Daily Archives: %s"
+msgstr ""
+
+#: twentyfourteen/archive.php:34 twentythirteen/archive.php:31
+#: twentytwelve/archive.php:31
+#, php-format
+msgid "Monthly Archives: %s"
+msgstr ""
+
+#: twentyfourteen/archive.php:37 twentythirteen/archive.php:33
+#: twentytwelve/archive.php:33
+#, php-format
+msgid "Yearly Archives: %s"
+msgstr ""
+
+#: twentyfourteen/archive.php:40 twentyfourteen/taxonomy-post_format.php:51
+#: twentythirteen/archive.php:35 twentytwelve/archive.php:35
+msgid "Archives"
+msgstr ""
+
+#: twentyfourteen/author.php:31 twentythirteen/author.php:31
+#, php-format
+msgid "All posts by %s"
+msgstr ""
+
+#: twentyfourteen/category.php:20 twentythirteen/category.php:19
+#: twentytwelve/category.php:21
+#, php-format
+msgid "Category Archives: %s"
+msgstr ""
+
+#: twentyfourteen/comments.php:34 twentyfourteen/comments.php:52
+#: twentythirteen/comments.php:45 twentytwelve/comments.php:42
+msgid "Comment navigation"
+msgstr "Kommentar-navigering"
+
+#: twentyfourteen/comments.php:35 twentyfourteen/comments.php:53
+#: twentythirteen/comments.php:46 twentytwelve/comments.php:43
+msgid "&larr; Older Comments"
+msgstr ""
+
+#: twentyfourteen/comments.php:36 twentyfourteen/comments.php:54
+#: twentythirteen/comments.php:47 twentytwelve/comments.php:44
+msgid "Newer Comments &rarr;"
+msgstr ""
+
+#: twentyfourteen/content-aside.php:37 twentyfourteen/content-audio.php:37
+#: twentyfourteen/content-gallery.php:37 twentyfourteen/content-image.php:37
+#: twentyfourteen/content-link.php:37 twentyfourteen/content-quote.php:37
+#: twentyfourteen/content-video.php:37 twentyfourteen/content.php:38
+#: twentyfourteen/inc/widgets.php:180 twentythirteen/content-gallery.php:36
+#: twentythirteen/content-image.php:32 twentythirteen/content-quote.php:22
+#: twentythirteen/content-video.php:32 twentythirteen/content.php:49
+msgid "Leave a comment"
+msgstr "Skriv en kommentar"
+
+#: twentyfourteen/content-aside.php:37 twentyfourteen/content-audio.php:37
+#: twentyfourteen/content-gallery.php:37 twentyfourteen/content-image.php:37
+#: twentyfourteen/content-link.php:37 twentyfourteen/content-quote.php:37
+#: twentyfourteen/content-video.php:37 twentyfourteen/content.php:38
+#: twentyfourteen/inc/widgets.php:180
+msgid "1 Comment"
+msgstr "1 Kommentar"
+
+#: twentyfourteen/content-aside.php:37 twentyfourteen/content-audio.php:37
+#: twentyfourteen/content-gallery.php:37 twentyfourteen/content-image.php:37
+#: twentyfourteen/content-link.php:37 twentyfourteen/content-quote.php:37
+#: twentyfourteen/content-video.php:37 twentyfourteen/content.php:38
+#: twentyfourteen/inc/widgets.php:180
+msgid "% Comments"
+msgstr "% Kommentarer"
+
+#: twentyfourteen/content-aside.php:40 twentyfourteen/content-audio.php:40
+#: twentyfourteen/content-gallery.php:40 twentyfourteen/content-image.php:40
+#: twentyfourteen/content-link.php:40 twentyfourteen/content-page.php:28
+#: twentyfourteen/content-quote.php:40 twentyfourteen/content-video.php:40
+#: twentyfourteen/content.php:42 twentyfourteen/image.php:34
+#: twentyfourteen/page-templates/contributors.php:35
+#: twentythirteen/content-aside.php:20 twentythirteen/content-aside.php:28
+#: twentythirteen/content-audio.php:31 twentythirteen/content-chat.php:29
+#: twentythirteen/content-gallery.php:39 twentythirteen/content-image.php:35
+#: twentythirteen/content-link.php:19 twentythirteen/content-quote.php:25
+#: twentythirteen/content-status.php:19 twentythirteen/content-video.php:35
+#: twentythirteen/content.php:31 twentythirteen/image.php:44
+#: twentythirteen/page.php:39 twentytwelve/content-aside.php:26
+#: twentytwelve/content-image.php:26 twentytwelve/content-link.php:24
+#: twentytwelve/content-page.php:24 twentytwelve/content-quote.php:23
+#: twentytwelve/content-status.php:40 twentytwelve/content.php:48
+#: twentytwelve/functions.php:349 twentytwelve/image.php:37
+msgid "Edit"
+msgstr "Ändra"
+
+#: twentyfourteen/content-aside.php:46 twentyfourteen/content-audio.php:46
+#: twentyfourteen/content-gallery.php:46 twentyfourteen/content-image.php:46
+#: twentyfourteen/content-link.php:46 twentyfourteen/content-quote.php:46
+#: twentyfourteen/content-video.php:46 twentyfourteen/content.php:54
+#: twentyfourteen/inc/widgets.php:113 twentyfourteen/inc/widgets.php:158
+#: twentythirteen/content-aside.php:13 twentythirteen/content-audio.php:24
+#: twentythirteen/content-gallery.php:24 twentythirteen/content-image.php:23
+#: twentythirteen/content-link.php:24 twentythirteen/content-quote.php:13
+#: twentythirteen/content-status.php:13 twentythirteen/content-video.php:23
+#: twentythirteen/content.php:41 twentytwelve/content-aside.php:15
+#: twentytwelve/content-image.php:13 twentytwelve/content-link.php:14
+#: twentytwelve/content-quote.php:13 twentytwelve/content-status.php:31
+#: twentytwelve/content.php:41
+msgid "Continue reading <span class=\"meta-nav\">&rarr;</span>"
+msgstr "Fortsätt läsa <span class=\"meta-nav\">&rarr;</span>"
+
+#: twentyfourteen/content-aside.php:48 twentyfourteen/content-audio.php:48
+#: twentyfourteen/content-gallery.php:48 twentyfourteen/content-image.php:48
+#: twentyfourteen/content-link.php:48 twentyfourteen/content-page.php:22
+#: twentyfourteen/content-quote.php:48 twentyfourteen/content-video.php:48
+#: twentyfourteen/content.php:56 twentyfourteen/image.php:54
+#: twentythirteen/content-aside.php:14 twentythirteen/content-audio.php:25
+#: twentythirteen/content-chat.php:24 twentythirteen/content-gallery.php:25
+#: twentythirteen/content-image.php:24 twentythirteen/content-link.php:25
+#: twentythirteen/content-quote.php:14 twentythirteen/content-status.php:14
+#: twentythirteen/content-video.php:24 twentythirteen/content.php:42
+#: twentythirteen/image.php:70 twentythirteen/page.php:35
+#: twentytwelve/content-page.php:21 twentytwelve/content.php:42
+#: twentytwelve/image.php:102
+msgid "Pages:"
+msgstr "Sidor:"
+
+#: twentyfourteen/content-none.php:12 twentythirteen/content-none.php:12
+#: twentytwelve/content-none.php:13 twentytwelve/index.php:49
+#: twentytwelve/search.php:34
+msgid "Nothing Found"
+msgstr "Hittade inget"
+
+#: twentyfourteen/content-none.php:18 twentythirteen/content-none.php:18
+#, php-format
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+
+#: twentyfourteen/content-none.php:22
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr "Hittade inget med de sökorden. Prova med andra sökord!"
+
+#: twentyfourteen/content-none.php:27 twentythirteen/content-none.php:27
+#: twentytwelve/404.php:21
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr ""
+
+#: twentyfourteen/footer.php:21 twentythirteen/footer.php:19
+#: twentytwelve/footer.php:16
+msgid "http://wordpress.org/"
+msgstr ""
+
+#: twentyfourteen/footer.php:21 twentythirteen/footer.php:19
+#: twentytwelve/footer.php:16
+#, php-format
+msgid "Proudly powered by %s"
+msgstr ""
+
+#: twentyfourteen/functions.php:83
+msgid "Top primary menu"
+msgstr ""
+
+#: twentyfourteen/functions.php:84
+msgid "Secondary menu in left sidebar"
+msgstr ""
+
+#: twentyfourteen/functions.php:175
+msgid "Primary Sidebar"
+msgstr ""
+
+#: twentyfourteen/functions.php:177
+msgid "Main sidebar that appears on the left."
+msgstr ""
+
+#: twentyfourteen/functions.php:184
+msgid "Content Sidebar"
+msgstr ""
+
+#: twentyfourteen/functions.php:186
+msgid "Additional sidebar that appears on the right."
+msgstr ""
+
+#: twentyfourteen/functions.php:193
+msgid "Footer Widget Area"
+msgstr ""
+
+#: twentyfourteen/functions.php:195 twentythirteen/functions.php:237
+msgid "Appears in the footer section of the site."
+msgstr ""
+
+#: twentyfourteen/functions.php:260
+msgid "Previous"
+msgstr "Föregående"
+
+#: twentyfourteen/functions.php:261
+msgid "Next"
+msgstr "Nästa"
+
+#: twentyfourteen/functions.php:500 twentythirteen/functions.php:220
+#: twentytwelve/functions.php:215
 #, php-format
 msgid "Page %s"
 msgstr "Sida %s"
 
-#: taxonomy-custom_cat.php:22
-#: archive.php:9
-msgid "Posts Categorized:"
-msgstr "Kategoriserade inlägg:"
+#: twentyfourteen/header.php:48
+msgid "Search"
+msgstr "Sök"
 
-#: taxonomy-custom_cat.php:32
-#: embed-post_meta.php:1
-#: single-custom_type.php:30
-msgid "Posted"
-msgstr "Skriven"
+#: twentyfourteen/header.php:52 twentytwelve/functions.php:64
+msgid "Primary Menu"
+msgstr ""
 
-#: taxonomy-custom_cat.php:32
-#: embed-post_meta.php:1
-#: single-custom_type.php:30
-msgid "by"
-msgstr "av"
+#: twentyfourteen/header.php:53 twentythirteen/header.php:44
+#: twentytwelve/header.php:44
+msgid "Skip to content"
+msgstr "Hoppa till innehållet"
 
-#: taxonomy-custom_cat.php:32
-#: embed-post_meta.php:1
-#: single-custom_type.php:30
-msgid "filed under"
-msgstr "sorterad under"
+#: twentyfourteen/image.php:65
+msgid "Previous Image"
+msgstr "Föregående bild"
 
-#: taxonomy-custom_cat.php:41
-msgid "Read more"
-msgstr "Läs mera"
+#: twentyfourteen/image.php:66
+msgid "Next Image"
+msgstr "Nästa bild"
 
-#: functions.php:103
-msgid "(Edit)"
-msgstr "(Editera)"
+#: twentyfourteen/inc/back-compat.php:41 twentyfourteen/inc/back-compat.php:53
+#: twentyfourteen/inc/back-compat.php:68
+#, php-format
+msgid ""
+"Twenty Fourteen requires at least WordPress version 3.6. You are running "
+"version %s. Please upgrade and try again."
+msgstr ""
 
-#: functions.php:107
-msgid "Your comment is awaiting moderation."
-msgstr "Din kommentar blir modererad."
+#: twentyfourteen/inc/customizer.php:19 twentyfourteen/inc/customizer.php:20
+msgid "Background may only be visible on wide screens."
+msgstr ""
 
-#: functions.php:124
-msgid "Search for:"
-msgstr "Sök efter:"
+#: twentyfourteen/inc/customizer.php:28
+msgid "Site Title Color"
+msgstr ""
 
-#: functions.php:125
-msgid "Search the Site..."
-msgstr "Sök på sajten..."
+#: twentyfourteen/inc/customizer.php:31
+msgid "Display Site Title &amp; Tagline"
+msgstr ""
 
-#: 404.php:11
-msgid "Epic 404 - Article Not Found"
-msgstr "Episk 404 - Sidan kan inte hittas"
+#: twentyfourteen/inc/customizer.php:35
+#: twentyfourteen/inc/featured-content.php:408
+msgid "Featured Content"
+msgstr ""
 
-#: 404.php:17
-msgid "The article you were looking for was not found, but maybe try looking again!"
-msgstr "Inlägget du letade efter kan inte hittas. Försök igen!"
+#: twentyfourteen/inc/customizer.php:36
+#, php-format
+msgid ""
+"Use a <a href=\"%1$s\">tag</a> to feature your posts. If no posts match the "
+"tag, <a href=\"%2$s\">sticky posts</a> will be displayed instead."
+msgstr ""
 
-#: search.php:7
-msgid "Search Results for:"
-msgstr "Sök resultat för:"
+#: twentyfourteen/inc/customizer.php:47
+msgid "Layout"
+msgstr "Layout"
 
-#: search.php:23
-msgid "Read more on"
-msgstr "Läs mera på"
+#: twentyfourteen/inc/customizer.php:51
+msgid "Grid"
+msgstr ""
 
-#: archive.php:13
-msgid "Posts Tagged:"
-msgstr "Taggade inlägg"
+#: twentyfourteen/inc/customizer.php:52
+msgid "Slider"
+msgstr ""
 
-#: archive.php:17
-#: author.php:8
-msgid "Posts By:"
-msgstr "Inlägg av:"
+#: twentyfourteen/inc/customizer.php:98
+msgid "Twenty Fourteen"
+msgstr ""
 
-#: archive.php:21
-msgid "Daily Archives:"
-msgstr "Dagsarkiv"
+#: twentyfourteen/inc/customizer.php:101
+#, php-format
+msgid ""
+"The home page features your choice of up to 6 posts prominently displayed in "
+"a grid or slider, controlled by the <a href=\"%1$s\">featured</a> tag; you "
+"can change the tag and layout in <a href=\"%2$s\">Appearance &rarr; "
+"Customize</a>. If no posts match the tag, <a href=\"%3$s\">sticky posts</a> "
+"will be displayed instead."
+msgstr ""
 
-#: archive.php:25
-msgid "Monthly Archives:"
-msgstr "Månadsarkiv"
+#: twentyfourteen/inc/customizer.php:102
+#, php-format
+msgid ""
+"Enhance your site design by using <a href=\"%s\">Featured Images</a> for "
+"posts you&rsquo;d like to stand out (also known as post thumbnails). This "
+"allows you to associate an image with your post without inserting it. Twenty "
+"Fourteen uses featured images for posts and pages&mdash;above the "
+"title&mdash;and in the Featured Content area on the home page."
+msgstr ""
 
-#: archive.php:29
-msgid "Yearly Archives:"
-msgstr "Årsarkiv"
+#: twentyfourteen/inc/customizer.php:103
+#, php-format
+msgid ""
+"For an in-depth tutorial, and more tips and tricks, visit the <a href=\"%s"
+"\">Twenty Fourteen documentation</a>."
+msgstr ""
 
-#: single-custom_type.php:43
-msgid "Custom Tags"
-msgstr "Special taggar"
+#: twentyfourteen/inc/featured-content.php:409
+#, php-format
+msgid ""
+"Use the <a href=\"%1$s\">\"featured\" tag</a> to feature your posts. You can "
+"change this to a tag of your choice; if no posts match the tag, <a href="
+"\"%2$s\">sticky posts</a> will be displayed instead."
+msgstr ""
 
-#: embed-tags.php:3
-msgid "Tag"
-msgstr "Tagg"
+#: twentyfourteen/inc/featured-content.php:428
+msgid "Tag Name"
+msgstr "Taggnamn"
 
-#: embed-tags.php:3
-msgid "Tags"
-msgstr "Taggar"
+#: twentyfourteen/inc/featured-content.php:433
+msgid "Don&rsquo;t display tag on front end."
+msgstr ""
 
-#: image.php:20
-msgid "Read the rest of this entry"
-msgstr "Läs resten av detta inlägg"
+#: twentyfourteen/inc/template-tags.php:47 twentytwelve/image.php:41
+msgid "&larr; Previous"
+msgstr "&larr; Föregående"
 
-#: image.php:38
-msgid "Sorry, no attachments matched your criteria."
-msgstr "Tyvärr, inga bilagor matchade din förfrågan"
+#: twentyfourteen/inc/template-tags.php:48 twentytwelve/image.php:42
+msgid "Next &rarr;"
+msgstr "Nästa &rarr;"
 
-#: embed-prev_next.php:3
-msgid "&laquo; Older Entries"
-msgstr "&laquo; Äldre inlägg"
+#: twentyfourteen/inc/template-tags.php:55 twentythirteen/functions.php:272
+msgid "Posts navigation"
+msgstr ""
 
-#: embed-prev_next.php:4
-msgid "Newer Entries &raquo;"
-msgstr "Nyare inlägg &raquo;"
+#: twentyfourteen/inc/template-tags.php:84 twentythirteen/functions.php:308
+#: twentytwelve/functions.php:288 twentytwelve/single.php:20
+msgid "Post navigation"
+msgstr ""
 
-#: footer.php:9
-msgid "is powered by"
-msgstr "superkrafter via"
+#: twentyfourteen/inc/template-tags.php:88
+msgid "<span class=\"meta-nav\">Published In</span>%title"
+msgstr ""
 
-#: embed-not_found.php:3
-msgid "Not Found"
-msgstr "Kan inte hittas"
+#: twentyfourteen/inc/template-tags.php:90
+msgid "<span class=\"meta-nav\">Previous Post</span>%title"
+msgstr ""
 
-#: embed-not_found.php:6
-msgid "Sorry, but the requested resource was not found on this site."
-msgstr "Tyvärr, det som efterfrågas kan inte hittas på denna sajt."
+#: twentyfourteen/inc/template-tags.php:91
+msgid "<span class=\"meta-nav\">Next Post</span>%title"
+msgstr ""
 
-#: sidebar.php:15
-msgid "Please activate some Widgets."
-msgstr "Vänligen aktivera några Widgets."
+#: twentyfourteen/inc/template-tags.php:110 twentythirteen/functions.php:332
+msgid "Sticky"
+msgstr ""
 
-#: library/bones.php:52
-msgid "Read more &raquo;"
-msgstr "Läs mera &raquo;"
+#: twentyfourteen/inc/widgets.php:44
+msgid "Twenty Fourteen Ephemera"
+msgstr ""
 
-#: library/custom-post-type.php:24
-msgid "Custom Types"
-msgstr "Special inläggstyp"
+#: twentyfourteen/inc/widgets.php:46
+msgid ""
+"Use this widget to list your recent Aside, Quote, Video, Audio, Image, "
+"Gallery, and Link posts"
+msgstr ""
 
-#: library/custom-post-type.php:25
-msgid "Custom Post"
-msgstr "Special inlägg"
+#: twentyfourteen/inc/widgets.php:53
+#: twentyfourteen/taxonomy-post_format.php:30
+msgid "Asides"
+msgstr ""
 
-#: library/custom-post-type.php:26
-msgid "Add New"
-msgstr "Lägg till"
+#: twentyfourteen/inc/widgets.php:54
+#: twentyfourteen/taxonomy-post_format.php:33
+msgid "Images"
+msgstr "Bilder"
 
-#: library/custom-post-type.php:27
-msgid "Add New Custom Type"
-msgstr "Lägg till ny inläggstyp"
+#: twentyfourteen/inc/widgets.php:55
+#: twentyfourteen/taxonomy-post_format.php:36
+msgid "Videos"
+msgstr "Videor"
 
-#: library/custom-post-type.php:28
-msgid "Edit"
-msgstr "Editera"
+#: twentyfourteen/inc/widgets.php:56
+#: twentyfourteen/taxonomy-post_format.php:39
+msgid "Audio"
+msgstr "Ljud"
 
-#: library/custom-post-type.php:29
-msgid "Edit Post Types"
-msgstr "Editera inläggstyper"
+#: twentyfourteen/inc/widgets.php:57
+#: twentyfourteen/taxonomy-post_format.php:42
+msgid "Quotes"
+msgstr "Citat"
 
-#: library/custom-post-type.php:30
-msgid "New Post Type"
-msgstr "Ny inläggstyp"
+#: twentyfourteen/inc/widgets.php:58
+#: twentyfourteen/taxonomy-post_format.php:45
+msgid "Links"
+msgstr "Länkar"
 
-#: library/custom-post-type.php:31
-msgid "View Post Type"
-msgstr "Se inläggstyp"
+#: twentyfourteen/inc/widgets.php:59
+#: twentyfourteen/taxonomy-post_format.php:48
+msgid "Galleries"
+msgstr "Gallerier"
 
-#: library/custom-post-type.php:32
-msgid "Search Post Type"
-msgstr "Sök inläggstyp"
+#: twentyfourteen/inc/widgets.php:189
+#, php-format
+msgid "More %s <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
 
-#: library/custom-post-type.php:33
-msgid "Nothing found in the Database."
-msgstr "Ingenting kan hittas i databasen"
+#: twentyfourteen/inc/widgets.php:239
+msgid "Number of posts to show:"
+msgstr ""
 
-#: library/custom-post-type.php:34
-msgid "Nothing found in Trash"
-msgstr "Ingenting kan hittas i papperskorgen"
+#: twentyfourteen/inc/widgets.php:242
+msgid "Post format to show:"
+msgstr ""
 
-#: library/custom-post-type.php:37
-msgid "This is the example custom post type"
-msgstr "Det här är ett exempel på inläggstyp"
+#: twentyfourteen/tag.php:22 twentythirteen/tag.php:21 twentytwelve/tag.php:21
+#, php-format
+msgid "Tag Archives: %s"
+msgstr ""
 
-#: library/custom-post-type.php:73
-msgid "Custom Categories"
-msgstr "Egna kategorier"
+#: twentythirteen/404.php:21 twentytwelve/404.php:17
+msgid "This is somewhat embarrassing, isn&rsquo;t it?"
+msgstr ""
 
-#: library/custom-post-type.php:74
-msgid "Custom Category"
-msgstr "Egen kategori"
+#: twentythirteen/author-bio.php:26 twentytwelve/author.php:63
+#: twentytwelve/content.php:59
+#, php-format
+msgid "About %s"
+msgstr "Om %s"
 
-#: library/custom-post-type.php:75
-msgid "Search Custom Categories"
-msgstr "Sök i de egna kategorierna"
+#: twentythirteen/author-bio.php:30 twentytwelve/content.php:63
+#, php-format
+msgid "View all posts by %s <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
 
-#: library/custom-post-type.php:76
-msgid "All Custom Categories"
-msgstr "Alla egna kategorier"
+#: twentythirteen/content-gallery.php:36 twentythirteen/content-image.php:32
+#: twentythirteen/content-quote.php:22 twentythirteen/content-video.php:32
+#: twentythirteen/content.php:49
+msgid "One comment so far"
+msgstr "En kommentar än så länge"
 
-#: library/custom-post-type.php:77
-msgid "Parent Custom Category"
-msgstr "Nedärvd egen kategori"
+#: twentythirteen/content-gallery.php:36 twentythirteen/content-image.php:32
+#: twentythirteen/content-quote.php:22 twentythirteen/content-video.php:32
+#: twentythirteen/content.php:49
+#, php-format
+msgid "View all % comments"
+msgstr ""
 
-#: library/custom-post-type.php:78
-msgid "Parent Custom Category:"
-msgstr "Nedärvd egen kategori:"
+#: twentythirteen/content-none.php:22
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with "
+"different keywords."
+msgstr ""
 
-#: library/custom-post-type.php:79
-msgid "Edit Custom Category"
-msgstr "Editera egen kategori"
+#: twentythirteen/functions.php:97
+msgid "Navigation Menu"
+msgstr "Meny"
 
-#: library/custom-post-type.php:80
-msgid "Update Custom Category"
-msgstr "Uppdatera egen kategori"
+#: twentythirteen/functions.php:235
+msgid "Main Widget Area"
+msgstr ""
 
-#: library/custom-post-type.php:81
-msgid "Add New Custom Category"
-msgstr "Lägg till ny egen kategori"
+#: twentythirteen/functions.php:245
+msgid "Secondary Widget Area"
+msgstr ""
 
-#: library/custom-post-type.php:82
-msgid "New Custom Category Name"
-msgstr "Namn på ny egen kategori"
+#: twentythirteen/functions.php:247
+msgid "Appears on posts and pages in the sidebar."
+msgstr ""
 
-#: library/custom-post-type.php:95
-msgid "Custom Tag"
-msgstr "Egen tagg"
+#: twentythirteen/functions.php:276 twentytwelve/functions.php:289
+msgid "<span class=\"meta-nav\">&larr;</span> Older posts"
+msgstr ""
 
-#: library/custom-post-type.php:96
-msgid "Search Custom Tags"
-msgstr "Sök egna taggar"
+#: twentythirteen/functions.php:280 twentytwelve/functions.php:290
+msgid "Newer posts <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
 
-#: library/custom-post-type.php:97
-msgid "All Custom Tags"
-msgstr "Alla egna taggar"
+#: twentythirteen/functions.php:338 twentythirteen/functions.php:344
+#: twentytwelve/functions.php:376 twentytwelve/functions.php:379
+msgid ", "
+msgstr ""
 
-#: library/custom-post-type.php:98
-msgid "Parent Custom Tag"
-msgstr "Nedärvd egen tagg"
+#: twentythirteen/functions.php:353 twentytwelve/functions.php:390
+#, php-format
+msgid "View all posts by %s"
+msgstr ""
 
-#: library/custom-post-type.php:99
-msgid "Parent Custom Tag:"
-msgstr "Nedärvd egen tagg:"
+#: twentythirteen/functions.php:379 twentytwelve/content-aside.php:20
+#: twentytwelve/content-link.php:18 twentytwelve/content-quote.php:17
+#: twentytwelve/content-status.php:15
+#, php-format
+msgid "Permalink to %s"
+msgstr "Permalänk till %s"
 
-#: library/custom-post-type.php:100
-msgid "Edit Custom Tag"
-msgstr "Editera egen tagg"
+#: twentythirteen/header.php:43 twentytwelve/header.php:43
+msgid "Menu"
+msgstr "Meny"
 
-#: library/custom-post-type.php:101
-msgid "Update Custom Tag"
-msgstr "Uppdatera egen tagg"
+#: twentythirteen/image.php:22
+#, php-format
+msgid ""
+"<span class=\"attachment-meta\">Published on <time class=\"entry-date\" "
+"datetime=\"%1$s\">%2$s</time> in <a href=\"%3$s\" title=\"Return to %4$s\" "
+"rel=\"gallery\">%5$s</a></span>"
+msgstr ""
 
-#: library/custom-post-type.php:102
-msgid "Add New Custom Tag"
-msgstr "Lägg till ny egen tagg"
+#: twentythirteen/image.php:39
+msgid "Full resolution"
+msgstr "Full upplösning"
 
-#: library/custom-post-type.php:103
-msgid "New Custom Tag Name"
-msgstr "Nytt namn på egen tagg"
+#: twentythirteen/image.php:51
+msgid "<span class=\"meta-nav\">&larr;</span> Previous"
+msgstr ""
 
+#: twentythirteen/image.php:52
+msgid "Next <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#: twentythirteen/inc/back-compat.php:41 twentythirteen/inc/back-compat.php:53
+#: twentythirteen/inc/back-compat.php:68
+#, php-format
+msgid ""
+"Twenty Thirteen requires at least WordPress version 3.6. You are running "
+"version %s. Please upgrade and try again."
+msgstr ""
+
+#: twentythirteen/taxonomy-post_format.php:23
+#, php-format
+msgid "%s Archives"
+msgstr ""
+
+#: twentytwelve/author.php:32
+#, php-format
+msgid "Author Archives: %s"
+msgstr ""
+
+#: twentytwelve/content-aside.php:23 twentytwelve/content-image.php:23
+#: twentytwelve/content-link.php:21 twentytwelve/content-quote.php:20
+#: twentytwelve/content-status.php:37 twentytwelve/content.php:30
+msgid "Leave a reply"
+msgstr "Svara"
+
+#: twentytwelve/content-aside.php:23 twentytwelve/content-image.php:23
+#: twentytwelve/content-link.php:21 twentytwelve/content-quote.php:20
+#: twentytwelve/content-status.php:37 twentytwelve/content.php:30
+msgid "1 Reply"
+msgstr "1 Svar"
+
+#: twentytwelve/content-aside.php:23 twentytwelve/content-image.php:23
+#: twentytwelve/content-link.php:21 twentytwelve/content-quote.php:20
+#: twentytwelve/content-status.php:37 twentytwelve/content.php:30
+msgid "% Replies"
+msgstr "% Svar"
+
+#: twentytwelve/content-link.php:12
+msgid "Link"
+msgstr "Länk"
+
+#: twentytwelve/content-none.php:17 twentytwelve/index.php:53
+msgid ""
+"Apologies, but no results were found. Perhaps searching will help find a "
+"related post."
+msgstr ""
+
+#: twentytwelve/content.php:16
+msgid "Featured post"
+msgstr ""
+
+#: twentytwelve/functions.php:244
+msgid "Main Sidebar"
+msgstr ""
+
+#: twentytwelve/functions.php:246
+msgid ""
+"Appears on posts and pages except the optional Front Page template, which "
+"has its own widgets"
+msgstr ""
+
+#: twentytwelve/functions.php:254
+msgid "First Front Page Widget Area"
+msgstr ""
+
+#: twentytwelve/functions.php:256 twentytwelve/functions.php:266
+msgid ""
+"Appears when using the optional Front Page template with a page set as "
+"Static Front Page"
+msgstr ""
+
+#: twentytwelve/functions.php:264
+msgid "Second Front Page Widget Area"
+msgstr ""
+
+#: twentytwelve/functions.php:317
+msgid "Pingback:"
+msgstr ""
+
+#: twentytwelve/functions.php:332
+msgid "Post author"
+msgstr "Författare"
+
+#. translators: 1: date, 2: time
+#: twentytwelve/functions.php:338
+#, php-format
+msgid "%1$s at %2$s"
+msgstr ""
+
+#: twentytwelve/functions.php:396
+#, php-format
+msgid ""
+"This entry was posted in %1$s and tagged %2$s on %3$s<span class=\"by-author"
+"\"> by %4$s</span>."
+msgstr ""
+
+#: twentytwelve/functions.php:398
+#, php-format
+msgid ""
+"This entry was posted in %1$s on %3$s<span class=\"by-author\"> by %4$s</"
+"span>."
+msgstr ""
+
+#: twentytwelve/functions.php:400
+#, php-format
+msgid "This entry was posted on %3$s<span class=\"by-author\"> by %4$s</span>."
+msgstr ""
+
+#: twentytwelve/image.php:26
+#, php-format
+msgid ""
+"<span class=\"meta-prep meta-prep-entry-date\">Published </span> <span class="
+"\"entry-date\"><time class=\"entry-date\" datetime=\"%1$s\">%2$s</time></"
+"span> at <a href=\"%3$s\" title=\"Link to full-size image\">%4$s &times; "
+"%5$s</a> in <a href=\"%6$s\" title=\"Return to %7$s\" rel=\"gallery\">%8$s</"
+"a>."
+msgstr ""
+
+#: twentytwelve/index.php:38
+msgid "No posts to display"
+msgstr "Inget att visa"
+
+#: twentytwelve/index.php:42
+#, php-format
+msgid "Ready to publish your first post? <a href=\"%s\">Get started here</a>."
+msgstr ""
+
+#: twentytwelve/search.php:38
+msgid ""
+"Sorry, but nothing matched your search criteria. Please try again with some "
+"different keywords."
+msgstr ""

@@ -33,7 +33,11 @@ require_once( 'custom-widgets.php' );
 4. library/translation/translation.php
 	- adding support for other languages
 */
-// require_once( 'library/translation/translation.php' ); // this comes turned off by default
+require_once( 'library/translation/translation.php' ); // this comes turned off by default
+$locale = get_locale();
+$locale_file = TEMPLATEPATH."/languages/$locale.php";
+if ( is_readable($locale_file) )
+require_once($locale_file);
 
 add_filter('excerpt_length', 'pb_get_excerpt');
 
@@ -107,7 +111,7 @@ function register_gallery_shortcode($attr) {
 				</a>
 				<?php endwhile; ?>
 				<div class="button-row">
-					<a href="<?php echo home_url('/gallery'); ?>" class="btn btn-default btn-big"><?php _e('Hela galleriet', 'patrikblom'); ?></a>
+					<a href="<?php echo home_url('/gallery'); ?>" class="btn btn-default btn-big"><?php _e('View Gallery', 'patrikblom'); ?></a>
 				</div>
 			<?php endif; ?>							
 		</div>
@@ -186,7 +190,7 @@ function prefix_load_term_posts() {
 			<?php endif; ?>
 			<div class="image-text boxsized">
 				<?php
-				printf(__('<time class="updated date-stamp" datetime="%1$s" pubdate><span class="fa clock-icon"></span>%2$s %3$s</time>', 'bonestheme'), get_the_time('Y-m-j'), human_time_diff(get_the_time('U'), current_time('timestamp')), __('ago', 'patrikblom'));
+				printf('<time class="updated date-stamp" datetime="%1$s" pubdate><span class="fa clock-icon"></span>%2$s %3$s</time>', get_the_time('Y-m-j'), pb_human_time_diff(get_the_time('U'), current_time('timestamp')), __('ago', 'patrikblom'));
 				?>
 				<h3 class="image-title"><a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
 				<div class="image-description"><?php the_excerpt(); ?></div>
@@ -261,7 +265,63 @@ function pb_get_header() {
 <?php
 }
 
-/************* COMMENTS*********************/
+/************* Time/Date *******************/
+
+/**
+ * Determines the difference between two timestamps.
+ *
+ * The difference is returned in a human readable format such as "1 hour",
+ * "5 mins", "2 days".
+ *
+ * @since 1.5.0
+ *
+ * @param int $from Unix timestamp from which the difference begins.
+ * @param int $to Optional. Unix timestamp to end the time difference. Default becomes time() if not set.
+ * @return string Human readable time difference.
+ */
+function pb_human_time_diff( $from, $to = '' ) {
+	if ( empty( $to ) )
+		$to = time();
+
+	$diff = (int) abs( $to - $from );
+
+	if ( $diff < HOUR_IN_SECONDS ) {
+		$mins = round( $diff / MINUTE_IN_SECONDS );
+		if ( $mins <= 1 )
+			$mins = 1;
+		/* translators: min=minute */
+		$since = sprintf( _n( '%s ' . __('min', 'patrikblom'), '%s ' . __('mins', 'patrikblom'), $mins ), $mins );
+	} elseif ( $diff < DAY_IN_SECONDS && $diff >= HOUR_IN_SECONDS ) {
+		$hours = round( $diff / HOUR_IN_SECONDS );
+		if ( $hours <= 1 )
+			$hours = 1;
+		$since = sprintf( _n( '%s ' . __('hour', 'patrikblom'), '%s ' . __('hours', 'patrikblom'), $hours ), $hours );
+	} elseif ( $diff < WEEK_IN_SECONDS && $diff >= DAY_IN_SECONDS ) {
+		$days = round( $diff / DAY_IN_SECONDS );
+		if ( $days <= 1 )
+			$days = 1;
+		$since = sprintf( _n( '%s ' . __('day', 'patrikblom'), '%s ' . __('days', 'patrikblom'), $days ), $days );
+	} elseif ( $diff < 30 * DAY_IN_SECONDS && $diff >= WEEK_IN_SECONDS ) {
+		$weeks = round( $diff / WEEK_IN_SECONDS );
+		if ( $weeks <= 1 )
+			$weeks = 1;
+		$since = sprintf( _n( '%s ' . __('week', 'patrikblom'), '%s ' . __('weeks', 'patrikblom'), $weeks ), $weeks );
+	} elseif ( $diff < YEAR_IN_SECONDS && $diff >= 30 * DAY_IN_SECONDS ) {
+		$months = round( $diff / ( 30 * DAY_IN_SECONDS ) );
+		if ( $months <= 1 )
+			$months = 1;
+		$since = sprintf( _n( '%s ' . __('month', 'patrikblom'), '%s ' . __('months', 'patrikblom'), $months ), $months );
+	} elseif ( $diff >= YEAR_IN_SECONDS ) {
+		$years = round( $diff / YEAR_IN_SECONDS );
+		if ( $years <= 1 )
+			$years = 1;
+		$since = sprintf( _n( '%s ' . __('year', 'patrikblom'), '%s ' . __('years', 'patrikblom'), $years ), $years );
+	}
+
+	return $since;
+}
+
+/************* COMMENTS *********************/
 
 function pb_get_cancel_comment_reply_link($text = '') {
       if ( empty($text) ) {
@@ -286,25 +346,34 @@ function bones_comments( $comment, $args, $depth ) {
 						$bgauthemail = get_comment_author_email();
 					?>
 					<img data-gravatar="http://www.gravatar.com/avatar/<?php echo md5($bgauthemail); ?>?s=32" class="load-gravatar avatar avatar-48 photo" height="32" width="32" src="<?php echo get_template_directory_uri(); ?>/library/images/nothing.gif" />
-					<?php printf(__('<cite class="author fn">%s</cite>', 'bonestheme'), get_comment_author_link()) ?>
-					<time datetime="<?php echo comment_time('Y-m-j'); ?>" class="datetime"><span class="fa clock-icon"></span><?php echo human_time_diff( get_comment_time('U'), current_time('timestamp') ) . ' ago'; ?></time>
+					<?php printf('<cite class="author fn">%s</cite>', get_comment_author_link()) ?>
+					<time datetime="<?php echo comment_time('Y-m-j'); ?>" class="datetime"><span class="fa clock-icon"></span><?php echo pb_human_time_diff( get_comment_time('U'), current_time('timestamp') ) . ' ' . __('ago', 'patrikblom'); ?></time>
 				</header>
 
 				<?php if ($comment->comment_approved == '0') : ?>
 					<div class="alert alert-info">
-						<p><?php _e('Your comment is awaiting moderation.', 'bonestheme') ?></p>
+						<p><?php _e('Your comment is awaiting moderation.', 'patrikblom') ?></p>
 					</div>
 				<?php endif; ?>
 				
 				<section class="comment-content clearfix">
 					<?php comment_text() ?>
 				</section>
+				
+				<?php
+					$additionalArgs = array(
+						'reply_text' => __('Reply', 'patrikblom'),
+						'login_text' => __('Log in to leave a comment', 'patrikblom'),
+						'depth' => $depth,
+						'max_depth' => $args['max_depth']
+					);
+				?>
 
 				<footer class="comment-footer">
 					<ul class="comment-links clearfix">
-						<li class="comment-link"><span class="fa reply-icon"></span><?php comment_reply_link(array_merge($args, array('depth' => $depth, 'max_depth' => $args['max_depth']))) ?></li>
-						<li class="comment-link"><span class="fa permalink-icon"></span><a href="<?php echo htmlspecialchars(get_comment_link($comment->comment_ID)) ?>"><?php _e('Permalink', 'bonestheme'); ?></a></li>
-						<?php edit_comment_link(__('(Edit)', 'bonestheme'), '<li class="comment-link align-right"><span class="fa edit-icon"></span>', '</li>') ?></li>
+						<li class="comment-link"><span class="fa reply-icon"></span><?php comment_reply_link(array_merge($args, $additionalArgs)) ?></li>
+						<li class="comment-link"><span class="fa permalink-icon"></span><a href="<?php echo htmlspecialchars(get_comment_link($comment->comment_ID)) ?>"><?php _e('Permalink', 'patrikblom'); ?></a></li>
+						<?php edit_comment_link(__('(Edit)', 'patrikblom'), '<li class="comment-link align-right"><span class="fa edit-icon"></span>', '</li>') ?></li>
 					</ul>
 				</footer>
 			</article>

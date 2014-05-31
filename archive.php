@@ -8,12 +8,12 @@
 
 							<?php if (is_category()) { ?>
 								<h1 class="archive-title h2">
-									<span><?php _e( 'Posts Categorized:', 'bonestheme' ); ?></span> <?php single_cat_title(); ?>
+									<span><?php _e( 'Posts Categorized:', 'patrikblom' ); ?></span> <?php single_cat_title(); ?>
 								</h1>
 
 							<?php } elseif (is_tag()) { ?>
 								<h1 class="archive-title h2">
-									<span><?php _e( 'Posts Tagged:', 'bonestheme' ); ?></span> <?php single_tag_title(); ?>
+									<span><?php _e( 'Posts Tagged:', 'patrikblom' ); ?></span> <?php single_tag_title(); ?>
 								</h1>
 
 							<?php } elseif (is_author()) {
@@ -22,22 +22,22 @@
 							?>
 								<h1 class="archive-title h2">
 
-									<span><?php _e( 'Posts By:', 'bonestheme' ); ?></span> <?php the_author_meta('display_name', $author_id); ?>
+									<span><?php _e( 'Posts By:', 'patrikblom' ); ?></span> <?php the_author_meta('display_name', $author_id); ?>
 
 								</h1>
 							<?php } elseif (is_day()) { ?>
 								<h1 class="archive-title h2">
-									<span><?php _e( 'Daily Archives:', 'bonestheme' ); ?></span> <?php the_time('l, F j, Y'); ?>
+									<span><?php _e( 'Daily Archives:', 'patrikblom' ); ?></span> <?php the_time('l, F j, Y'); ?>
 								</h1>
 
 							<?php } elseif (is_month()) { ?>
 									<h1 class="archive-title h2">
-										<span><?php _e( 'Monthly Archives:', 'bonestheme' ); ?></span> <?php the_time('F Y'); ?>
+										<span><?php _e( 'Monthly Archives:', 'patrikblom' ); ?></span> <?php the_time('F Y'); ?>
 									</h1>
 
 							<?php } elseif (is_year()) { ?>
 									<h1 class="archive-title h2">
-										<span><?php _e( 'Yearly Archives:', 'bonestheme' ); ?></span> <?php the_time('Y'); ?>
+										<span><?php _e( 'Yearly Archives:', 'patrikblom' ); ?></span> <?php the_time('Y'); ?>
 									</h1>
 							<?php } ?>
 
@@ -49,7 +49,7 @@
 
 									<h3 class="h2"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
 									<p class="byline vcard"><?php
-										printf(__( 'Posted <time class="updated" datetime="%1$s" pubdate>%2$s</time> by <span class="author">%3$s</span> <span class="amp">&</span> filed under %4$s.', 'bonestheme' ), get_the_time('Y-m-j'), get_the_time(__( 'F jS, Y', 'bonestheme' )), bones_get_the_author_posts_link(), get_the_category_list(', '));
+										printf(__( 'Posted <time class="updated" datetime="%1$s" pubdate>%2$s</time> by <span class="author">%3$s</span> <span class="amp">&</span> filed under %4$s.', 'patrikblom' ), get_the_time('Y-m-j'), get_the_time(__( 'F jS, Y', 'patrikblom' )), bones_get_the_author_posts_link(), get_the_category_list(', '));
 									?></p>
 
 								</header>
@@ -75,8 +75,8 @@
 									<?php } else { ?>
 										<nav class="wp-prev-next">
 											<ul class="clearfix">
-												<li class="prev-link"><?php next_posts_link( __( '&laquo; Older Entries', 'bonestheme' )) ?></li>
-												<li class="next-link"><?php previous_posts_link( __( 'Newer Entries &raquo;', 'bonestheme' )) ?></li>
+												<li class="prev-link"><?php next_posts_link( __( '&laquo; Older Entries', 'patrikblom' )) ?></li>
+												<li class="next-link"><?php previous_posts_link( __( 'Newer Entries &raquo;', 'patrikblom' )) ?></li>
 											</ul>
 										</nav>
 									<?php } ?>
@@ -85,13 +85,13 @@
 
 									<article id="post-not-found" class="hentry clearfix">
 										<header class="article-header">
-											<h1><?php _e( 'Oops, Post Not Found!', 'bonestheme' ); ?></h1>
+											<h1><?php _e( 'Oops, Post Not Found!', 'patrikblom' ); ?></h1>
 										</header>
 										<section class="entry-content">
-											<p><?php _e( 'Uh Oh. Something is missing. Try double checking things.', 'bonestheme' ); ?></p>
+											<p><?php _e( 'Uh Oh. Something is missing. Try double checking things.', 'patrikblom' ); ?></p>
 										</section>
 										<footer class="article-footer">
-												<p><?php _e( 'This is the error message in the archive.php template.', 'bonestheme' ); ?></p>
+												<p><?php _e( 'This is the error message in the archive.php template.', 'patrikblom' ); ?></p>
 										</footer>
 									</article>
 
