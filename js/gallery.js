@@ -37,18 +37,11 @@ var Gallery = function (config) {
 		elem.appendChild(newEl);
 	};
 	
-	me.filterPhotos = function () {
-		var filterTerms = $('input[name="terms"]:checked').map(function() {
-			return $(this).val();
-		}).get();
-		
-		var filterOption = $('input[name="view-as"]:checked').val();
-							
-		var filters = {
-			terms: filterTerms,
-			includeChildren: filterOption.toLowerCase() === 'all' || !filterOption
-		};
-		
+	/**
+	 * Fetches the selected terms through getTerms
+	 * @returns {undefined}
+	 */
+	me.filterPhotos = function (filters) {
 		getTerms(filters, function (scope, content) {
 			var feed = me.photoFeed;
 			feed.html(content);
@@ -78,6 +71,10 @@ var Gallery = function (config) {
 		});
 	};
 	
+	/**
+	 * Used to get photos on loadMoreButton click
+	 * @returns {undefined}
+	 */
 	me.loadMorePhotos = function () {
 		var offset = $('.image-block').length;
 		getPhotos(offset, appendPhotos);
@@ -106,6 +103,12 @@ var Gallery = function (config) {
 		});
 	}
 	
+	/**
+	 * Fetches default or previous filters with the given offset through getTerms
+	 * @param {type} offset
+	 * @param {type} successHandler
+	 * @returns {undefined}
+	 */
 	function getPhotos(offset, successHandler) {
 		var scope = me.photoFeed;
 		// TODO: Add localStorage handling - check checkboxes etc
@@ -129,6 +132,13 @@ var Gallery = function (config) {
 		}
 	}
 	
+	/**
+	 * Gets term HTML from the PHP backend
+	 * @param {type} filters
+	 * @param {type} successHandler
+	 * @param {type} scope
+	 * @returns {undefined}
+	 */
 	function getTerms(filters,  successHandler, scope) {
 		$("#spinner").toggleClass('hidden');
 				

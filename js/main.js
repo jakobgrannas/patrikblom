@@ -1,4 +1,11 @@
 (function($) {
+	var config = {
+		gallery: new Gallery({
+			photoFeed: $('#photo-feed'),
+			previewImage: $('.preview-thumbnail')
+		})
+	};
+	
 	$(document).ready(function() {
 		// Load gravatars if not on mobile (hopefully)
 		var responsive_viewport = $(window).width();
@@ -7,17 +14,13 @@
 				$(this).attr('src',$(this).attr('data-gravatar'));
 			});
 		}
+		
+		new Menu();
 				
 		addEvtListeners();
 	});
 	
 	function addEvtListeners () {
-		var gallery = new Gallery({
-			photoFeed: $('#photo-feed'),
-			previewImage: $('.preview-thumbnail')
-		});
-		var menu = new Menu();
-		
 		$('#scroll-top-btn').on('click', scrollToTop);
 		
 		$(document).on('click', '.category-list-btn', toggleElementCollapsed);
@@ -28,15 +31,17 @@
 		// Set up checkbox filterlistener
 		var filterCheckboxes = $('input[name="terms"]');
 		if(filterCheckboxes.length > 0) {
-			$(document).on('change','input[name="terms"]', gallery.filterPhotos);
+			$(document).on('change','input[name="terms"]', filterPhotos);
 		}
 		
 		// Set up selectbox filter listener
 		var filterSelectBox = $('input[name="view-as"]');
 		if(filterSelectBox.length > 0) {
-			$(document).on('change', 'input[name="view-as"]', gallery.filterPhotos);
+			$(document).on('change', 'input[name="view-as"]', filterPhotos);
 		}
-				
+		
+		$(document).on('click', '.post-category a', filterSingleTermPhotos);
+						
 		/**
 		 * Validation event listeners
 		 * If browser has no native validation, use js validation
@@ -45,6 +50,32 @@
 			$(document).on('change', '.input-field[type="email"]', Validation.validateEmail);
 			$(document).on('change', '.input-field[required]', Validation.validateRequired);
 		}
+	}
+	
+	function filterSingleTermPhotos (e) {
+		e.preventDefault();
+				
+		var filters = {
+			terms: [e.target.textContent],
+			includeChildren: true
+		};
+		
+		config.gallery.filterPhotos(filters);
+	}
+	
+	function filterPhotos () {
+		var filterTerms = $('input[name="terms"]:checked').map(function() {
+			return $(this).val();
+		}).get();
+		
+		var filterOption = $('input[name="view-as"]:checked').val();
+							
+		var filters = {
+			terms: filterTerms,
+			includeChildren: filterOption.toLowerCase() === 'all' || !filterOption
+		};
+		
+		config.gallery.filterPhotos(filters);
 	}
 	
 	function toggleElementCollapsed (e) {
