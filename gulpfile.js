@@ -1,5 +1,6 @@
 var gulp = require('gulp'),
 	clean = require('gulp-clean'),
+	order = require('gulp-order'),
 	sass = require('gulp-sass'),
 	concat = require('gulp-concat'),
 	todo = require('gulp-todo'),
@@ -20,50 +21,32 @@ var gulp = require('gulp'),
 
 gulp.task('scripts', function() {
 	return gulp.src(paths.scripts)
+		.pipe(order([
+			'*.js',
+			'main.js'
+		]))
+		.pipe(concat('scripts.js'))
 		.pipe(gulp.dest('./dist/js/'))
 		.pipe(uglify())
-		.pipe(rename(function (path) {
+		.pipe(rename(function(path) {
 			path.extname = '.min.js';
 		}))
 		.pipe(gulp.dest('./dist/js/'));
 });
 
-/*
-gulp.task('styles-move-enhanced', function () {
-	return gulp.src('./css/enhance.css')
-		.pipe(gulp.dest('./dist/css/'))
-		.pipe(minifyCSS())
-		.pipe(rename(function (path) {
-			path.extname = '.min.css';
-		}))
-		.pipe(gulp.dest('./dist/css/'))
-});
-
-gulp.task('styles', ['styles-move-enhanced'], function() {
-	return gulp.src(paths.styles)
-		.pipe(concat('styles.css'))
-		.pipe(gulp.dest('./dist/css/'))
-		.pipe(minifyCSS())
-		.pipe(rename(function (path) {
-			path.extname = '.min.css';
-		}))
-		.pipe(gulp.dest('./dist/css/'));
-});
-*/
-
-gulp.task('sass', function () {
+gulp.task('sass', function() {
 	return gulp.src(paths.sass.src)
 		.pipe(sass({
 			imagePath: '../images',
 			includePaths: ['utils', 'atoms', 'molecules', 'organisms', 'templates'],
-			error: function (css) {
+			error: function(css) {
 				console.log(css);
 				console.log(stats);
 			}
 		}))
 		.pipe(gulp.dest(paths.sass.dest))
 		.pipe(minifyCSS())
-		.pipe(rename(function (path) {
+		.pipe(rename(function(path) {
 			path.extname = '.min.css';
 		}))
 		.pipe(gulp.dest(paths.sass.dest));
@@ -75,7 +58,7 @@ gulp.task('images', function() {
 		.pipe(gulp.dest('./dist/images/'));
 });
 
-gulp.task('fonts', function () {
+gulp.task('fonts', function() {
 	return gulp.src(paths.fonts)
 		.pipe(gulp.dest('./dist/fonts/'));
 });
