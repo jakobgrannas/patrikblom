@@ -6,7 +6,7 @@ Template Name: Search Results Page
 <?php get_header(); ?>
 <?php pb_get_header(); ?>
 
-<main role="main" class="boxsized main">
+<main role="main" class="boxsized main clearfix">
 	<section class="section">
 		<div class="centered-inner">
 			<h1 class="post-title"><?php printf(__('Search Results for: %s', 'patrikblom'), get_search_query()); ?></h1>

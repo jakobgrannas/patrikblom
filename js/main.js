@@ -1,10 +1,5 @@
 (function($) {
-	var config = {
-		gallery: new Gallery({
-			photoFeed: $('#photo-feed'),
-			previewImage: $('.preview-thumbnail')
-		})
-	};
+	var CONFIG;
 	
 	$(document).ready(function() {
 		// Load gravatars if not on mobile (hopefully)
@@ -14,6 +9,13 @@
 				$(this).attr('src',$(this).attr('data-gravatar'));
 			});
 		}
+		
+		CONFIG = {
+			gallery: new Gallery({
+				photoFeed: $('#photo-feed'),
+				previewImage: $('.preview-thumbnail')
+			})
+		};
 		
 		new Menu();
 				
@@ -60,7 +62,7 @@
 			includeChildren: true
 		};
 		
-		config.gallery.filterPhotos(filters);
+		CONFIG.gallery.filterPhotos(filters);
 	}
 	
 	function filterPhotos () {
@@ -75,7 +77,7 @@
 			includeChildren: filterOption.toLowerCase() === 'all' || !filterOption
 		};
 		
-		config.gallery.filterPhotos(filters);
+		CONFIG.gallery.filterPhotos(filters);
 	}
 	
 	function toggleElementCollapsed (e) {

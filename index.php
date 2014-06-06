@@ -7,7 +7,7 @@
 <?php get_header(); ?>
 <?php pb_get_header(); ?>
 
-<main role="main" class="boxsized main">
+<main role="main" class="boxsized main clearfix">
 	<section class="section">
 		<div class="centered-inner">
 			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>

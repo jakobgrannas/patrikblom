@@ -5,7 +5,7 @@
 ?>
 <?php get_header(); ?>
 <?php pb_get_header(); ?>
-<main role="main" class="boxsized main">
+<main role="main" class="boxsized main clearfix">
 	<section class="section descriptive-text">
 		<div class="centered-inner">
 			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
@@ -48,7 +48,7 @@
 		</div>
 	</section>
 	
-	<aside class="flexed boxsized sorter-bar">
+	<aside class="flexed boxsized sorter-bar clearfix">
 		<form class="boxsized form-container">
 			<div class="boxsized form-inner">
 				<fieldset class="sort-by-type">
